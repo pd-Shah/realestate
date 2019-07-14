@@ -77,7 +77,7 @@ class AdvertisementImage(models.Model):
                     )
 
     def __str__(self):
-        return str(self.image.url)
+        return str(self.id)
 
 
 class Advertisement(models.Model, ):
