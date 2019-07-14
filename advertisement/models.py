@@ -80,21 +80,6 @@ class AdvertisementImage(models.Model):
         return str(self.image.url)
 
 
-class ConsultantImage(models.Model):
-    consultant = models.ForeignKey(
-                        "Consultant",
-                        on_delete=models.CASCADE,
-                    )
-    image = models.ImageField(
-                        upload_to=get_image_path,
-                        blank=True,
-                        null=True,
-                    )
-
-    def __str__(self):
-        return str(self.image.url)
-
-
 class Advertisement(models.Model, ):
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=300)
@@ -122,24 +107,3 @@ class Advertisement(models.Model, ):
 
     def __str__(self):
         return self.title
-
-
-class Consultant(models.Model):
-    name = models.CharField(max_length=200, null=True, blank=True)
-    special = models.BooleanField(default=False)
-    urban_area_number = models.CharField(max_length=2, choices=URBANAREANUMBER)
-    address = models.CharField(max_length=300)
-    city = models.CharField(max_length=1, choices=CITY)
-    popularity = models.CharField(max_length=1, choices=POPULARITY)
-    commission_rate = models.IntegerField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    phone_number = models.CharField(
-        validators=[phone_regex],
-        max_length=17,
-        blank=True,
-        unique=True,
-    )
-
-    def __str__(self):
-        return self.name

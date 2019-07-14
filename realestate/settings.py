@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core.apps.CoreConfig',
-    'users.apps.UsersConfig',
+    'advertisement.apps.AdvertisementConfig',
+    'consultant.apps.ConsultantConfig',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +116,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
