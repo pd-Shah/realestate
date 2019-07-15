@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  {% for advertisement in advertisement_list %}
+    {{ advertisement}}
+  {% endfor %}
+{% endblock %}
