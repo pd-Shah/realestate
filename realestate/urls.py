@@ -10,6 +10,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('django.contrib.auth.urls')),
     path('', include('advertisement.urls', namespace='advertisement')),
+    path("blog/", include("pinax.blog.urls", namespace="pinax_blog")),
+    path("ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
     ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

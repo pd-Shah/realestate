@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'advertisement.apps.AdvertisementConfig',
     'consultant.apps.ConsultantConfig',
+    "pinax.blog",
+    "pinax.images",
+    "bootstrapform",
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
@@ -116,6 +120,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 LOGIN_REDIRECT_URL = ''
 LOGOUT_REDIRECT_URL = ''
 
