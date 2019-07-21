@@ -167,6 +167,37 @@ FLOORTYPE = [
     (u"2", u"پارکت"),
 ]
 
+YEARS = [
+    (u'1', u'1398'),
+    (u'2', u'1397'),
+    (u'3', u'1396'),
+    (u'4', u'1395'),
+    (u'5', u'1394'),
+    (u'6', u'1393'),
+    (u'7', u'1392'),
+    (u'8', u'1391'),
+    (u'9', u'1390'),
+    (u'10', u'1389'),
+    (u'11', u'1387'),
+    (u'12', u'1386'),
+    (u'13', u'1385'),
+    (u'14', u'1384'),
+    (u'15', u'1383'),
+    (u'16', u'1382'),
+    (u'17', u'1381'),
+    (u'18', u'1380'),
+    (u'19', u'1379'),
+    (u'20', u'1378'),
+    (u'21', u'1377'),
+    (u'22', u'1376'),
+    (u'23', u'1375'),
+    (u'24', u'1374'),
+    (u'25', u'1373'),
+    (u'26', u'1372'),
+    (u'27', u'1371'),
+    (u'28', u'1370'),
+]
+
 phone_regex = RegexValidator(
     regex=r'^\+?1?\d{9,15}$',
     message="Phone number must be entered in the format: '09226255415'. Up to 15 digits allowed."
@@ -212,7 +243,9 @@ class Advertisement(models.Model, ):
         auto_now=True,
         verbose_name='تاریخ اخرین اپدیت'
         )
-    year_of_construction = models.DateField(
+    year_of_construction = models.CharField(
+        max_length=2,
+        choices=YEARS,
         verbose_name='سال ساخت',
         null=True,
         blank=True,
@@ -519,7 +552,6 @@ class Advertisement(models.Model, ):
         default=False,
         verbose_name="خانه سرایدار",
         )
-
 
     def __str__(self):
         return self.title

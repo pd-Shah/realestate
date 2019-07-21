@@ -18,3 +18,7 @@ class AdvertisementListViewMap(ListView):
 
 class AboutUsView(TemplateView):
     template_name = 'advertisement/about_us.html'
+
+
+class AddAddView(TemplateView):
+    template_name = 'advertisement/register_new_ad.html'
