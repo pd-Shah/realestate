@@ -21,7 +21,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light header">
-      <a href="#default" class="logo"><img src="../assets/images/logo.png" alt="profile" class="logo"></a>
+      <a href="#default" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
       <button class="navbar-toggler open-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">☰</button>
       <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -52,12 +52,10 @@
           </li>
           <li>
             <div class="margin-left">
-              <button type="button" class="btn login-btn">ثبت آگهی رایگان</button>
             </div>
           </li>
           <li>
             <div class="margin-left">
-              <a href="./login.html" class="btn login-btn">ورود</a>
             </div>
           </li>
         </ul>
@@ -108,7 +106,7 @@
       <form>
         <div class="form-group">
           {% csrf_token %}
-          {{ form }}
+          {{ form.as_p }}
           <input type="submit" value="Submit">
         </div>
       </form>
