@@ -5,27 +5,24 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/fonts/fonts.css">
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'advertisement/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'advertisement/css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'advertisement/css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'advertisement/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'advertisement/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'advertisement/fonts/fonts.css' %}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="./freead.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/header.css">
-  <title>Home</title>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light header">
-      <a href="#default" class="logo"><img src="../assets/images/logo.png" alt="profile" class="logo"></a>
-
-
-      <button class="navbar-toggler open-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-        onclick="openNav()">☰</button>
+      <a href="#default" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
+      <button class="navbar-toggler open-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">☰</button>
       <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <ul class="navbar-nav">
@@ -55,12 +52,10 @@
           </li>
           <li>
             <div class="margin-left">
-              <button type="button" class="btn login-btn">ثبت آگهی رایگان</button>
             </div>
           </li>
           <li>
             <div class="margin-left">
-              <a href="./login.html" class="btn login-btn">ورود</a>
             </div>
           </li>
         </ul>
@@ -91,8 +86,6 @@
           <li class="nav-item">
             <a class="nav-link" href="./map.html" tabindex="-1" aria-disabled="true">نقشه</a>
           </li>
-
-
         </ul>
       </div>
     </nav>
@@ -113,33 +106,26 @@
     </div>
   </div>
 
-
-<form>
-  <div class="form-group">
-
-  </div>
-
-</form>
+  <form>
+    <div class="form-group">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit">
+    </div>
+  </form>
 </div>
-  </div>
-
 </div>
-
-
+</div>
 </body>
-  <footer class="footer-box">
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
-  <script src="../assets/js/bootstrap.min.js"
-   >
-  </script>
-  <script src="../assets/js/script.js"></script>
+<footer class="footer-box">
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="{% static 'advertisement/js/bootstrap.min.js' %}">
+</script>
+<script src="{% static 'advertisement/js/script.js' %}"></script>
 </body>
 
 </html>
