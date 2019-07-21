@@ -4,8 +4,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 CATEGORY = [
-    (u'0', u'اپارتمان'),
-    (u'1', u'مسکونی'),
+    (u'1', u'اپارتمان'),
     (u'2', u'اداری'),
     (u'3', u'کلنگی'),
     (u'4', u'سوییت'),

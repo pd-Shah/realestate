@@ -29,3 +29,7 @@ class SelectAddView(TemplateView):
 class NewRentApartment(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = RentApartment
+
+
+class NewSellApartment(FormView):
+    template_name =
