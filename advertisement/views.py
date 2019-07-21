@@ -1,8 +1,10 @@
 from django.views.generic import (
     ListView,
     TemplateView,
+    FormView,
 )
 from . models import Advertisement
+from . forms import RentApartment
 # Create your views here.
 
 
@@ -20,5 +22,10 @@ class AboutUsView(TemplateView):
     template_name = 'advertisement/about_us.html'
 
 
-class AddAddView(TemplateView):
-    template_name = 'advertisement/register_new_ad.html'
+class SelectAddView(TemplateView):
+    template_name = 'advertisement/select.html'
+
+
+class NewRentApartment(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = RentApartment
