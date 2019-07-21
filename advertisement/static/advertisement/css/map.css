@@ -1,7 +1,7 @@
 #map_f0zsce {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 545px;
   max-width: 100%;
   margin-top: 115px;
   z-index: 6;
@@ -175,7 +175,7 @@
 
 .search-icon {
   position: absolute;
-  top: 12px;
+  top: 9px;
   right: 15px;
   color: #c1c1c1;
   z-index: 5;
@@ -239,7 +239,7 @@
 	    display: none;
 	  }
       .result-box {
-  	  margin-top: 115px;
+  	  margin-top: 15px;
       }
   }
 
@@ -257,7 +257,7 @@
     padding: 13px;
     left: 0;
     width: 100%;
-    top: 95px;
+    top: 90px;
     margin: 0;
   }
 
@@ -282,7 +282,7 @@
   }
 
   .map-top {
-    padding: 120px 0;
+    padding: 20px 0;
   }
 
   .result-box{

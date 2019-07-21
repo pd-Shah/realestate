@@ -11,7 +11,10 @@ body {
   text-align: right;
 }
 
-
+.dropdown-menu{
+  width: 100%;
+  text-align: right;
+}
 
 a:hover {
   text-decoration: none;
