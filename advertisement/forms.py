@@ -579,3 +579,19 @@ class SellBuyAnbar(ModelForm):
         fields = (
 
         )
+
+
+class RentSole(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )
+
+
+class SellBuySole(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )
