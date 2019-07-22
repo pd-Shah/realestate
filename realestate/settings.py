@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "pinax.blog",
     "pinax.images",
     "bootstrapform",
-    'django.contrib.sites'
+    'django.contrib.sites',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,7 @@ USE_TZ = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = ''
 LOGOUT_REDIRECT_URL = ''
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

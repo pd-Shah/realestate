@@ -7,13 +7,13 @@ class RentApartment(ModelForm):
         model = Advertisement
         fields = (
             "title",
+            "phone_number",
             "address",
             "year_of_construction",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
-            "phone_number",
             "floor_number",
             "exposure_direction",
             "deposit",
@@ -42,6 +42,9 @@ class RentApartment(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -50,13 +53,13 @@ class SellApartment(ModelForm):
         model = Advertisement
         fields = (
             "title",
+            "phone_number",
             "address",
             "year_of_construction",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
-            "phone_number",
             "price",
             "price_square",
             "floor_number",
@@ -95,12 +98,12 @@ class RentEdari(ModelForm):
         model = Advertisement
         fields = (
             "title",
+            "phone_number",
             "address",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
-            "phone_number",
             "floor_number",
             "floors",
             "blocks_per_floor",
@@ -116,7 +119,7 @@ class RentEdari(ModelForm):
             "elevator",
             "depot",
             "video_door_phone",
-            "air conditioners"
+            "air_conditioners",
             "chiller",
             "duct_split",
             "package",
@@ -127,15 +130,16 @@ class RentEdari(ModelForm):
 
 
 class SellEdari(ModelForm):
+    class Meta:
         model = Advertisement
         fields = (
             "title",
+            "phone_number",
             "address",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
-            "phone_number",
             "floor_number",
             "floors",
             "blocks_per_floor",
@@ -151,7 +155,7 @@ class SellEdari(ModelForm):
             "elevator",
             "depot",
             "video_door_phone",
-            "air conditioners"
+            "air_conditioners",
             "chiller",
             "duct_split",
             "package",
@@ -162,16 +166,17 @@ class SellEdari(ModelForm):
 
 
 class RentColangi(ModelForm):
+    class Meta:
         model = Advertisement
         fields = (
             "title",
+            "phone_number",
             "address",
             "year_of_construction",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
-            "phone_number",
             "floor_number",
             "floors",
             "blocks_per_floor",
@@ -201,16 +206,17 @@ class RentColangi(ModelForm):
 
 
 class SellColangi(ModelForm):
+    class Meta:
         model = Advertisement
         fields = (
             "title",
+            "phone_number",
             "address",
             "year_of_construction",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
-            "phone_number",
             "floor_number",
             "floors",
             "blocks_per_floor",

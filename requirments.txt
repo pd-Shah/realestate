@@ -1,6 +1,7 @@
 Django==2.2.3
 django-appconf==1.0.3
 django-bootstrap-form==3.4
+django-crispy-forms==1.7.2
 django-imagekit==4.0.2
 Markdown==2.6.11
 pilkit==2.0

@@ -3,27 +3,9 @@ from django.utils.html import mark_safe
 from . import models
 
 
-@admin.register(models.AdvertisementImage)
-class AdvertismentImageAdmin(admin.ModelAdmin):
-    readonly_fields = ["headshot_image"]
-
-    def headshot_image(self, obj):
-        return mark_safe(
-            '<img src="{url}" width="{width}" height={height} />'.format(
-                url=obj.image.url,
-                width=250,
-                height=250,
-            ))
-
-
-class AdvertisementImageAdminInline(admin.TabularInline):
-    model = models.AdvertisementImage
-
-
 @admin.register(models.Advertisement)
 class AdvertismentAdmin(admin.ModelAdmin):
     list_filter = (
-        "title",
         "created",
         "year_of_construction",
         "room_number",
@@ -37,13 +19,28 @@ class AdvertismentAdmin(admin.ModelAdmin):
         "city",
         "popularity",
          )
-    readonly_fields = ["headshot_image"]
-    inlines = (AdvertisementImageAdminInline, )
+    readonly_fields = ["image1_shot", "image2_shot", "image3_shot"]
 
-    def headshot_image(self, obj):
+    def image1_shot(self, obj):
         return mark_safe(
             '<img src="{url}" width="{width}" height={height} />'.format(
-                url=obj.image.url,
+                url=obj.image1.url,
+                width=250,
+                height=250,
+            ))
+
+    def image2_shot(self, obj):
+        return mark_safe(
+            '<img src="{url}" width="{width}" height={height} />'.format(
+                url=obj.image2.url,
+                width=250,
+                height=250,
+            ))
+
+    def image3_shot(self, obj):
+        return mark_safe(
+            '<img src="{url}" width="{width}" height={height} />'.format(
+                url=obj.image3.url,
                 width=250,
                 height=250,
             ))
