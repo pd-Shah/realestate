@@ -263,7 +263,12 @@ class Advertisement(models.Model, ):
     title = models.CharField(
         max_length=200,
         verbose_name='عنوان اگهی'
-        )
+    )
+    phone_number = models.CharField(
+        validators=[phone_regex],
+        max_length=17,
+        verbose_name='موبایل',
+    )
     urban_area_number = models.CharField(
         max_length=2,
         choices=URBANAREANUMBER,
@@ -337,11 +342,6 @@ class Advertisement(models.Model, ):
         null=True,
         blank=True,
         )
-    phone_number = models.CharField(
-        validators=[phone_regex],
-        max_length=17,
-        verbose_name='موبایل',
-    )
     price = models.IntegerField(
         verbose_name='قیمت',
         null=True,

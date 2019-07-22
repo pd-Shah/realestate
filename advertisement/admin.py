@@ -18,9 +18,7 @@ class AdvertismentAdmin(admin.ModelAdmin):
         "category",
         "urban_area_number",
         "published",
-        "publish_review",
         "special",
-        "phone_number",
         "city",
         "popularity",
          )

@@ -4,7 +4,6 @@ from .models import Advertisement
 
 
 class RentApartment(ModelForm):
-
     class Meta:
         model = Advertisement
         fields = (
@@ -50,7 +49,7 @@ class RentApartment(ModelForm):
         )
 
 
-class SellApartment(ModelForm):
+class SellBuyApartment(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
@@ -131,7 +130,7 @@ class RentEdari(ModelForm):
         )
 
 
-class SellEdari(ModelForm):
+class SellBuyEdari(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
@@ -207,7 +206,7 @@ class RentColangi(ModelForm):
             )
 
 
-class SellColangi(ModelForm):
+class SellBuyColangi(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
@@ -245,3 +244,338 @@ class SellColangi(ModelForm):
             "heater",
             "floor_heating",
             )
+
+
+class RentSuit(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "floor_number",
+            "floors",
+            "blocks_per_floor",
+            "exposure_direction",
+            "deposit",
+            "rent",
+            "toilet_type",
+            "building_view",
+            "cabinet_type",
+            "flooring_type",
+            "parking",
+            "elevator",
+            "depot",
+            "sauna",
+            "jacuzzi",
+            "swimming_pool",
+            "balcony",
+            "kitchen",
+            "lobby",
+            "video_door_phone",
+            "remote",
+            "table_gas",
+            "water_cooler",
+            "air_conditioners",
+            "chiller",
+            "duct_split",
+            "package",
+            "radiant",
+            "heater",
+            "floor_heating",
+        )
+
+
+class SellBuySuit(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "floor_number",
+            "floors",
+            "blocks_per_floor",
+            "exposure_direction",
+            "price",
+            "price_square",
+            "bill_status",
+            "toilet_type",
+            "building_view",
+            "cabinet_type",
+            "flooring_type",
+            "parking",
+            "elevator",
+            "depot",
+            "sauna",
+            "jacuzzi",
+            "swimming_pool",
+            "balcony",
+            "kitchen",
+            "lobby",
+            "video_door_phone",
+            "remote",
+            "table_gas",
+            "water_cooler",
+            "air_conditioners",
+            "chiller",
+            "duct_split",
+            "package",
+            "radiant",
+            "heater",
+            "floor_heating",
+        )
+
+
+class RentVila(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "floors",
+            "yard",
+            "exposure_direction",
+            "deposit",
+            "rent",
+            "toilet_type",
+            "building_view",
+            "building_status",
+            "cabinet_type",
+            "flooring_type",
+            "parking",
+            "elevator",
+            "depot",
+            "sauna",
+            "jacuzzi",
+            "swimming_pool",
+            "balcony",
+            "kitchen",
+            "lobby",
+            "video_door_phone",
+            "remote",
+            "janitor",
+            "table_gas",
+            "water_cooler",
+            "air_conditioners",
+            "chiller",
+            "duct_split",
+            "package",
+            "radiant",
+            "heater",
+            "floor_heating",
+            "car_door",
+            "caretaker_house",
+        )
+
+
+class SellBuyVila(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "floors",
+            "yard",
+            "exposure_direction",
+            "price",
+            "price_square",
+            "bill_status",
+            "toilet_type",
+            "building_view",
+            "building_status",
+            "cabinet_type",
+            "flooring_type",
+            "parking",
+            "elevator",
+            "depot",
+            "sauna",
+            "jacuzzi",
+            "swimming_pool",
+            "balcony",
+            "kitchen",
+            "lobby",
+            "video_door_phone",
+            "remote",
+            "janitor",
+            "table_gas",
+            "water_cooler",
+            "air_conditioners",
+            "chiller",
+            "duct_split",
+            "package",
+            "radiant",
+            "heater",
+            "floor_heating",
+            "car_door",
+            "caretaker_house",
+        )
+
+
+class RentTejari(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "category",
+            "floor_number",
+            "floors",
+            "blocks_per_floor",
+            "yard",
+            "exposure_direction",
+            "deposit",
+            "rent",
+            "toilet_type",
+            "telephone_lines",
+            "building_view",
+            "building_status",
+            "cabinet_type",
+            "flooring_type",
+            "parking",
+            "elevator",
+            "depot",
+            "sauna",
+            "jacuzzi",
+            "swimming_pool",
+            "balcony",
+            "kitchen",
+            "lobby",
+            "video_door_phone",
+            "remote",
+            "janitor",
+            "water_cooler",
+            "air_conditioners",
+            "chiller",
+            "duct_split",
+            "package",
+            "radiant",
+            "heater",
+            "floor_heating",
+        )
+
+
+class SellBuyTejari(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "category",
+            "floor_number",
+            "floors",
+            "blocks_per_floor",
+            "yard",
+            "exposure_direction",
+            "price",
+            "price_square",
+            "bill_status",
+            "toilet_type",
+            "telephone_lines",
+            "building_view",
+            "building_status",
+            "cabinet_type",
+            "flooring_type",
+            "parking",
+            "elevator",
+            "depot",
+            "sauna",
+            "jacuzzi",
+            "swimming_pool",
+            "balcony",
+            "kitchen",
+            "lobby",
+            "video_door_phone",
+            "remote",
+            "janitor",
+            "water_cooler",
+            "air_conditioners",
+            "chiller",
+            "duct_split",
+            "package",
+            "radiant",
+            "heater",
+            "floor_heating",
+        )
+
+
+class RentZamin(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )
+
+
+class SellBuyZamin(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )
+
+
+class RentBagh(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )
+
+
+class SellBuyBagh(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )
+
+
+class RentAnbar(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )
+
+
+class SellBuyAnbar(ModelForm):
+    class Meta:
+        model = Advertisement
+        fields = (
+
+        )

@@ -33,11 +33,9 @@ class NewRentApartment(FormView):
     success_url = reverse_lazy('advertisement:advertisement_list')
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
         form.instance.category = u'0'
         form.save()
         return super().form_valid(form)
-
-
-# class NewSellApartment(FormView):
-#     template_name =
