@@ -1,8 +1,10 @@
+
 from django.forms import ModelForm
 from .models import Advertisement
 
 
 class RentApartment(ModelForm):
+
     class Meta:
         model = Advertisement
         fields = (

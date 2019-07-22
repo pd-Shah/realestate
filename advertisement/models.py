@@ -5,14 +5,33 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 
 CATEGORY = [
-    (u'1', u'اپارتمان'),
-    (u'2', u'اداری'),
-    (u'3', u'کلنگی'),
-    (u'4', u'سوییت'),
-    (u'5', u'ویلا'),
-    (u'6', u'تجاری'),
-    (u'7', u'زمین'),
-    (u'8', u'باغ'),
+    (u'0', u'خرید اپارتمان'),
+    (u'1', u'فروش اپارتمان'),
+    (u'2', u'رهن و اجاره اپارتمان'),
+    (u'3', u'خرید اداری'),
+    (u'4', u'فروش اداری'),
+    (u'5', u'رهن و اجاره اداری'),
+    (u'6', u'خرید کلنگی'),
+    (u'7', u'فروش کلنگی'),
+    (u'8', u'رهن و اجاره کلنگی'),
+    (u'9', u'خرید سوییت'),
+    (u'10', u'فروش سوییت'),
+    (u'11', u'رهن و اجاره سوییت'),
+    (u'12', u'خرید ویلا'),
+    (u'13', u'فروش ویلا'),
+    (u'14', u'رهن و اجاره ویلا'),
+    (u'15', u'خرید تجاری'),
+    (u'16', u'فروش تجاری'),
+    (u'17', u'رهن و اجاره تجاری'),
+    (u'18', u'خرید زمین'),
+    (u'19', u'فروش زمین'),
+    (u'20', u'رهن و اجاره زمین'),
+    (u'21', u'خرید باغ'),
+    (u'22', u'فروش باغ'),
+    (u'23', u'رهن و اجاره باغ'),
+    (u'24', u'خرید انبار'),
+    (u'25', u'فروش انبار'),
+    (u'26', u'رهن و اجاره انبار'),
 ]
 
 CITY = [
@@ -209,7 +228,32 @@ def get_image_path(instance, filename):
     return os.path.join('Images', str(id), filename)
 
 
+class ConfigAdvertisement(models.Model):
+    name = models.CharField(max_length=100)
+    consultants_number_allowed = models.SmallIntegerField(
+        default=10,
+        verbose_name='تعداد مشاورین مجاز برای دریافت اگهی',
+        )
+    allowed_capture_days = models.PositiveSmallIntegerField(
+        default=10,
+        verbose_name = 'روزهای مجاز داشتن اگهی',
+        )
+    allowed_ad_days = models.PositiveSmallIntegerField(
+        default=5,
+        verbose_name = 'روزهای مجاز نمایش اگهی',
+        )
+
+    def __str__(self):
+        return self.name
+
+
 class Advertisement(models.Model, ):
+    config = models.OneToOneField(
+        ConfigAdvertisement,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        )
     owner = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -219,6 +263,20 @@ class Advertisement(models.Model, ):
     title = models.CharField(
         max_length=200,
         verbose_name='عنوان اگهی'
+        )
+    urban_area_number = models.CharField(
+        max_length=2,
+        choices=URBANAREANUMBER,
+        verbose_name='منطقه',
+        null=True,
+        blank=True,
+        )
+    city = models.CharField(
+        max_length=1,
+        choices=CITY,
+        verbose_name='شهر',
+        null=True,
+        blank=True,
         )
     address = models.CharField(
         max_length=300,
@@ -252,16 +310,9 @@ class Advertisement(models.Model, ):
         blank=True,
         )
     category = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=CATEGORY,
         verbose_name='دسته',
-        null=True,
-        blank=True,
-        )
-    urban_area_number = models.CharField(
-        max_length=2,
-        choices=URBANAREANUMBER,
-        verbose_name='منطقه',
         null=True,
         blank=True,
         )
@@ -275,28 +326,9 @@ class Advertisement(models.Model, ):
         blank=True,
         verbose_name='نظر منتشرکننده'
         )
-    consultants_number_allowed = models.SmallIntegerField(
-        default=10,
-        verbose_name='تعداد مشاورین مجاز برای دریافت اگهی',
-        )
-    allowed_capture_days = models.PositiveSmallIntegerField(
-        default=10,
-        verbose_name = 'روزهای مجاز داشتن اگهی',
-        )
-    allowed_ad_days = models.PositiveSmallIntegerField(
-        default=5,
-        verbose_name = 'روزهای مجاز نمایش اگهی',
-        )
     special = models.BooleanField(
         default=False,
         verbose_name='اگهی ویژه'
-        )
-    city = models.CharField(
-        max_length=1,
-        choices=CITY,
-        verbose_name='شهر',
-        null=True,
-        blank=True,
         )
     popularity = models.CharField(
         max_length=1,
@@ -560,7 +592,6 @@ class Advertisement(models.Model, ):
                         null=True,
                         verbose_name="...تصویر شماره 3",
                     )
-
 
     def __str__(self):
         return self.title

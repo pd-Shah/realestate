@@ -3,6 +3,11 @@ from django.utils.html import mark_safe
 from . import models
 
 
+@admin.register(models.ConfigAdvertisement)
+class AdvertismentConfigAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(models.Advertisement)
 class AdvertismentAdmin(admin.ModelAdmin):
     list_filter = (

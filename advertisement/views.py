@@ -34,11 +34,9 @@ class NewRentApartment(FormView):
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
+        form.instance.category = u'0'
         form.save()
         return super().form_valid(form)
-
-    # def pre_save(self, obj):
-    #
 
 
 # class NewSellApartment(FormView):
