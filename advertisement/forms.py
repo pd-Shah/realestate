@@ -22,6 +22,7 @@ class RentApartment(ModelForm):
             "toilet_type",
             "building_view",
             "cabinet_type",
+            "building_status",
             "flooring_type",
             "parking",
             "elevator",
@@ -72,6 +73,7 @@ class SellBuyApartment(ModelForm):
             "toilet_type",
             "building_view",
             "cabinet_type",
+            "building_status",
             "parking",
             "elevator",
             "depot",
@@ -91,6 +93,9 @@ class SellBuyApartment(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
             )
 
 
@@ -115,6 +120,7 @@ class RentEdari(ModelForm):
             "telephone_lines",
             "building_view",
             "cabinet_type",
+            "building_status",
             "flooring_type",
             "parking",
             "elevator",
@@ -127,6 +133,9 @@ class RentEdari(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -151,6 +160,7 @@ class SellBuyEdari(ModelForm):
             "telephone_lines",
             "building_view",
             "cabinet_type",
+            "building_status",
             "flooring_type",
             "parking",
             "elevator",
@@ -163,6 +173,9 @@ class SellBuyEdari(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -203,6 +216,9 @@ class RentColangi(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
             )
 
 
@@ -243,6 +259,9 @@ class SellBuyColangi(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
             )
 
 
@@ -267,6 +286,7 @@ class RentSuit(ModelForm):
             "toilet_type",
             "building_view",
             "cabinet_type",
+            "building_status",
             "flooring_type",
             "parking",
             "elevator",
@@ -288,6 +308,9 @@ class RentSuit(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -313,6 +336,7 @@ class SellBuySuit(ModelForm):
             "toilet_type",
             "building_view",
             "cabinet_type",
+            "building_status",
             "flooring_type",
             "parking",
             "elevator",
@@ -334,6 +358,9 @@ class SellBuySuit(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -382,6 +409,9 @@ class RentVila(ModelForm):
             "floor_heating",
             "car_door",
             "caretaker_house",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -431,6 +461,9 @@ class SellBuyVila(ModelForm):
             "floor_heating",
             "car_door",
             "caretaker_house",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -480,6 +513,9 @@ class RentTejari(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -530,6 +566,9 @@ class SellBuyTejari(ModelForm):
             "radiant",
             "heater",
             "floor_heating",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -537,7 +576,31 @@ class RentZamin(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "building_status",
+            "house_square",
+            "yard",
+            "deposit",
+            "rent",
+            "length",
+            "water_quota",
+            "swimming_pool",
+            "video_door_phone",
+            "janitor",
+            "water",
+            "electricity",
+            "gas",
+            "water_well",
+            "car_door",
+            "asphalt",
+            "caretaker_house",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -545,7 +608,33 @@ class SellBuyZamin(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "building_status",
+            "house_square",
+            "yard",
+            "price",
+            "price_square",
+            "bill_status",
+            "length",
+            "density",
+            "water_quota",
+            "swimming_pool",
+            "video_door_phone",
+            "janitor",
+            "water",
+            "electricity",
+            "gas",
+            "water_well",
+            "car_door",
+            "asphalt",
+            "caretaker_house",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -553,7 +642,34 @@ class RentBagh(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "house_square",
+            "yard",
+            "deposit",
+            "rent",
+            "bill_status",
+            "length",
+            "agricultural_Type",
+            "tree_ages",
+            "water_quota",
+            "building_status",
+            "swimming_pool",
+            "video_door_phone",
+            "janitor",
+            "water",
+            "electricity",
+            "gas",
+            "water_well",
+            "car_door",
+            "asphalt",
+            "caretaker_house",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -561,7 +677,34 @@ class SellBuyBagh(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "house_square",
+            "yard",
+            "price",
+            "price_square",
+            "bill_status",
+            "length",
+            "agricultural_Type",
+            "tree_ages",
+            "water_quota",
+            "building_status",
+            "swimming_pool",
+            "video_door_phone",
+            "janitor",
+            "water",
+            "electricity",
+            "gas",
+            "water_well",
+            "car_door",
+            "asphalt",
+            "caretaker_house",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -569,7 +712,26 @@ class RentAnbar(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "deposit",
+            "rent",
+            "building_status",
+            "parking",
+            "elevator",
+            "janitor",
+            "water",
+            "electricity",
+            "gas",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -577,7 +739,26 @@ class SellBuyAnbar(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "room_number",
+            "house_square",
+            "price",
+            "price_square",
+            "building_status",
+            "parking",
+            "elevator",
+            "janitor",
+            "water",
+            "electricity",
+            "gas",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -585,7 +766,23 @@ class RentSole(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "house_square",
+            "deposit",
+            "rent",
+            "bill_status",
+            "building_status",
+            "water",
+            "electricity",
+            "gas",
+            "image1",
+            "image2",
+            "image3",
         )
 
 
@@ -593,5 +790,21 @@ class SellBuySole(ModelForm):
     class Meta:
         model = Advertisement
         fields = (
-
+            "title",
+            "phone_number",
+            "urban_area_number",
+            "city",
+            "address",
+            "year_of_construction",
+            "house_square",
+            "deposit",
+            "rent",
+            "bill_status",
+            "building_status",
+            "water",
+            "electricity",
+            "gas",
+            "image1",
+            "image2",
+            "image3",
         )
