@@ -321,174 +321,20 @@
             </div>
           </div>
           <div class="content-box">
+          {% for ad in object_list %}
             <div class="col-lg-3 col-md-4 col-sm-6">
               <div class="card-box">
                 <div class="flex-card">
                   <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
+                    <h5 class="card-title-image"> {{ ad.title }} </h5>
                     <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
                   </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
+                  <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
                 </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
+                <a href="#" class="btn full-width btn-price btn-box"> {{ ad.price }} </a>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-              <div class="card-box">
-                <div class="flex-card">
-                  <div class="card-body-image">
-                    <h5 class="card-title-image">ملک ۱</h5>
-                    <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
-                  </div>
-                  <img src="/media/Images/2e36c16c-efe4-4114-ad89-6daf11479319/build.jpeg" class="card-img" alt="...">
-                </div>
-                <a href="#" class="btn full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-              </div>
-            </div>
+          {% endfor %}
           </div>
         </div>
       </div>
