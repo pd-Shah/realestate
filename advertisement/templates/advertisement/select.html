@@ -137,17 +137,16 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body card-body-slide">
             <ul class="category-list">
-              <li class="category-text"><a href="{url advertisement:new_rent_apartment}">آپارتمان</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_edari}">اداری</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_colangi}">کلنگی</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_suit}">سوییت</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_vila}">ویلا</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_tejari}">تجاری</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_tejari}">زمین</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_}">سوله</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_apartment}">باغ</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_anbar}">انبار</a></li>
-              <li class="category-text"><a href="{url advertisement:new_rent_anbar}">سوله</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_apartment' %}">آپارتمان</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_edari' %}">اداری</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_colangi' %}">کلنگی</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_suit' %}">سوییت</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_vila' %}">ویلا</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_tejari' %}">تجاری</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_zamin' %}">زمین</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_bagh' %}">باغ</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_anbar' %}">انبار</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_rent_sole' %}">سوله</a></li>
             </ul>
           </div>
         </div>
@@ -162,14 +161,16 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body card-body-slide">
             <ul class="category-list">
-              <li class="category-text"><a href="#">آپارتمان</a></li>
-              <li class="category-text"><a href="#">خانه ویلایی</a></li>
-              <li class="category-text"><a href="#">اداری</a></li>
-              <li class="category-text"><a href="#">تجاری</a></li>
-              <li class="category-text"><a href="#">سوییت</a></li>
-              <li class="category-text"><a href="#">انبار</a></li>
-              <li class="category-text"><a href="#">سوله</a></li>
-              <li class="category-text"><a href="#">باغ</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_apartment' %}">آپارتمان</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_edari' %}">اداری</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_colangi' %}">کلنگی</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_suit' %}">سوییت</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_vila' %}">ویلا</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_tejari' %}">تجاری</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_zamin' %}">زمین</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_bagh' %}">باغ</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_anabr' %}">انبار</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_sell_sole' %}">سوله</a></li>
             </ul>
           </div>
         </div>
@@ -184,14 +185,16 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body card-body-slide">
             <ul class="category-list">
-              <li class="category-text"><a href="#">آپارتمان</a></li>
-              <li class="category-text"><a href="#">خانه ویلایی</a></li>
-              <li class="category-text"><a href="#">اداری</a></li>
-              <li class="category-text"><a href="#">تجاری</a></li>
-              <li class="category-text"><a href="#">سوییت</a></li>
-              <li class="category-text"><a href="#">انبار</a></li>
-              <li class="category-text"><a href="#">سوله</a></li>
-              <li class="category-text"><a href="#">باغ</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_apartment' %}">آپارتمان</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_edari' %}">اداری</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_colangi' %}">کلنگی</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_suit' %}">سوییت</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_vila' %}">ویلا</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_tejari' %}">تجاری</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_zamin' %}">زمین</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_bagh' %}">باغ</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_anbar' %}">انبار</a></li>
+              <li class="category-text"><a href="{% url 'advertisement:new_buy_sole' %}">سوله</a></li>
             </ul>
           </div>
         </div>
