@@ -35,10 +35,22 @@ from .views import (
     NewBuySole,
     NewSellSole,
     NewRentSole,
+    ContactUsView,
+    MyPageView,
 )
 
 app_name = 'advertisement'
 urlpatterns = [
+    path(
+        'contact-us',
+        ContactUsView.as_view(),
+        name='contact_us'
+    ),
+    path(
+        'my-page',
+        MyPageView.as_view(),
+        name='my_page'
+    ),
     path(
         '',
         AdvertisementListView.as_view(),

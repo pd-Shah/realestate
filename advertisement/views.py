@@ -53,6 +53,14 @@ class SelectAddView(TemplateView):
     template_name = 'advertisement/select.html'
 
 
+class ContactUsView(TemplateView):
+    template_name = 'advertisement/contact_us.html'
+
+
+class MyPageView(TemplateView):
+    template_name = 'advertisement/mypage.html'
+
+
 class NewBuyApartment(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyApartment
