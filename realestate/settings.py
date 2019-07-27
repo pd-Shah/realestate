@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'advertisement.apps.AdvertisementConfig',
     'consultant.apps.ConsultantConfig',
+    'sms.apps.SmsConfig',
     "pinax.blog",
     "pinax.images",
     "bootstrapform",

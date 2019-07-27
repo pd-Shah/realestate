@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('django.contrib.auth.urls')),
     path('', include('advertisement.urls', namespace='advertisement')),
+    path('sms/', include('sms.urls', namespace='sms')),
     path("blog/", include("pinax.blog.urls", namespace="pinax_blog")),
     path("ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
     ]
