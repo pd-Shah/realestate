@@ -326,12 +326,24 @@
               <div class="card-box">
                 <div class="flex-card">
                   <div class="card-body-image">
-                    <h5 class="card-title-image"> {{ ad.title }} </h5>
+                    <h5 class="card-title-image">
+                      <a href="{{ ad.get_absolute_url }}">
+                        {{ ad.title }}
+                      </a>
+                    </h5>
                     <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
                   </div>
                   <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
                 </div>
-                <a href="#" class="btn full-width btn-price btn-box"> {{ ad.price }} </a>
+                <a href="#" class="btn full-width btn-price btn-box">
+                  {% if add.price %}
+                    {{ ad.price }}
+                  {% elif ad.rent %}
+                    {{ ad.rent }}, {{ ad.deposit }}
+                  {% else %}
+                    توافقی
+                  {% endif %}
+                </a>
               </div>
             </div>
           {% endfor %}

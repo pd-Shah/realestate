@@ -2,6 +2,7 @@ from django.views.generic import (
     ListView,
     TemplateView,
     FormView,
+    DetailView,
 )
 from django.urls import reverse_lazy
 from . models import Advertisement
@@ -32,6 +33,11 @@ from . forms import (
 class AdvertisementListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
+
+
+class AdvertisementDetailView(DetailView):
+    model = Advertisement
+    template_name = 'advertisement/advertisment_detail.html'
 
 
 class AdvertisementListViewMap(ListView):

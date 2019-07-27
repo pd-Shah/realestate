@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (
     AdvertisementListView,
+    AdvertisementDetailView,
     AdvertisementListViewMap,
     AboutUsView,
     SelectAddView,
@@ -38,10 +39,31 @@ from .views import (
 
 app_name = 'advertisement'
 urlpatterns = [
-    path('', AdvertisementListView.as_view(), name="advertisement_list"),
-    path('map/', AdvertisementListViewMap.as_view(), name="advertisement_list_map"),
-    path('about-us/', AboutUsView.as_view(), name='about_us'),
-    path('select/', SelectAddView.as_view(), name='select_ad'),
+    path(
+        '',
+        AdvertisementListView.as_view(),
+        name="advertisement_list"
+    ),
+    path(
+        '<int:pk>',
+        AdvertisementDetailView.as_view(),
+        name='advertisement_detail'
+    ),
+    path(
+        'map/',
+        AdvertisementListViewMap.as_view(),
+        name="advertisement_list_map"
+    ),
+    path(
+        'about-us/',
+        AboutUsView.as_view(),
+        name='about_us'
+    ),
+    path(
+        'select/',
+        SelectAddView.as_view(),
+        name='select_ad'
+    ),
     path(
         'new-buy-apartment/',
         NewBuyApartment.as_view(),
