@@ -25,7 +25,11 @@ SECRET_KEY = 'p=h+spx_*dv10rl6b4i&1!ch0pxeqteo+g6^^afalq&0246-!i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'http://mamelk.ir/',
+    'http://www.mamelk.ir/',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -85,9 +89,9 @@ WSGI_APPLICATION = 'realestate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'project',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
+        'NAME': 'mamelkir_realestate',
+        'USER': 'mamelkir_pd',
+        'PASSWORD': 'Rg.M?()crLVj',
         'HOST': 'localhost',
         'PORT': '',
     }
