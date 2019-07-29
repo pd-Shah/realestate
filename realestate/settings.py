@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     'http://mamelk.ir/',
     'http://www.mamelk.ir/',
     '127.0.0.1',
+    'mamelk.ir',
 ]
 
 
@@ -44,11 +45,7 @@ INSTALLED_APPS = [
     'advertisement.apps.AdvertisementConfig',
     'consultant.apps.ConsultantConfig',
     'sms.apps.SmsConfig',
-    "pinax.blog",
-    "pinax.images",
-    "bootstrapform",
     'django.contrib.sites',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +94,14 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -133,7 +138,6 @@ USE_TZ = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = ''
 LOGOUT_REDIRECT_URL = ''
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
