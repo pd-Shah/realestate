@@ -1,0 +1,292 @@
+#map_f0zsce {
+  position: relative;
+  width: 100%;
+  height: 545px;
+  max-width: 100%;
+  margin-top: 115px;
+  z-index: 6;
+}
+
+.map {
+  background-image: url(../images/world.jpg);
+  
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+.button-map {
+  box-shadow: 1px 0.3rem 1rem rgba(15, 15, 15, 0.48);
+  font-size: #c1c1c1;
+  padding: 5px;
+}
+
+.fa-list-ul {
+  padding: 5px;
+}
+
+.filter-map {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.toggle-box {
+  background: #fff;
+  padding: 5px;
+  width: 200px;
+  box-shadow: 1px 0.4rem 0.5rem rgba(15, 15, 15, 0.38);
+}
+
+.map-img {
+  margin: 26px;
+  width: 300px;
+  float: left;
+}
+
+.input-group-text {
+  background: transparent;
+  border: 0;
+  padding: 0 0 0 5px;
+}
+
+.input-group-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 10px;
+}
+
+.card-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c1c1c1;
+  margin: 10px;
+}
+
+@media (max-width: 900px) {
+  .card-box {
+    /* width: 46.5%; */
+  }
+  .category-box {
+	  top: 245px !important;
+  }
+  .result-box {
+	  margin-top: 115px;
+  }
+}
+
+.flex-card {
+  height: 160px;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+.content-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 135px;
+}
+
+.card-img {
+  width: 45%;
+  object-fit: cover;
+}
+
+.card-body-image {
+  padding: 9px;
+  text-align: center;
+
+}
+
+.category-box {
+  border: 1px solid #c1c1c1;
+  min-height: 400px;
+  position: fixed;
+  width: 15%;
+  overflow: auto;
+  height: 700px;
+  top: 132px;
+  right: 20px;
+  bottom: 30px;
+  padding: 5px;
+}
+
+.city-select {
+  margin-bottom: 5px;
+}
+
+.card-slide {
+  border: 0;
+}
+
+.card-header-slide {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+}
+
+.card-header-slide .btn-link {
+  color: #000;
+}
+
+.card-body-slide {
+  padding: 0 20px;
+}
+
+.title-category {
+  background-color: #968d8d;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.filter-box {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 12px;
+  position: fixed;
+  left: 0;
+  top: 78px;
+  z-index: 7;
+  width: 80.5%;
+}
+
+.result-box {
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  left: 0px;
+  width: 18%;
+}
+
+.search-box {
+  position: relative;
+  padding-right: 35px;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  color: #c1c1c1;
+  z-index: 5;
+}
+
+.select-btn {
+  margin-bottom: 10px;
+}
+
+.category-list {
+  list-style-type: none;
+  padding: 0 5px;
+}
+
+.category-text {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 15px 2px;
+}
+
+.category-text:hover {
+  /* background-color: #f36938; */
+  width: 100%;
+  text-align: right;
+}
+
+.sidebar-btn {
+  width: 100%;
+  text-align: right;
+}
+
+
+.category-text a {
+  color: #8d8c8c;
+  text-decoration: none;
+}
+
+.card-text-image {
+  height: 100px;
+}
+
+.sidebar-btn:hover {
+  text-decoration: none;
+  background-color: #f36938;
+  width: 100%;
+  text-align: right;
+}
+
+.sidebar-btn:focus {
+  text-decoration: none;
+  background-color: #f36938;
+  width: 100%;
+  text-align: right;
+}
+
+.space-top {
+  margin: 106px 0;
+}
+
+@media (max-width: 768px) {
+	  .hidden-sm {
+	    display: none;
+	  }
+      .result-box {
+  	  margin-top: 15px;
+      }
+  }
+
+@media (max-width: 900px) {
+  .card-box {
+    width: 94%;
+  }
+
+  .space-top {
+    padding-top: 0;
+    margin: 0;
+  }
+
+  .filter-box {
+    padding: 13px;
+    left: 0;
+    width: 100%;
+    top: 90px;
+    margin: 0;
+  }
+
+  /* .hidden-sm {
+    display: none;
+  } */
+
+  .content-box {
+    padding-top: 220px;
+  }
+
+  .margin-left {
+    margin-bottom: 5px;
+  }
+
+  .map {
+    margin-top: 5px;
+  }
+
+  .card-body-image {
+    font-size: 12px;
+  }
+
+  .map-top {
+    padding: 20px 0;
+  }
+
+  .result-box{
+    position: relative;
+    width: 100%;
+  }
+}
