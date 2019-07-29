@@ -469,133 +469,133 @@ class Advertisement(models.Model, ):
     )
     parking = models.BooleanField(
         default=False,
-        verbose_name="...پارکینگ",
+        verbose_name="پارکینگ",
         )
     elevator = models.BooleanField(
         default=False,
-        verbose_name="...اسانسور",
+        verbose_name="اسانسور",
         )
     depot = models.BooleanField(
         default=False,
-        verbose_name="...انباری",
+        verbose_name="انباری",
         )
     sauna = models.BooleanField(
         default=False,
-        verbose_name="...سونا",
+        verbose_name="سونا",
         )
     jacuzzi = models.BooleanField(
         default=False,
-        verbose_name="...جکوزی",
+        verbose_name="جکوزی",
         )
     swimming_pool = models.BooleanField(
         default=False,
-        verbose_name="...استخر",
+        verbose_name="استخر",
         )
     balcony = models.BooleanField(
         default=False,
-        verbose_name="...بالکون",
+        verbose_name="بالکون",
         )
     kitchen = models.BooleanField(
         default=False,
-        verbose_name="...اشپزخانه",
+        verbose_name="اشپزخانه",
         )
     lobby = models.BooleanField(
         default=False,
-        verbose_name="...لابی",
+        verbose_name="لابی",
         )
     video_door_phone = models.BooleanField(
         default=False,
-        verbose_name="...ایفون تصویری",
+        verbose_name="ایفون تصویری",
         )
     remote = models.BooleanField(
         default=False,
-        verbose_name="...ریموت",
+        verbose_name="ریموت",
         )
     janitor = models.BooleanField(
         default=False,
-        verbose_name="...سرایدار",
+        verbose_name="سرایدار",
         )
     table_gas = models.BooleanField(
         default=False,
-        verbose_name="...گاز رو میزی",
+        verbose_name="گاز رو میزی",
         )
     water_cooler = models.BooleanField(
         default=False,
-        verbose_name="...کولر ابی",
+        verbose_name="کولر ابی",
         )
     air_conditioners = models.BooleanField(
         default=False,
-        verbose_name="...کولر گازی",
+        verbose_name="کولر گازی",
         )
     chiller = models.BooleanField(
         default=False,
-        verbose_name="...چیلر",
+        verbose_name="چیلر",
         )
     duct_split = models.BooleanField(
         default=False,
-        verbose_name="...داکت اسپیلیت",
+        verbose_name="داکت اسپیلیت",
         )
     package = models.BooleanField(
         default=False,
-        verbose_name="...پکیج",
+        verbose_name="پکیج",
         )
     radiant = models.BooleanField(
         default=False,
-        verbose_name="...شوفاژ",
+        verbose_name="شوفاژ",
         )
     heater = models.BooleanField(
         default=False,
-        verbose_name="...بخاری",
+        verbose_name="بخاری",
         )
     floor_heating = models.BooleanField(
         default=False,
-        verbose_name="...گرمایش از کف",
+        verbose_name="گرمایش از کف",
         )
     water = models.BooleanField(
         default=False,
-        verbose_name="...اب",
+        verbose_name="اب",
         )
     electricity = models.BooleanField(
         default=False,
-        verbose_name="...برق",
+        verbose_name="برق",
         )
     gas = models.BooleanField(
         default=False,
-        verbose_name="...گاز",
+        verbose_name="گاز",
         )
     water_well = models.BooleanField(
         default=False,
-        verbose_name="...چاه اب",
+        verbose_name="چاه اب",
         )
     car_door = models.BooleanField(
         default=False,
-        verbose_name="...درب ماشین رو",
+        verbose_name="درب ماشین رو",
         )
     asphalt = models.BooleanField(
         default=False,
-        verbose_name="...جاده اسفالت",
+        verbose_name="جاده اسفالت",
         )
     caretaker_house = models.BooleanField(
         default=False,
-        verbose_name="...خانه سرایدار",
+        verbose_name="خانه سرایدار",
         )
     image1 = models.ImageField(
                         upload_to=get_image_path,
                         blank=True,
                         null=True,
-                        verbose_name="...تصویر شماره 1",
+                        verbose_name="تصویر شماره 1",
                     )
     image2 = models.ImageField(
                         upload_to=get_image_path,
                         blank=True,
                         null=True,
-                        verbose_name="...تصویر شماره 2",
+                        verbose_name="تصویر شماره 2",
                     )
     image3 = models.ImageField(
                         upload_to=get_image_path,
                         blank=True,
                         null=True,
-                        verbose_name="...تصویر شماره 3",
+                        verbose_name="تصویر شماره 3",
                     )
 
     def __str__(self):
