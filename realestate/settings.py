@@ -44,11 +44,11 @@ INSTALLED_APPS = [
     'advertisement.apps.AdvertisementConfig',
     'consultant.apps.ConsultantConfig',
     'sms.apps.SmsConfig',
-    "pinax.blog",
-    "pinax.images",
-    "bootstrapform",
-    'django.contrib.sites',
-    'crispy_forms',
+    # "pinax.blog",
+    # "pinax.images",
+    # "bootstrapform",
+    # 'django.contrib.sites',
+    # 'crispy_forms',
 ]
 
 MIDDLEWARE = [
