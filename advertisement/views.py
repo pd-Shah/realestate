@@ -75,6 +75,12 @@ class NewBuyApartment(FormView):
         return super().form_valid(form)
 
 
+class BuyApartmentListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'0')
+
+
 class NewSellApartment(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyApartment
@@ -87,6 +93,12 @@ class NewSellApartment(FormView):
         form.instance.category = u'1'
         form.save()
         return super().form_valid(form)
+
+
+class SellApartmentListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'1')
 
 
 class NewRentApartment(FormView):
@@ -103,6 +115,12 @@ class NewRentApartment(FormView):
         return super().form_valid(form)
 
 
+class RentApartmentListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'2')
+
+
 class NewBuyEdari(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyEdari
@@ -115,6 +133,12 @@ class NewBuyEdari(FormView):
         form.instance.category = u'3'
         form.save()
         return super().form_valid(form)
+
+
+class BuyEdariListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'3')
 
 
 class NewSellEdari(FormView):
@@ -131,6 +155,12 @@ class NewSellEdari(FormView):
         return super().form_valid(form)
 
 
+class SellEdariListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'4')
+
+
 class NewRentEdari(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = RentEdari
@@ -143,6 +173,12 @@ class NewRentEdari(FormView):
         form.instance.category = u'5'
         form.save()
         return super().form_valid(form)
+
+
+class RentEdariListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'5')
 
 
 class NewBuyColangi(FormView):
@@ -159,6 +195,12 @@ class NewBuyColangi(FormView):
         return super().form_valid(form)
 
 
+class BuyColangiListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'6')
+
+
 class NewSellColangi(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyColangi
@@ -171,6 +213,12 @@ class NewSellColangi(FormView):
         form.instance.category = u'7'
         form.save()
         return super().form_valid(form)
+
+
+class SellColangiListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'7')
 
 
 class NewRentColangi(FormView):
@@ -187,6 +235,12 @@ class NewRentColangi(FormView):
         return super().form_valid(form)
 
 
+class RentColangiListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'8')
+
+
 class NewBuySuit(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuySuit
@@ -199,6 +253,12 @@ class NewBuySuit(FormView):
         form.instance.category = u'9'
         form.save()
         return super().form_valid(form)
+
+
+class BuySuitListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'9')
 
 
 class NewSellSuit(FormView):
@@ -215,6 +275,12 @@ class NewSellSuit(FormView):
         return super().form_valid(form)
 
 
+class SellSuitListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'10')
+
+
 class NewRentSuit(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = RentSuit
@@ -227,6 +293,12 @@ class NewRentSuit(FormView):
         form.instance.category = u'11'
         form.save()
         return super().form_valid(form)
+
+
+class RentSuitListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'11')
 
 
 class NewBuyVila(FormView):
@@ -243,6 +315,12 @@ class NewBuyVila(FormView):
         return super().form_valid(form)
 
 
+class BuyVilaListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'12')
+
+
 class NewSellVila(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyVila
@@ -255,6 +333,12 @@ class NewSellVila(FormView):
         form.instance.category = u'13'
         form.save()
         return super().form_valid(form)
+
+
+class SellVilaListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'13')
 
 
 class NewRentVila(FormView):
@@ -271,6 +355,12 @@ class NewRentVila(FormView):
         return super().form_valid(form)
 
 
+class RentVilaListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'14')
+
+
 class NewBuyTejari(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyTejari
@@ -283,6 +373,12 @@ class NewBuyTejari(FormView):
         form.instance.category = u'15'
         form.save()
         return super().form_valid(form)
+
+
+class BuyTejariListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'15')
 
 
 class NewSellTejari(FormView):
@@ -299,6 +395,12 @@ class NewSellTejari(FormView):
         return super().form_valid(form)
 
 
+class SellTejariListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'16')
+
+
 class NewRentTejari(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = RentTejari
@@ -311,6 +413,12 @@ class NewRentTejari(FormView):
         form.instance.category = u'17'
         form.save()
         return super().form_valid(form)
+
+
+class RentTejariListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'17')
 
 
 class NewBuyZamin(FormView):
@@ -327,6 +435,12 @@ class NewBuyZamin(FormView):
         return super().form_valid(form)
 
 
+class BuyZaminListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'18')
+
+
 class NewSellZamin(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyZamin
@@ -339,6 +453,12 @@ class NewSellZamin(FormView):
         form.instance.category = u'19'
         form.save()
         return super().form_valid(form)
+
+
+class SellZaminListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'19')
 
 
 class NewRentZamin(FormView):
@@ -355,6 +475,12 @@ class NewRentZamin(FormView):
         return super().form_valid(form)
 
 
+class RentZaminListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'20')
+
+
 class NewBuyBagh(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyBagh
@@ -367,6 +493,12 @@ class NewBuyBagh(FormView):
         form.instance.category = u'21'
         form.save()
         return super().form_valid(form)
+
+
+class BuyBaghListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'21')
 
 
 class NewSellBagh(FormView):
@@ -383,6 +515,12 @@ class NewSellBagh(FormView):
         return super().form_valid(form)
 
 
+class SellBaghListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'22')
+
+
 class NewRentBagh(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = RentBagh
@@ -395,6 +533,12 @@ class NewRentBagh(FormView):
         form.instance.category = u'23'
         form.save()
         return super().form_valid(form)
+
+
+class RentBaghListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'23')
 
 
 class NewBuyAnbar(FormView):
@@ -411,6 +555,12 @@ class NewBuyAnbar(FormView):
         return super().form_valid(form)
 
 
+class BuyAnbarListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'24')
+
+
 class NewSellAnbar(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyAnbar
@@ -423,6 +573,12 @@ class NewSellAnbar(FormView):
         form.instance.category = u'25'
         form.save()
         return super().form_valid(form)
+
+
+class SellAnbarListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'25')
 
 
 class NewRentAnbar(FormView):
@@ -439,6 +595,12 @@ class NewRentAnbar(FormView):
         return super().form_valid(form)
 
 
+class RentAnbarListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'26')
+
+
 class NewBuySole(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuySole
@@ -451,6 +613,12 @@ class NewBuySole(FormView):
         form.instance.category = u'27'
         form.save()
         return super().form_valid(form)
+
+
+class BuySoleListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'27')
 
 
 class NewSellSole(FormView):
@@ -467,6 +635,12 @@ class NewSellSole(FormView):
         return super().form_valid(form)
 
 
+class SellSoleListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'28')
+
+
 class NewRentSole(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = RentSole
@@ -479,3 +653,9 @@ class NewRentSole(FormView):
         form.instance.category = u'29'
         form.save()
         return super().form_valid(form)
+
+
+class RentSoleListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'29')
