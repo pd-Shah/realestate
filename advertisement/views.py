@@ -5,6 +5,7 @@ from django.views.generic import (
     DetailView,
 )
 from django.urls import reverse_lazy
+from django.db.models import Q
 from . models import Advertisement
 from . forms import (
     RentApartment,
@@ -33,6 +34,19 @@ from . forms import (
 class AdvertisementListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
+
+
+class SearchResultsView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Advertisement.objects.filter(
+            Q(title__icontains=query) |
+            Q(city__icontains=query)
+        )
+        return object_list
 
 
 class AdvertisementDetailView(DetailView):

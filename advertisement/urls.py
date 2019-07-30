@@ -67,10 +67,16 @@ from .views import (
     BuySoleListView,
     RentSoleListView,
     SellSoleListView,
+    SearchResultsView,
 )
 
 app_name = 'advertisement'
 urlpatterns = [
+    path(
+        'search/',
+        SearchResultsView.as_view(),
+        name='search_results'
+    ),
     path(
         'contact-us',
         ContactUsView.as_view(),

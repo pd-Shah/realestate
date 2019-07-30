@@ -292,33 +292,37 @@
           </div>
         </div>
         <div class="col-md-10 col-sm-12">
-          <div class="filter-box">
-            <div class="form-row">
-              <div class="col-md-8 col-sm-12 mb-3">
-                <i class="fas fa-search search-icon"></i>
-                <input type="search" class="form-control search-box" id="validationTooltip01" placeholder="جستجو در همه آگهی‌ها">
-              </div>
-              <div class="col-md-4 col-sm-12 mb-3">
-                <div class="btn-group full-width">
-                  <button class="btn select-btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    همه محله‌ ها
-                  </button>
-                  <span class="sr-only">همه محله ها</span>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">1</a>
-                    <a class="dropdown-item" href="#">2</a>
-                    <a class="dropdown-item" href="#">3</a>
+          <form action="{% url 'advertisement:search_results' %}" method="get">
+            <div class="filter-box">
+              <div class="form-row">
+                <div class="col-md-8 col-sm-12 mb-3">
+                  <i class="fas fa-search search-icon"></i>
+
+                  <input name="q" type="text" type="search" class="form-control search-box" id="validationTooltip01" placeholder="جستجو در همه اگهی ها">
+
+                </div>
+                <div class="col-md-4 col-sm-12 mb-3">
+                  <div class="btn-group full-width">
+                    <button class="btn select-btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      همه محله‌ ها
+                    </button>
+                    <span class="sr-only">همه محله ها</span>
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">1</a>
+                      <a class="dropdown-item" href="#">2</a>
+                      <a class="dropdown-item" href="#">3</a>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="left-align">
+                <button type="search" class="btn login-btn">جستجو</button>
+              </div>
             </div>
-            <div class="left-align">
-              <button type="search" class="btn login-btn">جستجو</button>
-            </div>
-          </div>
+          </form>
           <div class="content-box">
-          {% for ad in object_list %}
+            {% for ad in object_list %}
             <div class="col-lg-3 col-md-4 col-sm-6">
               <div class="card-box">
                 <div class="flex-card">
@@ -334,16 +338,16 @@
                 </div>
                 <a href="#" class="btn full-width btn-price btn-box">
                   {% if add.price %}
-                    {{ ad.price }}
+                  {{ ad.price }}
                   {% elif ad.rent %}
-                    {{ ad.rent }}, {{ ad.deposit }}
+                  {{ ad.rent }}, {{ ad.deposit }}
                   {% else %}
-                    توافقی
+                  توافقی
                   {% endif %}
                 </a>
               </div>
             </div>
-          {% endfor %}
+            {% endfor %}
           </div>
         </div>
       </div>
