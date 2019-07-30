@@ -21,7 +21,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light header">
-      <a href="#default" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
+      <a href="{% url 'advertisement:advertisement_list' %}" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
 
 
       <button class="navbar-toggler open-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">☰</button>
@@ -55,6 +55,7 @@
           <li>
             <div class="margin-left">
               <button type="button" class="btn login-btn">ثبت آگهی رایگان</button>
+              <a href="{% url 'advertisement:advertisement_list'%}" class="btn">صفحه اصلی</a>
             </div>
           </li>
           <li>
@@ -113,6 +114,8 @@
 
 
     <h1>ثبت آگهی رایگان</h1><br>
+    <p><a href="{% url 'advertisement:advertisement_list'%}" type="button" class="btn btn-primary" style="float:left;">بازگشت به صفحه اصلی</a></p>
+    <br>
     <div class="btn-group full-width">
       <button class="btn select-btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         شهر‌ها

@@ -9,7 +9,6 @@
   <!-- Bootstrap CSS -->
   <!-- Add additional CSS in static file -->
   {% load static %}
-  {% load crispy_forms_tags %}
   <link rel="stylesheet" href="{% static 'advertisement/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'advertisement/css/custom.css' %}">
   <link rel="stylesheet" href="{% static 'advertisement/css/home.css' %}">
@@ -17,12 +16,15 @@
   <link rel="stylesheet" href="{% static 'advertisement/css/header.css' %}">
   <link rel="stylesheet" href="{% static 'advertisement/fonts/fonts.css' %}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light header">
-      <a href="#default" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
+      <a href="{% url 'advertisement:advertisement_list' %}" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
+
+
       <button class="navbar-toggler open-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">☰</button>
       <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -49,14 +51,21 @@
             <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">تماس با ما</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./map.html" tabindex="-1" aria-disabled="true">نقشه</a>
+            <a class="nav-link" href="{% url 'advertisement:advertisement_list_map' %}" tabindex="-1" aria-disabled="true">نقشه</a>
           </li>
           <li>
             <div class="margin-left">
+              <button type="button" class="btn login-btn">ثبت آگهی رایگان</button>
             </div>
           </li>
           <li>
             <div class="margin-left">
+              {% if user.is_authenticated %}
+              User: {{ user.get_username }}
+              <a href="{% url 'logout'%}?next={{request.path}}" class="btn login-btn">خروج</a>
+              {% else %}
+              <a href="{% url 'login'%}?next={{request.path}}" class="btn login-btn">ورود</a>
+              {% endif %}
             </div>
           </li>
         </ul>
@@ -64,7 +73,7 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="./home.html">صفحه من <span class="sr-only">(current)</span></a>
+            <a class="nav-link active" href="{% url 'advertisement:advertisement_list' %}">صفحه من <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">سرمایه گذار</a>
@@ -85,7 +94,16 @@
             <a class="nav-link" href="#" tabindex="-5" aria-disabled="true">تماس با ما</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./map.html" tabindex="-1" aria-disabled="true">نقشه</a>
+            <a class="nav-link" href="{% url 'advertisement:advertisement_list_map' %}" tabindex="-1" aria-disabled="true">نقشه</a>
+          </li>
+          <li>
+            <div class="margin-left">
+            </div>
+          </li>
+          <li>
+            <div class="margin-left">
+
+            </div>
           </li>
         </ul>
       </div>
@@ -93,15 +111,17 @@
   </header>
 
   <div class="container">
-    <div class="col-md-4 col-md-offset-4 centered">
-      {% block content %}
-      {% endblock %}
-    </div>
+    {% block content %}
+    {% endblock %}
   </div>
+  </div>
+  </div>
+
 
 </body>
 <footer class="footer-box">
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">

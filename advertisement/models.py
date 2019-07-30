@@ -290,7 +290,7 @@ class Advertisement(models.Model, ):
         )
     address = models.CharField(
         max_length=300,
-        verbose_name='ادزس',
+        verbose_name='ادرس',
         null=True,
         blank=True,
         )
@@ -310,7 +310,7 @@ class Advertisement(models.Model, ):
         blank=True,
         )
     room_number = models.PositiveSmallIntegerField(
-        verbose_name='تعداد اتاف',
+        verbose_name='تعداد اتاق',
         null=True,
         blank=True,
         )
