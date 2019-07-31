@@ -176,7 +176,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-10 col-sm-12">
+  <div class="col-md-8 col-sm-12 map-top">
     <form action="{% url 'advertisement:search_results' %}" method="get">
       <div class="filter-box">
         <div class="form-row">
@@ -205,9 +205,13 @@
           <button type="search" class="btn login-btn">جستجو</button>
         </div>
       </div>
+      {% block map %}
+      {% endblock %}
     </form>
     {% block advertisement %}
     {% endblock %}
   </div>
+  {% block advertisement_map %}
+  {% endblock %}
 </div>
 {% endblock %}

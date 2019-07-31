@@ -1,163 +1,32 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base_generic.html' %}
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <!-- Bootstrap CSS -->
-  <!-- Add additional CSS in static file -->
-  {% load static %}
-  {% load crispy_forms_tags %}
-  <link rel="stylesheet" href="{% static 'advertisement/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'advertisement/css/custom.css' %}">
-  <link rel="stylesheet" href="{% static 'advertisement/css/home.css' %}">
-  <link rel="stylesheet" href="{% static 'advertisement/css/main.css' %}">
-  <link rel="stylesheet" href="{% static 'advertisement/css/header.css' %}">
-  <link rel="stylesheet" href="{% static 'advertisement/fonts/fonts.css' %}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
+{% block content %}
+<div class="jumbotron" style="background-color:white;">
+  <h1 class="display-3">تماس با ما </h1>
+  <p class="lead">اگر پیشنهاد یا انتقادی دارید یا می‌خواهید ما را از وجود مشکلی در سیستم آگاه کنید، با دیوار صحبت کنید. برای اینکار می‌توانید از صفحه‌ی پشتیبانی و قوانین دیوار استفاده کنید.
 
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light header">
-      <a href="#default" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
-      <button class="navbar-toggler open-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">☰</button>
-      <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="./home.html">صفحه من <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">سرمایه گذار</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">اخبار</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">آموزش</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">قوانین سایت</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">تماس با ما</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./map.html" tabindex="-1" aria-disabled="true">نقشه</a>
-          </li>
-          <li>
-            <div class="margin-left">
-            </div>
-          </li>
-          <li>
-            <div class="margin-left">
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="./home.html">صفحه من <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">سرمایه گذار</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-2" aria-disabled="true">اخبار</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-3" aria-disabled="true">آموزش</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-4" aria-disabled="true">قوانین سایت</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-5" aria-disabled="true">تماس با ما</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./map.html" tabindex="-1" aria-disabled="true">نقشه</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+    برای حذف آگهی‌هایی که با شماره‌ی موبایل یا ایمیل شما ثبت شده است، به صفحه‌ی مدیریت آگهی مراجعه کنید. همچنین در صورت ایجاد مزاحمت برای شما، می‌توانید با مراجعه به سایت پلیس فتا به آدرس http://www.cyberpolice.ir از اطلاعات تماس پلیس فتای محل
+    سکونت خود آگاه شوید و موضوع را از آن طریق پیگیری کنید.
 
-  <div class="jumbotron" style="background-color:white;">
-    <h1 class="display-3">تماس با ما </h1>
-    <p class="lead">اگر پیشنهاد یا انتقادی دارید یا می‌خواهید ما را از وجود مشکلی در سیستم آگاه کنید، با دیوار صحبت کنید. برای اینکار می‌توانید از صفحه‌ی پشتیبانی و قوانین دیوار استفاده کنید.
+    .تیم‌های فنی ما در آدرس زیر اقامت دارند، ولی متأسفانه توان میزبانی مراجعان حضوری را نداریم.
 
-      برای حذف آگهی‌هایی که با شماره‌ی موبایل یا ایمیل شما ثبت شده است، به صفحه‌ی مدیریت آگهی مراجعه کنید. همچنین در صورت ایجاد مزاحمت برای شما، می‌توانید با مراجعه به سایت پلیس فتا به آدرس http://www.cyberpolice.ir از اطلاعات تماس پلیس فتای محل
-      سکونت خود آگاه شوید و موضوع را از آن طریق پیگیری کنید.
+    آدرس پستی: تهران، سعادت‌آباد، خیابان فرهنگ، کوچه پیوند ۲، پلاک ۸.، طبقه سوم
 
-      .تیم‌های فنی ما در آدرس زیر اقامت دارند، ولی متأسفانه توان میزبانی مراجعان حضوری را نداریم.
+    صندوق پستی: ۴۸۳۱۱-۱۹۹۷۷
 
-      آدرس پستی: تهران، سعادت‌آباد، خیابان فرهنگ، کوچه پیوند ۲، پلاک ۸.، طبقه سوم
+    شماره تماس پشتیبانی: ۸۴۲۱۱۵۱۱-۰۲۱
 
-      صندوق پستی: ۴۸۳۱۱-۱۹۹۷۷
-
-      شماره تماس پشتیبانی: ۸۴۲۱۱۵۱۱-۰۲۱
-
-      شماره تماس واحد اداری: ۸۸۶۵۲۱۳۷-۰۲۱
+    شماره تماس واحد اداری: ۸۸۶۵۲۱۳۷-۰۲۱
 
 
 
-      فرصت‌های شغلی
+    فرصت‌های شغلی
 
-      امتحان کنید، یاد بگیرید و بهتر شوید. به ما بپیوندید.</p>
-    <hr class="my-4">
-    <p style="text-align: center;">ما را در شبکه های اجتماعی دنبال کنید</p>
-    <p class="lead" style="text-align: center;">
-      <a class="btn btn-primary btn-lg" href="#" role="button">اطلاعات بیشتر</a>
-    </p>
-  </div>
-
-
-
-  </div>
-
-
-
-
-  <footer class="footer-box">
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-  </script>
-  <script>
-    function openNav() {
-      document.getElementById("mySidepanel").style.width = "250px";
-    }
-
-    function closeNav() {
-      document.getElementById("mySidepanel").style.width = "0";
-    }
-  </script>
-
-
-</body>
-<footer class="footer-box">
-</footer>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-</script>
-<script src="{% static 'advertisement/js/bootstrap.min.js' %}">
-</script>
-<script src="{% static 'advertisement/js/script.js' %}"></script>
-</body>
-
-</html>
+    امتحان کنید، یاد بگیرید و بهتر شوید. به ما بپیوندید.</p>
+  <hr class="my-4">
+  <p style="text-align: center;">ما را در شبکه های اجتماعی دنبال کنید</p>
+  <p class="lead" style="text-align: center;">
+    <a class="btn btn-primary btn-lg" href="#" role="button">اطلاعات بیشتر</a>
+  </p>
+</div>
+{% endblock %}

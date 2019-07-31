@@ -58,6 +58,10 @@ class AdvertisementListViewMap(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list_map.html'
 
+    def get_queryset(self, ):
+        object_list = Advertisement.objects.order_by('created')[:5]
+        return object_list
+
 
 class AboutUsView(TemplateView):
     template_name = 'advertisement/about_us.html'
@@ -78,7 +82,7 @@ class MyPageView(TemplateView):
 class RulePageView(TemplateView):
     template_name = 'advertisement/rules.html'
 
-    
+
 class NewBuyApartment(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyApartment
