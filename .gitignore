@@ -100,4 +100,4 @@ venv.bak/
 .mypy_cache/
 
 # MEDIA
-MEDIA/*
+MEDIA/images/*
