@@ -64,7 +64,8 @@ class AdvertisementListViewMap(ListView):
     template_name = 'advertisement/advertisement_list_map.html'
 
     def get_queryset(self, ):
-        object_list = Advertisement.objects.order_by('created')[:5]
+        object_list = Advertisement.objects.filter(
+            published=True).order_by('-created')[:5]
         return object_list
 
 
