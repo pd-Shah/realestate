@@ -75,6 +75,10 @@ class MyPageView(TemplateView):
     template_name = 'advertisement/mypage.html'
 
 
+class RulePageView(TemplateView):
+    template_name = 'advertisement/rules.html'
+
+    
 class NewBuyApartment(FormView):
     template_name = 'advertisement/new_ad.html'
     form_class = SellBuyApartment
