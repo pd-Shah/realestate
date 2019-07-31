@@ -35,6 +35,11 @@ class AdvertisementListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
 
+    def get_queryset(self, ):
+        object_list = Advertisement.objects.filter(
+            published=True).order_by('-created')
+        return object_list
+
 
 class SearchResultsView(ListView):
     model = Advertisement
