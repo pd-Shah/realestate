@@ -34,6 +34,7 @@ from . forms import (
 class AdvertisementListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
+    paginate_by = 12
 
     def get_queryset(self, ):
         object_list = Advertisement.objects.filter(
@@ -44,6 +45,7 @@ class AdvertisementListView(ListView):
 class SearchResultsView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
+    paginate_by = 12
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -62,10 +64,11 @@ class AdvertisementDetailView(DetailView):
 class AdvertisementListViewMap(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list_map.html'
+    paginate_by = 3
 
     def get_queryset(self, ):
         object_list = Advertisement.objects.filter(
-            published=True).order_by('-created')[:5]
+            published=True).order_by('-created')
         return object_list
 
 
