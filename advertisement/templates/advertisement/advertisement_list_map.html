@@ -1,5 +1,10 @@
 {% extends 'base_and_search.html' %}
 
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'advertisement/css/map.css' %}">
+{% endblock %}
+
 {% block map %}
 <div id="map_f0zsce"></div>
 {% endblock %}

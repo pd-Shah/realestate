@@ -1,5 +1,10 @@
 {% extends 'base_generic.html' %}
 
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'sms/css/login.css' %}">
+{% endblock %}
+
 {% block content %}
 {% load crispy_forms_tags %}
 <form class="" action="" method="post">

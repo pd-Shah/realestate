@@ -1,0 +1,58 @@
+{% extends 'base_generic.html' %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>گران ترین خانه های تهران</h2>
+      <h5>1398 مرداد 7</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+
+      <p><a href="{% url 'blog:blog_detail_view' %}"> برو </a></p>
+    </div>
+    <div class="card">
+      <h2>به روز ترین تجهیزات خانه ها</h2>
+      <h5>نوشته شده در تاریخ 5 مرداد 1398</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>در ادامه متتن بخوانید</p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>گران ترین خانه های تهران</h2>
+      <h5>1398 مرداد 7</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>ادامه متن</p>
+    </div>
+    <div class="card">
+      <h2>به روز ترین تجهیزات خانه ها</h2>
+      <h5>نوشته شده در تاریخ 5 مرداد 1398</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>در ادامه متتن بخوانید</p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>گران ترین خانه های تهران</h2>
+      <h5>1398 مرداد 7</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>ادامه متن</p>
+    </div>
+    <div class="card">
+      <h2>به روز ترین تجهیزات خانه ها</h2>
+      <h5>نوشته شده در تاریخ 5 مرداد 1398</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>در ادامه متتن بخوانید</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

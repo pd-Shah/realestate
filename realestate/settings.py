@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'advertisement.apps.AdvertisementConfig',
     'consultant.apps.ConsultantConfig',
     'sms.apps.SmsConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.sites',
     'crispy_forms',
 ]

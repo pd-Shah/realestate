@@ -11,6 +11,7 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('', include('advertisement.urls', namespace='advertisement')),
     path('sms/', include('sms.urls', namespace='sms')),
+    path('blog/', include('blog.urls', namespace='blog')),
     ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
