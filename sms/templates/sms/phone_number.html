@@ -1,15 +1,16 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 <form class="" action="" method="post">
   {% csrf_token %}
   <div class="login">
     <div class="box-login">
-      <h2 class="title">ورود</h2>
+      <h2 class="title">ارسال کد</h2>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="شماره تلفن" aria-label="شماره تلفن" aria-describedby="basic-addon2">
+          {{ form|crispy }}
       </div>
-      <button type="submit" class="danger-btn"> ورود </button>
+      <button type="submit" class="danger-btn"> ارسال  </button>
     </div>
   </div>
 

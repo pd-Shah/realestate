@@ -10,10 +10,10 @@
         <div class="card-body-image">
           <h5 class="card-title-image">
             <a href="{{ ad.get_absolute_url }}">
-              {{ ad.title }}
+              {{ ad.get_category_display }}
             </a>
           </h5>
-          <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
+          <p class="card-text-image">{{ ad.title }}</p>
         </div>
         {% if ad.image1 %}
           <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">

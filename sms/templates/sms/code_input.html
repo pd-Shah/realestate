@@ -1,22 +1,16 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 <form class="" action="" method="post">
-  <!-- {% csrf_token %}
-  {{ form.as_p }} -->
-  <!-- <button type="submit" class="btn btn-success btn-block"> ارسال کد</button> -->
+  {% csrf_token %}
   <section class="body">
     <div class="cotainer">
       <div class="login">
         <div class="box-login">
           <h2 class="title">ورود</h2>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="شماره تلفن" aria-label="شماره تلفن" aria-describedby="basic-addon2">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="رمز چهار رقمی" aria-label="رمز چهار رقمی" aria-describedby="basic-addon2">
-          </div>
-          <a href="./home.html" class="danger-btn">ورود</a>
+          {{ form|crispy }}
+          <button type="submit" class="danger-btn"> ورود </button>
         </div>
       </div>
     </div>
