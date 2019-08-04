@@ -1,5 +1,17 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
 <form class="" action="" method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-success btn-block"> ارسال کد</button>
+  <div class="login">
+    <div class="box-login">
+      <h2 class="title">ورود</h2>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="شماره تلفن" aria-label="شماره تلفن" aria-describedby="basic-addon2">
+      </div>
+      <button type="submit" class="danger-btn"> ورود </button>
+    </div>
+  </div>
+
 </form>
+{% endblock %}

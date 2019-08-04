@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="{% static 'advertisement/css/header.css' %}">
   <link rel="stylesheet" href="{% static 'advertisement/fonts/fonts.css' %}">
   <link rel="stylesheet" href="{% static 'advertisement/css/map.css' %}">
+  <link rel="stylesheet" href="{% static 'sms/css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'sms/css/password.css' %}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet' />
 
@@ -70,6 +72,9 @@
             <a class="nav-link" href="{% url 'advertisement:contact_us'%}" tabindex="-1" aria-disabled="true">تماس با ما</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'advertisement:about_us'%}" tabindex="-1" aria-disabled="true">درباره ما</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:advertisement_list_map' %}" tabindex="-1" aria-disabled="true">نقشه</a>
           </li>
           <li>
@@ -110,6 +115,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:contact_us'%}" tabindex="-1" aria-disabled="true">تماس با ما</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'advertisement:about_us'%}" tabindex="-1" aria-disabled="true">درباره ما</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:advertisement_list_map' %}" tabindex="-1" aria-disabled="true">نقشه</a>
