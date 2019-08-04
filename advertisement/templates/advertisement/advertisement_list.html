@@ -22,10 +22,11 @@
         {% endif %}
       </div>
       <a href="#" class="btn full-width btn-price btn-box">
-        {% if add.price %}
+        {% if ad.price %}
         {{ ad.price }}
         {% elif ad.rent %}
-        {{ ad.rent }}, {{ ad.deposit }}
+        اجاره:{{ ad.rent }}
+        رهن:{{ ad.deposit }}
         {% else %}
         توافقی
         {% endif %}
@@ -50,9 +51,6 @@
   </li>
   {% endif %}
 </ul>
-{% else %}
-<h3>Your File Exam</h3>
-<p>File not yet available</p>
 {% endif %}
 
 {% endblock%}
