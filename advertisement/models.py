@@ -221,6 +221,12 @@ YEARS = [
     (u'28', u'1370'),
 ]
 
+FANCE = [
+    (u"0", u"‫سیم‬خاردار"),
+    (u"1", u"دیوار"),
+    (u"2", u"‫‪‫‪فنس"),
+]
+
 phone_regex = RegexValidator(
     regex=r'^\+?1?\d{9,15}$',
     message="Phone number must be entered in the format: '09226255415'. Up to 15 digits allowed."
@@ -253,6 +259,12 @@ class ConfigAdvertisement(models.Model):
 
 class Advertisement(models.Model, ):
     uid = models.UUIDField(default=uuid4, editable=False)
+    landlord_name = models.CharField(
+        max_length=200,
+        verbose_name="نام مالک",
+        null=True,
+        blank=True,
+    )
     config = models.OneToOneField(
         ConfigAdvertisement,
         on_delete=models.CASCADE,
@@ -288,19 +300,43 @@ class Advertisement(models.Model, ):
         null=True,
         blank=True,
         )
+    quarter = models.CharField(
+        max_length=100,
+        verbose_name="محله",
+        null=True,
+        blank=True,
+    )
+    street = models.CharField(
+        max_length=100,
+        verbose_name="خیابان فرعی",
+        null=True,
+        blank=True,
+    )
+    plak = models.IntegerField(
+        verbose_name="شماره پلاک",
+        null=True,
+        blank=True,
+        )
     address = models.CharField(
         max_length=300,
         verbose_name='ادرس',
         null=True,
         blank=True,
         )
-    created = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name='تاریخ ساخت'
+    floor_number = models.PositiveSmallIntegerField(
+        verbose_name='شماره طبقه',
+        null=True,
+        blank=True,
         )
-    updated = models.DateTimeField(
-        auto_now=True,
-        verbose_name='تاریخ اخرین اپدیت'
+    floors = models.PositiveSmallIntegerField(
+        verbose_name='تعداد طبقات',
+        null=True,
+        blank=True,
+        )
+    blocks_per_floor = models.PositiveSmallIntegerField(
+        verbose_name='تعداد واحد هر طبقه',
+        null=True,
+        blank=True,
         )
     year_of_construction = models.CharField(
         max_length=2,
@@ -314,11 +350,30 @@ class Advertisement(models.Model, ):
         null=True,
         blank=True,
         )
+    bedroom_number = models.SmallIntegerField(
+        verbose_name="تعداد اتاق خواب",
+        null=True,
+        blank=True,
+        )
     house_square = models.PositiveSmallIntegerField(
         verbose_name='متراژ',
         null=True,
         blank=True,
         )
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='تاریخ ساخت'
+        )
+    updated = models.DateTimeField(
+        auto_now=True,
+        verbose_name='تاریخ اخرین اپدیت'
+        )
+    eslahi = models.CharField(
+        max_length=200,
+        null=True,
+        blank=True,
+        verbose_name="اصلاحی",
+    )
     category = models.CharField(
         max_length=2,
         choices=CATEGORY,
@@ -354,21 +409,6 @@ class Advertisement(models.Model, ):
         )
     price_square = models.IntegerField(
         verbose_name='قیمت متر مربع',
-        null=True,
-        blank=True,
-        )
-    floor_number = models.PositiveSmallIntegerField(
-        verbose_name='شماره طبقه',
-        null=True,
-        blank=True,
-        )
-    floors = models.PositiveSmallIntegerField(
-        verbose_name='تعداد طبقات',
-        null=True,
-        blank=True,
-        )
-    blocks_per_floor = models.PositiveSmallIntegerField(
-        verbose_name='تعداد واحد هر طبقه',
         null=True,
         blank=True,
         )
@@ -427,6 +467,13 @@ class Advertisement(models.Model, ):
         null=True,
         blank=True,
         )
+    fance = models.CharField(
+        max_length=1,
+        choices=FANCE,
+        verbose_name='حصار',
+        null=True,
+        blank=True,
+    )
     toilet_type = models.CharField(
         max_length=1,
         choices=TOILETTYPE,

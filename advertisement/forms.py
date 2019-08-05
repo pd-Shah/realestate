@@ -4,17 +4,28 @@ from .models import Advertisement
 
 
 class RentApartment(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "year_of_construction",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
+            "telephone_lines",
             "floor_number",
             "exposure_direction",
             "deposit",
@@ -48,14 +59,36 @@ class RentApartment(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "deposit",
+            "rent",
+            "telephone_lines",
+        }
 
 
 class SellBuyApartment(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "year_of_construction",
             "room_number",
@@ -97,14 +130,34 @@ class SellBuyApartment(ModelForm):
             "image2",
             "image3",
             )
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "price",
+            "price_square",
+        }
 
 
 class RentEdari(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "room_number",
             "house_square",
@@ -113,6 +166,7 @@ class RentEdari(ModelForm):
             "floor_number",
             "floors",
             "blocks_per_floor",
+            "telephone_lines",
             "exposure_direction",
             "deposit",
             "rent",
@@ -137,14 +191,36 @@ class RentEdari(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "deposit",
+            "rent",
+            "telephone_lines",
+        }
 
 
 class SellBuyEdari(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "room_number",
             "house_square",
@@ -177,20 +253,43 @@ class SellBuyEdari(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "telephone_lines",
+            "price",
+            "price_square",
+        }
 
 
 class RentColangi(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "year_of_construction",
             "room_number",
             "house_square",
             "urban_area_number",
             "city",
+            "telephone_lines",
             "floor_number",
             "floors",
             "blocks_per_floor",
@@ -220,14 +319,36 @@ class RentColangi(ModelForm):
             "image2",
             "image3",
             )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "deposit",
+            "rent",
+            "telephone_lines",
+        }
 
 
 class SellBuyColangi(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "year_of_construction",
             "room_number",
@@ -235,6 +356,7 @@ class SellBuyColangi(ModelForm):
             "urban_area_number",
             "city",
             "floor_number",
+            "telephone_lines",
             "floors",
             "blocks_per_floor",
             "yard",
@@ -264,17 +386,39 @@ class SellBuyColangi(ModelForm):
             "image3",
             )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "telephone_lines",
+            "price",
+            "price_square",
+        }
+
 
 class RentSuit(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "urban_area_number",
             "city",
-            "address",
             "year_of_construction",
+            "telephone_lines",
             "room_number",
             "house_square",
             "floor_number",
@@ -312,18 +456,40 @@ class RentSuit(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "deposit",
+            "rent",
+            "telephone_lines",
+        }
 
 
 class SellBuySuit(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "urban_area_number",
             "city",
-            "address",
             "year_of_construction",
+            "telephone_lines",
             "room_number",
             "house_square",
             "floor_number",
@@ -362,17 +528,39 @@ class SellBuySuit(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "telephone_lines",
+            "price",
+            "price_square",
+        }
 
 
 class RentVila(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
+            "address",
             "urban_area_number",
             "city",
-            "address",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -413,18 +601,38 @@ class RentVila(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "deposit",
+            "rent",
+        }
 
 
 class SellBuyVila(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
             "urban_area_number",
             "city",
-            "address",
             "year_of_construction",
+            "telephone_lines",
             "room_number",
             "house_square",
             "floors",
@@ -466,16 +674,36 @@ class SellBuyVila(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "price",
+            "price_square",
+        }
+
 
 class RentTejari(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
+            "address",
             "urban_area_number",
             "city",
-            "address",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -518,16 +746,38 @@ class RentTejari(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "deposit",
+            "rent",
+            "telephone_lines",
+        }
+
 
 class SellBuyTejari(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
+            "address",
             "urban_area_number",
             "city",
-            "address",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -571,15 +821,35 @@ class SellBuyTejari(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "floor_number",
+            "telephone_lines",
+            "price",
+            "price_square",
+        }
+
 
 class RentZamin(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
-            "urban_area_number",
-            "city",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "building_status",
             "house_square",
@@ -603,15 +873,33 @@ class RentZamin(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "deposit",
+            "rent",
+        }
+
 
 class SellBuyZamin(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
-            "urban_area_number",
-            "city",
+            "quarter",
+            "street",
+            "plak",
             "address",
             "building_status",
             "house_square",
@@ -637,13 +925,36 @@ class SellBuyZamin(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "quarter",
+            "house_square",
+            "price",
+            "price_square",
+        }
+
 
 class RentBagh(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
+            "address",
+            "eslahi",
+            "fance",
             "urban_area_number",
             "city",
             "address",
@@ -671,14 +982,34 @@ class RentBagh(ModelForm):
             "image2",
             "image3",
         )
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "deposit",
+            "rent",
+        }
 
 
 class SellBuyBagh(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
+            "quarter",
+            "street",
+            "plak",
+            "address",
+            "eslahi",
+            "fance",
             "urban_area_number",
             "city",
             "address",
@@ -707,16 +1038,33 @@ class SellBuyBagh(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "price",
+            "price_square",
+        }
+
 
 class RentAnbar(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
-            "urban_area_number",
-            "city",
+            "quarter",
+            "street",
+            "plak",
             "address",
+            "urban_area_number",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -734,16 +1082,33 @@ class RentAnbar(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "deposit",
+            "rent",
+        }
+
 
 class SellBuyAnbar(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
-            "urban_area_number",
-            "city",
+            "quarter",
+            "street",
+            "plak",
             "address",
+            "urban_area_number",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -761,16 +1126,33 @@ class SellBuyAnbar(ModelForm):
             "image3",
         )
 
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "price",
+            "price_square",
+        }
+
 
 class RentSole(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
-            "urban_area_number",
-            "city",
+            "quarter",
+            "street",
+            "plak",
             "address",
+            "urban_area_number",
             "year_of_construction",
             "house_square",
             "deposit",
@@ -784,21 +1166,38 @@ class RentSole(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "deposit",
+            "rent",
+        }
 
 
 class SellBuySole(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.required:
+            self.fields[field].required = True
+
     class Meta:
         model = Advertisement
         fields = (
+            "landlord_name",
             "title",
             "phone_number",
-            "urban_area_number",
-            "city",
+            "quarter",
+            "street",
+            "plak",
             "address",
+            "urban_area_number",
             "year_of_construction",
             "house_square",
-            "deposit",
-            "rent",
+            "price",
+            "price_square",
             "bill_status",
             "building_status",
             "water",
@@ -808,3 +1207,11 @@ class SellBuySole(ModelForm):
             "image2",
             "image3",
         )
+
+        required = {
+            "landlord_name",
+            "title",
+            "phone_number",
+            "price",
+            "price_square",
+        }
