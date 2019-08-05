@@ -110,6 +110,7 @@ class BuyApartmentListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'0')
+    paginate_by = 12
 
 
 class NewSellApartment(FormView):
@@ -130,6 +131,7 @@ class SellApartmentListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'1')
+    paginate_by = 12
 
 
 class NewRentApartment(FormView):
@@ -150,6 +152,7 @@ class RentApartmentListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'2')
+    paginate_by = 12
 
 
 class NewBuyEdari(FormView):
@@ -170,6 +173,7 @@ class BuyEdariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'3')
+    paginate_by = 12
 
 
 class NewSellEdari(FormView):
@@ -190,6 +194,7 @@ class SellEdariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'4')
+    paginate_by = 12
 
 
 class NewRentEdari(FormView):
@@ -210,6 +215,7 @@ class RentEdariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'5')
+    paginate_by = 12
 
 
 class NewBuyColangi(FormView):
@@ -230,6 +236,7 @@ class BuyColangiListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'6')
+    paginate_by = 12
 
 
 class NewSellColangi(FormView):
@@ -250,6 +257,7 @@ class SellColangiListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'7')
+    paginate_by = 12
 
 
 class NewRentColangi(FormView):
@@ -270,6 +278,7 @@ class RentColangiListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'8')
+    paginate_by = 12
 
 
 class NewBuySuit(FormView):
@@ -290,6 +299,7 @@ class BuySuitListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'9')
+    paginate_by = 12
 
 
 class NewSellSuit(FormView):
@@ -310,6 +320,7 @@ class SellSuitListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'10')
+    paginate_by = 12
 
 
 class NewRentSuit(FormView):
@@ -330,6 +341,7 @@ class RentSuitListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'11')
+    paginate_by = 12
 
 
 class NewBuyVila(FormView):
@@ -350,6 +362,7 @@ class BuyVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'12')
+    paginate_by = 12
 
 
 class NewSellVila(FormView):
@@ -370,6 +383,7 @@ class SellVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'13')
+    paginate_by = 12
 
 
 class NewRentVila(FormView):
@@ -390,6 +404,7 @@ class RentVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'14')
+    paginate_by = 12
 
 
 class NewBuyTejari(FormView):
@@ -410,6 +425,7 @@ class BuyTejariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'15')
+    paginate_by = 12
 
 
 class NewSellTejari(FormView):
@@ -430,6 +446,7 @@ class SellTejariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'16')
+    paginate_by = 12
 
 
 class NewRentTejari(FormView):
@@ -450,6 +467,7 @@ class RentTejariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'17')
+    paginate_by = 12
 
 
 class NewBuyZamin(FormView):
@@ -470,6 +488,7 @@ class BuyZaminListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'18')
+    paginate_by = 12
 
 
 class NewSellZamin(FormView):
@@ -490,6 +509,7 @@ class SellZaminListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'19')
+    paginate_by = 12
 
 
 class NewRentZamin(FormView):
@@ -510,6 +530,7 @@ class RentZaminListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'20')
+    paginate_by = 12
 
 
 class NewBuyBagh(FormView):
@@ -530,6 +551,7 @@ class BuyBaghListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'21')
+    paginate_by = 12
 
 
 class NewSellBagh(FormView):
@@ -550,6 +572,7 @@ class SellBaghListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'22')
+    paginate_by = 12
 
 
 class NewRentBagh(FormView):
@@ -570,6 +593,7 @@ class RentBaghListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'23')
+    paginate_by = 12
 
 
 class NewBuyAnbar(FormView):
@@ -590,6 +614,7 @@ class BuyAnbarListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'24')
+    paginate_by = 12
 
 
 class NewSellAnbar(FormView):
@@ -610,6 +635,7 @@ class SellAnbarListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'25')
+    paginate_by = 12
 
 
 class NewRentAnbar(FormView):
@@ -630,6 +656,7 @@ class RentAnbarListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'26')
+    paginate_by = 12
 
 
 class NewBuySole(FormView):
@@ -650,6 +677,7 @@ class BuySoleListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'27')
+    paginate_by = 12
 
 
 class NewSellSole(FormView):
@@ -670,6 +698,7 @@ class SellSoleListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'28')
+    paginate_by = 12
 
 
 class NewRentSole(FormView):
@@ -690,3 +719,4 @@ class RentSoleListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'29')
+    paginate_by = 12

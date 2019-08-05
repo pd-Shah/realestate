@@ -645,6 +645,13 @@ class Advertisement(models.Model, ):
                         verbose_name="تصویر شماره 3",
                     )
 
+    description = models.CharField(
+        max_length=200,
+        null=True,
+        blank=True,
+        verbose_name="توضیحات",
+    )
+
     def __str__(self):
         return self.title
 

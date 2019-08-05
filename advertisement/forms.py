@@ -19,7 +19,7 @@ class RentApartment(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -70,6 +70,7 @@ class RentApartment(ModelForm):
             "deposit",
             "rent",
             "telephone_lines",
+            "description",
         }
 
 
@@ -89,7 +90,7 @@ class SellBuyApartment(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -139,6 +140,7 @@ class SellBuyApartment(ModelForm):
             "floor_number",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -158,7 +160,7 @@ class RentEdari(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "room_number",
             "house_square",
             "urban_area_number",
@@ -202,6 +204,7 @@ class RentEdari(ModelForm):
             "deposit",
             "rent",
             "telephone_lines",
+            "description",
         }
 
 
@@ -221,7 +224,7 @@ class SellBuyEdari(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "room_number",
             "house_square",
             "urban_area_number",
@@ -264,6 +267,7 @@ class SellBuyEdari(ModelForm):
             "telephone_lines",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -283,7 +287,7 @@ class RentColangi(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -330,6 +334,7 @@ class RentColangi(ModelForm):
             "deposit",
             "rent",
             "telephone_lines",
+            "description",
         }
 
 
@@ -349,7 +354,7 @@ class SellBuyColangi(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -396,6 +401,7 @@ class SellBuyColangi(ModelForm):
             "telephone_lines",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -467,6 +473,7 @@ class RentSuit(ModelForm):
             "deposit",
             "rent",
             "telephone_lines",
+            "description",
         }
 
 
@@ -539,6 +546,7 @@ class SellBuySuit(ModelForm):
             "telephone_lines",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -558,7 +566,7 @@ class RentVila(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "urban_area_number",
             "city",
             "year_of_construction",
@@ -610,6 +618,7 @@ class RentVila(ModelForm):
             "house_square",
             "deposit",
             "rent",
+            "description",
         }
 
 
@@ -682,6 +691,7 @@ class SellBuyVila(ModelForm):
             "house_square",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -701,7 +711,7 @@ class RentTejari(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "urban_area_number",
             "city",
             "year_of_construction",
@@ -756,6 +766,7 @@ class RentTejari(ModelForm):
             "deposit",
             "rent",
             "telephone_lines",
+            "description",
         }
 
 
@@ -775,7 +786,7 @@ class SellBuyTejari(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "urban_area_number",
             "city",
             "year_of_construction",
@@ -831,6 +842,7 @@ class SellBuyTejari(ModelForm):
             "telephone_lines",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -850,7 +862,7 @@ class RentZamin(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "building_status",
             "house_square",
             "yard",
@@ -881,6 +893,7 @@ class RentZamin(ModelForm):
             "house_square",
             "deposit",
             "rent",
+            "description",
         }
 
 
@@ -900,7 +913,7 @@ class SellBuyZamin(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "building_status",
             "house_square",
             "yard",
@@ -933,6 +946,7 @@ class SellBuyZamin(ModelForm):
             "house_square",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -952,12 +966,12 @@ class RentBagh(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "eslahi",
             "fance",
             "urban_area_number",
             "city",
-            "address",
+            "address", "description",
             "house_square",
             "yard",
             "deposit",
@@ -988,6 +1002,7 @@ class RentBagh(ModelForm):
             "phone_number",
             "deposit",
             "rent",
+            "description",
         }
 
 
@@ -1007,12 +1022,12 @@ class SellBuyBagh(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "eslahi",
             "fance",
             "urban_area_number",
             "city",
-            "address",
+            "address", "description",
             "house_square",
             "yard",
             "price",
@@ -1044,6 +1059,7 @@ class SellBuyBagh(ModelForm):
             "phone_number",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -1063,7 +1079,7 @@ class RentAnbar(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "urban_area_number",
             "year_of_construction",
             "room_number",
@@ -1088,6 +1104,7 @@ class RentAnbar(ModelForm):
             "phone_number",
             "deposit",
             "rent",
+            "description",
         }
 
 
@@ -1107,7 +1124,7 @@ class SellBuyAnbar(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "urban_area_number",
             "year_of_construction",
             "room_number",
@@ -1132,6 +1149,7 @@ class SellBuyAnbar(ModelForm):
             "phone_number",
             "price",
             "price_square",
+            "description",
         }
 
 
@@ -1151,7 +1169,7 @@ class RentSole(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "urban_area_number",
             "year_of_construction",
             "house_square",
@@ -1173,6 +1191,7 @@ class RentSole(ModelForm):
             "phone_number",
             "deposit",
             "rent",
+            "description",
         }
 
 
@@ -1192,7 +1211,7 @@ class SellBuySole(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address",
+            "address", "description",
             "urban_area_number",
             "year_of_construction",
             "house_square",
@@ -1214,4 +1233,5 @@ class SellBuySole(ModelForm):
             "phone_number",
             "price",
             "price_square",
+            "description",
         }
