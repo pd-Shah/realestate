@@ -5,7 +5,7 @@
   <div class="card bg">
     <div class="card-body text-center">
       <div class="container">
-        <h1>هاسکی</h1><br>
+        <h1>{{ object.title }}</h1><br>
       </div>
       <div class="container">
         <div class="row">
@@ -20,13 +20,21 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h4>محل</h4><br>
-            <h4>قیمت</h4>
+            <h4>
+              {% if object.rent %}
+              اجاره: {{ object.deposit }}
+              رهن:‌ {{ object.rent }}
+              {% elif object.price %}
+              قیمت کل: {{ object.price }}
+              قیمت هر مترمربع: {{ object.price_square}}
+              {% else %}
+              توافقی
+              {% endif %}
+            </h4>
           </div>
           <hr>
           <div class="col-md-6">
-            <h4>تهران، شهرک گلستان</h4><br>
-            <h4>توافقی</h4>
+            <h4>{{ object.get_city_display }}</h4><br>
             <hr>
           </div>
           <hr>
@@ -36,7 +44,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <p> هاسکی پنج ساله بسیار بازیگوش به فروش می رسد . شرایط نگهداری در یخچال </p>
+          <p> {{ object.description }} </p>
         </div>
       </div>
     </div>
@@ -51,22 +59,22 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            {% if object.image1 %}
-              <img src="{{ MEDIA_URL }}{{ object.image1 }}"  class="d-block w-100" alt="...">
+            {% if objectect.image1 %}
+              <img src="{{ MEDIA_URL }}{{ objectect.image1 }}"  class="d-block w-100" alt="...">
             {% else %}
               <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
             {% endif %}
           </div>
           <div class="carousel-item">
-            {% if object.image2 %}
-              <img src="{{ MEDIA_URL }}{{ object.image2 }}" class="d-block w-100" alt="...">
+            {% if objectect.image2 %}
+              <img src="{{ MEDIA_URL }}{{ objectect.image2 }}" class="d-block w-100" alt="...">
             {% else %}
               <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
             {% endif %}
           </div>
           <div class="carousel-item">
-            {% if object.image3 %}
-              <img src="{{ MEDIA_URL }}{{ object.image3 }}" class="d-block w-100" alt="...">
+            {% if objectect.image3 %}
+              <img src="{{ MEDIA_URL }}{{ objectect.image3 }}" class="d-block w-100" alt="...">
             {% else %}
               <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
             {% endif %}

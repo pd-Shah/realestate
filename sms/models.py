@@ -1,4 +1,3 @@
-from random import randint
 from django.db import models
 from django.core.validators import RegexValidator
 
@@ -16,9 +15,7 @@ class Phone(models.Model):
         max_length=17,
         verbose_name='موبایل',
     )
-    code = models.PositiveIntegerField(
-        default=randint(10000, 99999),
-    )
+    code = models.PositiveIntegerField()
 
     def __str__(self, ):
         return str(self.phone_number)

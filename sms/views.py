@@ -7,6 +7,7 @@ from .forms import (
     InputCodeForm,
 )
 from .models import Phone
+from random import randint
 
 
 class SendSMS(FormView):
@@ -19,6 +20,7 @@ class SendSMS(FormView):
             phone = Phone.objects.get(phone_number=number)
         except Exception:
             phone = Phone(phone_number=number)
+            phone.code = randint(10000, 99999)
             phone.save()
         try:
             api = KavenegarAPI('526D6956397A6B786F30464C38724E302F5A67646E6156322F677A7037633573447349373955426C5473343D')
