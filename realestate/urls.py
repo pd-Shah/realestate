@@ -12,6 +12,7 @@ urlpatterns = [
     path('', include('advertisement.urls', namespace='advertisement')),
     path('sms/', include('sms.urls', namespace='sms')),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('consultant/', include('consultant.urls', namespace='consultant', )),
     ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

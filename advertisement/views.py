@@ -720,3 +720,7 @@ class RentSoleListView(ListView):
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'29')
     paginate_by = 12
+
+
+class TutorialTemplateView(TemplateView):
+    template_name = "advertisement/tutorial.html"

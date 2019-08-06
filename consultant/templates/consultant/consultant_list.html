@@ -1,0 +1,82 @@
+{% extends 'base_generic.html' %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'consultant/vendors/linericon/style.css' %}">
+<link rel="stylesheet" href="{% static 'consultant/css/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'consultant/vendors/owl-carousel/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'consultant/vendors/fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'consultant/vendors/owl-carousel/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'consultant/css/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'consultant/vendors/nice-select/css/nice-select.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<section class="banner_area" >
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content text-center">
+                <h2>مشاورین</h2>
+                <div class="page_link">
+                    <!-- <a href="index.html">خانه</a> -->
+                    <!-- <a href="portfolio-details.html">Porfolio Single</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">
+            <a href="{% url 'consultant:consultant_detail' %}">
+              پدرام شاه صفی
+            </a>
+          </h5>
+          <div class="card-text text-black-50">مشاور</div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 2 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">سارا رجب زاده</h5>
+          <div class="card-text text-black-50">مشاور ارشد</div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 3 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">حسین حسینی</h5>
+          <div class="card-text text-black-50">مشاور</div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 4 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">علی علیپور</h5>
+          <div class="card-text text-black-50">مشاور</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+</div>
+{% endblock %}

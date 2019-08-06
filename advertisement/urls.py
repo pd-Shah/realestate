@@ -69,6 +69,7 @@ from .views import (
     SellSoleListView,
     SearchResultsView,
     RulePageView,
+    TutorialTemplateView,
 )
 
 app_name = 'advertisement'
@@ -417,5 +418,10 @@ urlpatterns = [
         'rent-sole/',
         RentSoleListView.as_view(),
         name='rent_sole_list_view'
+    ),
+    path(
+        'tutorial/',
+        TutorialTemplateView.as_view(),
+        name='tutorial'
     ),
 ]

@@ -59,10 +59,10 @@
             <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">اخبار</a>
+            <a class="nav-link" href="{% url 'blog:blog_list_view'%}" tabindex="-1" aria-disabled="true">اخبار</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">آموزش</a>
+            <a class="nav-link" href="{% url 'advertisement:tutorial' %}" tabindex="-1" aria-disabled="true">آموزش</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:rule_page'%}" tabindex="-1" aria-disabled="true">قوانین سایت</a>
@@ -101,13 +101,13 @@
             <a class="nav-link" href="#">سرمایه گذار</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
+            <a class="nav-link" href="{% url 'consultant:consultant_list' %}" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:blog_list_view'%}" tabindex="-2" aria-disabled="true">اخبار</a>
+            <a class="nav-link" href="{% url 'blog:blog_list_view' %}" tabindex="-2" aria-disabled="true">اخبار</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-3" aria-disabled="true">آموزش</a>
+            <a class="nav-link" href="{% url 'advertisement:tutorial' %}" tabindex="-3" aria-disabled="true">آموزش</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:rule_page' %}" tabindex="-4" aria-disabled="true">قوانین سایت</a>
@@ -157,6 +157,8 @@
   <script src="{% static 'advertisement/js/bootstrap.min.js' %}">
   </script>
   <script src="{% static 'advertisement/js/script.js' %}"></script>
+  {% block bottom %}
+  {% endblock %}
 </body>
 
 </html>
