@@ -1,10 +1,22 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from .models import (
     URBANAREANUMBER,
     CITY,
 )
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = UsernameField(
+        label='نام کاربری',
+        widget=forms.TextInput(attrs={'autofocus': True})
+    )
+    password = forms.CharField(
+        label="کلمه عبور",
+        widget=forms.PasswordInput,
+    )
 
 
 class SingUpForm(UserCreationForm):

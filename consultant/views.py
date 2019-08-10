@@ -11,8 +11,9 @@ from django.shortcuts import (
     render,
     redirect,
 )
+from django.contrib.auth.views import LoginView
 from .models import Consultant
-from .forms import SingUpForm
+from .forms import SingUpForm, CustomAuthenticationForm
 
 
 class ConsultantListView(ListView):
@@ -49,3 +50,7 @@ def signup(request):
     else:
         form = SingUpForm()
     return render(request, 'consultant/signup.html', {'form': form})
+
+
+class ConsultantLoginView(LoginView):
+    authentication_form = CustomAuthenticationForm

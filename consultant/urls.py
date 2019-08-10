@@ -3,6 +3,7 @@ from .views import (
     ConsultantListView,
     ConsultantDetailView,
     signup,
+    ConsultantLoginView,
 )
 
 app_name = "consultant"
@@ -19,5 +20,6 @@ urlpatterns = [
         name='consultant_detail',
     ),
     path('signup/', signup, name='signup', ),
+    path('login/', ConsultantLoginView.as_view(), name='login'),
 
 ]

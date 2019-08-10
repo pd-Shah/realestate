@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load crispy_forms_tags %}
-  <h2>Sign up</h2>
+  <h2>فرم ثبت نام مشاورین</h2>
   <form method="post" enctype='multipart/form-data'>
     {% csrf_token %}
     {{ form|crispy }}
