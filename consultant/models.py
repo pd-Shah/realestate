@@ -3,6 +3,9 @@ import os
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 CATEGORY = [
     (u'0', u'House'),
@@ -73,13 +76,17 @@ class Consultant(models.Model):
     address = models.CharField(max_length=300)
     city = models.CharField(max_length=1, choices=CITY)
     popularity = models.CharField(max_length=1, choices=POPULARITY)
-    commission_rate = models.IntegerField()
+    commission_rate = models.IntegerField(
+                blank=True,
+                null=True,
+    )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     phone_number = models.CharField(
         validators=[phone_regex],
         max_length=17,
         blank=True,
+        null=True,
         unique=True,
     )
     image = models.ImageField(
@@ -90,3 +97,10 @@ class Consultant(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Consultant.objects.create(user=instance)
+    instance.consultant.save()
