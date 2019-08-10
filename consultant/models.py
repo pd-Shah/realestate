@@ -71,28 +71,55 @@ def get_image_path(instance, filename):
 
 class Consultant(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    special = models.BooleanField(default=False)
-    urban_area_number = models.CharField(max_length=2, choices=URBANAREANUMBER)
-    address = models.CharField(max_length=300)
-    city = models.CharField(max_length=1, choices=CITY)
-    popularity = models.CharField(max_length=1, choices=POPULARITY)
+    special = models.BooleanField(
+        default=False,
+        verbose_name='کاربر ویژه',
+        )
+    urban_area_number = models.CharField(
+        max_length=2,
+        choices=URBANAREANUMBER,
+        verbose_name='شماره منطقه',
+        )
+    address = models.CharField(
+        max_length=300,
+        verbose_name="ادرس",
+        )
+    city = models.CharField(
+        max_length=1,
+        choices=CITY,
+        verbose_name="شهر",
+        )
+    popularity = models.CharField(
+        max_length=1,
+        choices=POPULARITY,
+        verbose_name="محبوبیت",
+        )
     commission_rate = models.IntegerField(
                 blank=True,
                 null=True,
+                verbose_name="نرخ کمیسیون",
     )
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="تاریخ ساخت اکانت",
+        )
+    updated = models.DateTimeField(
+        auto_now=True,
+        verbose_name="اخرین به روز رسانی",
+        )
     phone_number = models.CharField(
         validators=[phone_regex],
         max_length=17,
         blank=True,
         null=True,
         unique=True,
+        verbose_name="شماره تلفن",
     )
     image = models.ImageField(
                         upload_to=get_image_path,
                         blank=True,
                         null=True,
+                        verbose_name="تصویر",
                     )
 
     def __str__(self):

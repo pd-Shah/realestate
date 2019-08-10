@@ -8,21 +8,36 @@ from .models import (
 
 
 class SingUpForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].label = "نام کاربری"
+        self.fields['email'].label = "ایمیل"
+        self.fields['first_name'].label = "نام"
+        self.fields['last_name'].label = "نام خانوادگی"
+        self.fields['password1'].label = "پسورد"
+        self.fields['password2'].label = "تکرار پسورد"
+
     urban_area_number = forms.ChoiceField(
         choices=URBANAREANUMBER,
         widget=forms.Select(),
+        label="شماره منطقه",
         )
     address = forms.CharField(
         widget=forms.Textarea(),
+        label="ادرس",
         )
     city = forms.ChoiceField(
         choices=CITY,
         widget=forms.Select(),
+        label="شهر",
     )
     phone_number = forms.CharField(
         max_length=17,
+        label="شماره تلفن",
         )
-    image = forms.ImageField()
+    image = forms.ImageField(
+        label="تصویر",
+    )
 
     class Meta:
         model = User
