@@ -742,5 +742,25 @@ class MarkedAdView(TemplateView):
     template_name = 'advertisement/marked_ad.html'
 
 
-class SimilarAdView(TemplateView):
+class SimilarAdView(ListView):
+    model = Advertisement
     template_name = 'advertisement/simillar_ad.html'
+
+    def get_queryset(self):
+        phone = self.request.session.get('phone')
+        if phone:
+            queries = Advertisement.objects.filter(phone_number=phone).first()
+            if queries.city and queries.title:
+                object_list = Advertisement.objects.filter(
+                    Q(title__icontains=queries.title) |
+                    Q(city__icontains=queries.city)
+                )
+            elif queries.city:
+                object_list = Advertisement.objects.filter(
+                    Q(city__icontains=queries.city)
+                )
+            elif queries.title:
+                object_list = Advertisement.objects.filter(
+                    Q(title__icontains=queries.title) 
+                )
+            return object_list
