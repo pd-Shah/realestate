@@ -749,18 +749,7 @@ class SimilarAdView(ListView):
     def get_queryset(self):
         phone = self.request.session.get('phone')
         if phone:
-            queries = Advertisement.objects.filter(phone_number=phone).first()
-            if queries.city and queries.title:
-                object_list = Advertisement.objects.filter(
-                    Q(title__icontains=queries.title) |
-                    Q(city__icontains=queries.city)
+            queries = Advertisement.objects.filter(phone_number=phone)
+            return Advertisement.objects.filter(
+                title__in=[query.title for query in queries]
                 )
-            elif queries.city:
-                object_list = Advertisement.objects.filter(
-                    Q(city__icontains=queries.city)
-                )
-            elif queries.title:
-                object_list = Advertisement.objects.filter(
-                    Q(title__icontains=queries.title) 
-                )
-            return object_list
