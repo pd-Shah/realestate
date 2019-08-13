@@ -1,102 +1,38 @@
 {% extends 'advertisement/mypages_header.html' %}
 {% block ads %}
+{% load static %}
 <hr class="my-4">
 <div class="content-box">
+  {% for ad in posts %}
   <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card-box">
       <div class="flex-card">
         <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
+          <h5 class="card-title-image">
+            <a href="{{ ad.get_absolute_url }}">
+              {{ ad.get_category_display }}
+            </a>
+          </h5>
+          <p class="card-text-image">{{ ad.title }}</p>
         </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
+        {% if ad.image1 %}
+          <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
+        {% else %}
+          <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
+        {% endif %}
       </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
+      <a href="#" class="btn full-width btn-price btn-box">
+        {% if ad.price %}
+        تومان:{{ ad.price }}
+        {% elif ad.rent %}
+        اجاره:{{ ad.rent }}
+        رهن:{{ ad.deposit }}
+        {% else %}
+        توافقی
+        {% endif %}
+      </a>
     </div>
   </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card-box">
-      <div class="flex-card">
-        <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
-        </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
-      </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card-box">
-      <div class="flex-card">
-        <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
-        </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
-      </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card-box">
-      <div class="flex-card">
-        <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
-        </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
-      </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card-box">
-      <div class="flex-card">
-        <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
-        </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
-      </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card-box">
-      <div class="flex-card">
-        <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
-        </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
-      </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card-box">
-      <div class="flex-card">
-        <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
-        </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
-      </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card-box">
-      <div class="flex-card">
-        <div class="card-body-image">
-          <h5 class="card-title-image">ویلا فیروزکوه دشت کلفور ۳۷۰۰ متر</h5>
-          <p class="card-text-image">ولنجک</p>
-        </div>
-        <img src="../assets/images/build.jpeg" class="card-img" alt="...">
-      </div>
-      <a href="#" class="full-width btn-price btn-box">قیمت: ۲۰۰۰ تومان</a>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 {% endblock %}

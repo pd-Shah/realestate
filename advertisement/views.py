@@ -729,6 +729,14 @@ class TutorialTemplateView(TemplateView):
 class MyAdView(TemplateView):
     template_name = 'advertisement/myads.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.session.get('phone'):
+            context['posts'] = Advertisement.objects.filter(
+                phone_number=self.request.session.get('phone')
+            )
+        return context
+
 
 class MarkedAdView(TemplateView):
     template_name = 'advertisement/marked_ad.html'
