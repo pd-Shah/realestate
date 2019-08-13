@@ -123,10 +123,16 @@ class Consultant(models.Model):
         verbose_name="شماره تلفن",
     )
     about_me = models.CharField(
-        max_length = 500,
+        max_length=100,
         blank=True,
         null=True,
         verbose_name="معرفی",
+    )
+    long_description = models.CharField(
+        max_length=1000,
+        blank=True,
+        null=True,
+        verbose_name="معرفی جامع",
     )
     image = models.ImageField(
                         upload_to=get_image_path,

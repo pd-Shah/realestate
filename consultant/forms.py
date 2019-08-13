@@ -33,8 +33,12 @@ class SingUpForm(UserCreationForm):
         max_length=100,
         label="تخصص",)
     about_me = forms.CharField(
-        max_length=500,
-        label="معرفی خود",
+        max_length=100,
+        label="معرفی مختصر",
+    )
+    long_description = forms.CharField(
+        max_length=1000,
+        label="معرفی جامع",
         widget=forms.Textarea(),
     )
     urban_area_number = forms.ChoiceField(
