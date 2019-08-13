@@ -11,7 +11,7 @@ def set_phone_ad_view(request, advertisement_id):
     return redirect("/sms/")
 
 
-def remoev_phone_ad_view(request, advertisement_id):
+def remove_phone_ad_view(request, advertisement_id):
     phone = request.session.get('phone')
     if phone:
         FavoriteAd.remove_phone_add(phone, advertisement_id, )
