@@ -29,6 +29,14 @@ class SingUpForm(UserCreationForm):
         self.fields['password1'].label = "پسورد"
         self.fields['password2'].label = "تکرار پسورد"
 
+    skill = forms.CharField(
+        max_length=100,
+        label="تخصص",)
+    about_me = forms.CharField(
+        max_length=500,
+        label="معرفی خود",
+        widget=forms.Textarea(),
+    )
     urban_area_number = forms.ChoiceField(
         choices=URBANAREANUMBER,
         widget=forms.Select(),
@@ -60,6 +68,8 @@ class SingUpForm(UserCreationForm):
             "last_name",
             'password1',
             'password2',
+            "skill",
+            "about_me",
             "urban_area_number",
             "address",
             "city",

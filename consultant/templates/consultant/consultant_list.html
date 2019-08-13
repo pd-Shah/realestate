@@ -47,49 +47,21 @@
 <div class="container">
   <div class="row">
     <!-- Team Member 1 -->
+    {% for object in object_list %}
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
+        <img src="{{ MEDIA_URL }}{{ object.image }}" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">
-            <a href="{% url 'consultant:consultant_detail' %}">
-              پدرام شاه صفی
+            <a href="{% url 'consultant:consultant_detail' object.id %}">
+              {{ object.user.first_name }}
             </a>
           </h5>
-          <div class="card-text text-black-50">مشاور</div>
+          <div class="card-text text-black-50"> {{ object.skill }}</div>
         </div>
       </div>
     </div>
-    <!-- Team Member 2 -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
-        <div class="card-body text-center">
-          <h5 class="card-title mb-0">سارا رجب زاده</h5>
-          <div class="card-text text-black-50">مشاور ارشد</div>
-        </div>
-      </div>
-    </div>
-    <!-- Team Member 3 -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
-        <div class="card-body text-center">
-          <h5 class="card-title mb-0">حسین حسینی</h5>
-          <div class="card-text text-black-50">مشاور</div>
-        </div>
-      </div>
-    </div>
-    <!-- Team Member 4 -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
-        <div class="card-body text-center">
-          <h5 class="card-title mb-0">علی علیپور</h5>
-          <div class="card-text text-black-50">مشاور</div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
   <!-- /.row -->
 

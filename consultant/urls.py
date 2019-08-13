@@ -15,7 +15,7 @@ urlpatterns = [
         name='consultant_list'
     ),
     path(
-        'updateme/',
+        'consultant-list/<int:pk>/',
         ConsultantDetailView.as_view(),
         name='consultant_detail',
     ),

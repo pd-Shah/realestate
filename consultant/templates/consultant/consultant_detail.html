@@ -44,17 +44,21 @@
 						</div>
 						<div class="col-lg-5">
 							<div class="portfolio_right_text mt-30" dir="rtl">
-								<h4 class="text-uppercase">مشخصات مشاور</h4>
+								<h4 class="text-uppercase">
+									{{ object.user.first_name }} {{ object.user.last_name }}
+								</h4>
 								<p>
-									لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-									کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می
-									توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+									{{ object.about_me }}
 								</p>
 								<ul class="list" dir="rtl">
-									<li><span>امتیاز</span>: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
+									<li><span>امتیاز</span>
+										{% for i in range %}
+											<i class="fa fa-star"></i>
+										{% endfor %}
+									</li>
 									<!-- <li><span>Client</span>: colorlib</li> -->
-									<li><span>وب سایت شخصی</span>: colorlib.com</li>
-									<li><span>تاریخ عضویت</span>: 17 Aug 2018</li>
+									<li><span> ایمیل </span> {{ object.username.email}}</li>
+									<li><span> نام کاربری</span> {{ object.user.username }}</li>
 								</ul>
 							</div>
 						</div>

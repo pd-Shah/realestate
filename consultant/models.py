@@ -51,11 +51,11 @@ POWER = [
 ]
 
 POPULARITY = [
-    (u"0", u"0"),
     (u"1", u"1"),
     (u"2", u"2"),
     (u"3", u"3"),
     (u"4", u"4"),
+    (u"5", u"5"),
 ]
 
 phone_regex = RegexValidator(
@@ -75,6 +75,12 @@ class Consultant(models.Model):
         default=False,
         verbose_name='کاربر ویژه',
         )
+    skill = models.CharField(
+        max_length=100,
+        verbose_name = "تخصص",
+        blank=True,
+        null=True,
+    )
     urban_area_number = models.CharField(
         max_length=2,
         choices=URBANAREANUMBER,
@@ -93,6 +99,7 @@ class Consultant(models.Model):
         max_length=1,
         choices=POPULARITY,
         verbose_name="محبوبیت",
+        default=u"5",
         )
     commission_rate = models.IntegerField(
                 blank=True,
@@ -114,6 +121,12 @@ class Consultant(models.Model):
         null=True,
         unique=True,
         verbose_name="شماره تلفن",
+    )
+    about_me = models.CharField(
+        max_length = 500,
+        blank=True,
+        null=True,
+        verbose_name="معرفی",
     )
     image = models.ImageField(
                         upload_to=get_image_path,
