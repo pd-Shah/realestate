@@ -724,3 +724,15 @@ class RentSoleListView(ListView):
 
 class TutorialTemplateView(TemplateView):
     template_name = "advertisement/tutorial.html"
+
+
+class MyAdView(TemplateView):
+    template_name = 'advertisement/myads.html'
+
+
+class MarkedAdView(TemplateView):
+    template_name = 'advertisement/marked_ad.html'
+
+
+class SimilarAdView(TemplateView):
+    template_name = 'advertisement/simillar_ad.html'

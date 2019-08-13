@@ -70,6 +70,9 @@ from .views import (
     SearchResultsView,
     RulePageView,
     TutorialTemplateView,
+    MyAdView,
+    MarkedAdView,
+    SimilarAdView,
 )
 
 app_name = 'advertisement'
@@ -423,5 +426,20 @@ urlpatterns = [
         'tutorial/',
         TutorialTemplateView.as_view(),
         name='tutorial'
+    ),
+    path(
+        'my-ads/',
+        MyAdView.as_view(),
+        name='my_ads'
+    ),
+    path(
+        'marked-ads/',
+        MarkedAdView.as_view(),
+        name='marked_ads'
+    ),
+    path(
+        'similar-ads/',
+        SimilarAdView.as_view(),
+        name='similar_ads'
     ),
 ]

@@ -1,0 +1,31 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="jumbotron" style="background-color:white;">
+  <nav class="navbar mr-auto">
+    <div class="container-fluid">
+      <!-- <div class="navbar-header" style="margin:auto; color:black;"> -->
+      <ul style="margin:auto; list-style-type: none;" onMouseOver="this.style.color='red';">
+        <li class="nav-item">
+          <a class="nav" href="{% url 'advertisement:my_ads' %}" tabindex="1" aria-disabled="true" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'">آگهی های
+            من</a>
+        </li>
+      </ul>
+      <ul style="margin:auto; list-style-type: none;">
+        <li class="nav-item">
+          <a class="nav" href="{% url 'advertisement:marked_ads' %}" tabindex="1" aria-disabled="true" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'">آگهی های
+            نشان شده</a>
+        </li>
+      </ul>
+      <ul style="margin:auto; list-style-type: none;">
+        <li class="nav-item">
+          <a class="nav" href="{% url 'advertisement:similar_ads' %}" tabindex="1" aria-disabled="true" style="color:orange;">آگهی های مشابه
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+{% block ads %}
+{% endblock %}
+{% endblock %}

@@ -42,12 +42,13 @@ class SendSMS(FormView):
 class CheckCode(FormView):
     template_name = 'sms/code_input.html'
     form_class = InputCodeForm
-    success_url = reverse_lazy('advertisement:advertisement_list')
+    success_url = reverse_lazy('advertisement:my_ads')
 
     def form_valid(self, form):
         number = form.cleaned_data['phone_number']
         phone = Phone.objects.get(phone_number=number)
         if int(form.cleaned_data['code']) == int(phone.code):
+            self.request.session['phone'] = number
             return super().form_valid(form)
         else:
             return redirect('/sms/check-code')
