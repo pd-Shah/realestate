@@ -8,12 +8,12 @@ app_name = "customer"
 
 urlpatterns = [
     path(
-        'fav/<int:advertisement_id>/',
+        'fav/',
         set_fav_view,
         name='set_favourite'
     ),
     path(
-        'unfav/<int:advertisement_id>/',
+        'unfav/',
         set_unfav_view,
         name='set_unfavourite'
     ),

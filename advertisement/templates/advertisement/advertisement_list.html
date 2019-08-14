@@ -63,13 +63,19 @@
 {% endblock%}
 
 {% block bottom %}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script>
   $(".far.fa-star").click(function() {
-    alert($(this).attr("value"));
-  });
+    var username = $(this).attr("value")
+    $.ajax({
+        type: 'GET',
+        url: '/customer/fav/',
+        data: { "get_param": 'value' },
+        success: function (data) {
+            alert("done")
+        }
+    });
 
-  $(".fas.fa-star").click(function() {
-    alert('make me UNfavorite');
   });
 </script>
 {% endblock %}
