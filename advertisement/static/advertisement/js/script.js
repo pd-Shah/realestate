@@ -1,7 +1,7 @@
     function openNav() {
       document.getElementById("mySidepanel").style.width = "250px";
     }
-  
+
   function closeNav() {
       document.getElementById("mySidepanel").style.width = "0";
     }
@@ -90,3 +90,8 @@ function contactMap() {
   p.onload = a;
   c.body.appendChild(p);
 })(document, 'script', 'https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.js', contactMap);
+
+function getclick()
+{
+    this.style.background-color: #EFF2F7;
+}

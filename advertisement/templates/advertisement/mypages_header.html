@@ -1,31 +1,26 @@
 {% extends 'base_generic.html' %}
 
+<a class="navbar-brand" style="color:black;" href="{% url 'advertisement:my_ads' %}" onMouseOver="this.style.color='orange'"  onMouseOut="this.style.color='black'">آگهی های من </a>
 {% block content %}
 <div class="jumbotron" style="background-color:white;">
-  <nav class="navbar mr-auto">
+  <!-- <p class="lead">اگر پیشنهاد یا انتقادی دارید یا می‌خواهید ما را از وجود مشکلی در سیستم آگاه کنید، با دیوار صحبت کنید. برای اینکار می‌توانید از صفحه‌ی پشتیبانی و قوانین دیوار استفاده کنید.
+    امتحان کنید، یاد بگیرید و بهتر شوید. به ما بپیوندید.</p> -->
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <!-- <div class="navbar-header" style="margin:auto; color:black;"> -->
-      <ul style="margin:auto; list-style-type: none;" onMouseOver="this.style.color='red';">
-        <li class="nav-item">
-          <a class="nav" href="{% url 'advertisement:my_ads' %}" tabindex="1" aria-disabled="true" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'">آگهی های
-            من</a>
-        </li>
-      </ul>
-      <ul style="margin:auto; list-style-type: none;">
-        <li class="nav-item">
-          <a class="nav" href="{% url 'advertisement:marked_ads' %}" tabindex="1" aria-disabled="true" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'">آگهی های
-            نشان شده</a>
-        </li>
-      </ul>
-      <ul style="margin:auto; list-style-type: none;">
-        <li class="nav-item">
-          <a class="nav" href="{% url 'advertisement:similar_ads' %}" tabindex="1" aria-disabled="true" style="color:orange;">آگهی های مشابه
-          </a>
-        </li>
-      </ul>
+      <div class="navbar-header" style="margin:auto; color:black;">
+        <a class="navbar-brand" id="myad" style="color:black;" href="{% url 'advertisement:my_ads' %}" >آگهی های من </a>
+        <a class="navbar-brand" style=" color:black;" href="{% url 'advertisement:marked_ads' %}">آگهی های نشان شده </a>
+        <a class="navbar-brand"  style="color:black;" href="{% url 'advertisement:similar_ads' %}" >آگهی های مشابه</a>
+      </div>
     </div>
   </nav>
-</div>
+  <hr class="my-4">
+  <script>
+  $('.navbar-brand').click(function(){
+    $(this).toggleClass('navbar-header');
+  });
+  </script>
+
 {% block ads %}
 {% endblock %}
 {% endblock %}

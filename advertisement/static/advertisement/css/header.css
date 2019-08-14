@@ -158,3 +158,10 @@
     font-size: 12px;
   }
 }
+a:hover{
+
+  border-bottom: 1px solid #f26a38;
+}
+a .navbar-brand{
+  background-color: yellow;
+}
