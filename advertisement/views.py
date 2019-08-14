@@ -7,6 +7,7 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from django.db.models import Q
 from . models import Advertisement
+from customer.models import CustomerProfile
 from . forms import (
     RentApartment,
     SellBuyApartment,
@@ -40,6 +41,14 @@ class AdvertisementListView(ListView):
         object_list = Advertisement.objects.filter(
             published=True).order_by('-created')
         return object_list
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.session.get('phone'):
+            context['customer'] = CustomerProfile.objects.filter(
+                phone_number=self.request.session.get('phone')
+            ).first()
+        return context
 
 
 class SearchResultsView(ListView):

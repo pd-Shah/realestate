@@ -2,31 +2,29 @@ from django.db import models
 from advertisement.models import Advertisement
 
 
-class FavoriteAd():
-    class Meta:
-        unique_together = ('phone_number', 'advertisement_id', )
-
+class CustomerProfile(models.Model):
     phone_number = models.CharField(
         max_length=17,
         verbose_name="شماره تلفن",
     )
-    advertisement_id = models.ForeignKey(
+    favorites = models.ManyToManyField(
         Advertisement,
-        on_delete=models.CASCADE,
-        verbose_name="شماره اگهی",
     )
 
     @staticmethod
-    def set_phone_ad(phone_number, advertisement_id):
-        favorite = FavoriteAd.objects.Create(
-            phone_number=phone_number,
-            advertisement_id=advertisement_id,
+    def set_fav(phone_number, ad_id):
+        ad = Advertisement.objects.get(pk=ad_id)
+        customer = CustomerProfile.object.get(phone_number=phone_number)
+        if customer is None:
+            customer = CustomerProfile.objects.create(
+                phone_number=phone_number,
             )
-        favorite.save()
+            customer.save()
+        customer.favorites.add(ad)
 
     @staticmethod
-    def remove_phone_add(phone_number, advertisement_id):
-        FavoriteAd.objects.filter(
-            phone_number=phone_number,
-            advertisement_id=advertisement_id
-        ).first().delete()
+    def set_unfav(phone_number, ad_id):
+        ad = Advertisement.objects.get(pk=ad_id)
+        customer = CustomerProfile.object.get(phone_number=phone_number)
+        if customer:
+            customer.favorites.remove(ad)
