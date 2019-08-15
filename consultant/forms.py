@@ -29,18 +29,20 @@ class SingUpForm(UserCreationForm):
         self.fields['password1'].label = "پسورد"
         self.fields['password2'].label = "تکرار پسورد"
 
-    skill = forms.CharField(
-        max_length=100,
-        label="تخصص",)
-    about_me = forms.CharField(
-        max_length=100,
-        label="معرفی مختصر",
-    )
-    long_description = forms.CharField(
-        max_length=1000,
-        label="معرفی جامع",
-        widget=forms.Textarea(),
-    )
+        for key in self.fields:
+            self.fields[key].required = True
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            "email",
+            "first_name",
+            "last_name",
+            'password1',
+            'password2',
+
+        )
     urban_area_number = forms.ChoiceField(
         choices=URBANAREANUMBER,
         widget=forms.Select(),
@@ -59,24 +61,18 @@ class SingUpForm(UserCreationForm):
         max_length=17,
         label="شماره تلفن",
         )
+    skill = forms.CharField(
+        max_length=100,
+        label="تخصص",)
+    about_me = forms.CharField(
+        max_length=100,
+        label="معرفی مختصر",
+    )
+    long_description = forms.CharField(
+        max_length=1000,
+        label="معرفی جامع",
+        widget=forms.Textarea(),
+    )
     image = forms.ImageField(
         label="تصویر",
     )
-
-    class Meta:
-        model = User
-        fields = (
-            'username',
-            "email",
-            "first_name",
-            "last_name",
-            'password1',
-            'password2',
-            "skill",
-            "about_me",
-            "urban_area_number",
-            "address",
-            "city",
-            "phone_number",
-            "image",
-        )
