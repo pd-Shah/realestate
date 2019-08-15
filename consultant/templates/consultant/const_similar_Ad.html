@@ -1,4 +1,4 @@
-{% extends 'advertisement/mypages_header.html' %}
+{% extends 'consultant/mypage_header.html' %}
 {% block ads %}
 {% load static %}
 <div class="content-box">
@@ -17,7 +17,7 @@
         {% if ad.image1 %}
           <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
         {% else %}
-          <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
+          <img src="{% static 'consultant/images/image_default.gif' %}" class="card-img" alt="...">
         {% endif %}
       </div>
       <a href="#" class="btn full-width btn-price btn-box">

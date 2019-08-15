@@ -4,6 +4,9 @@ from .views import (
     ConsultantDetailView,
     signup,
     ConsultantLoginView,
+    ConsultantAdsView,
+    ConsultantSimillarAdsView,
+    ConsultantMarkedAdsView,
 )
 
 app_name = "consultant"
@@ -21,5 +24,7 @@ urlpatterns = [
     ),
     path('signup/', signup, name='signup', ),
     path('login/', ConsultantLoginView.as_view(), name='login'),
-
+    path('my-ads/', ConsultantAdsView.as_view(), name="my_ads"),
+    path('simillar-ads/', ConsultantSimillarAdsView.as_view(), name="simillar_ads"),
+    path('marked-ads/', ConsultantMarkedAdsView.as_view(), name="marked_ads"),
 ]

@@ -101,7 +101,7 @@ class MyPageView(TemplateView):
     def get(self, request):
         if request.session.get('phone'):
              return redirect(reverse('advertisement:my_ads'))
-        return super(MyTemplateView, self).get(request)
+        return super(MyPageView, self).get(request)
 
 
 class RulePageView(TemplateView):

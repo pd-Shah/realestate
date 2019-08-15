@@ -13,7 +13,9 @@ from django.shortcuts import (
 )
 from django.contrib.auth.views import LoginView
 from .models import Consultant
+from advertisement.models import Advertisement
 from .forms import SingUpForm, CustomAuthenticationForm
+from django.urls import reverse_lazy
 
 
 class ConsultantListView(ListView):
@@ -59,3 +61,36 @@ def signup(request):
 
 class ConsultantLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
+    template_name = "consultant/login.html"
+    success_url = reverse_lazy('consultant:my_ads')
+
+
+class ConsultantAdsView(TemplateView):
+    template_name = "consultant/const_my_add.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            username_id = self.request.user.id
+            context["posts"] = Advertisement.objects.filter(
+                                    owner__id=username_id,
+                                    )
+        return context
+
+
+class ConsultantSimillarAdsView(TemplateView):
+    template_name = "consultant/const_similar_Ad.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            username_id = self.request.user.id
+            queries = Advertisement.objects.filter(owner__id=username_id, )
+            context["posts"] = Advertisement.objects.filter(
+                title__in=[query.title for query in queries]
+                )
+        return context
+        
+
+class ConsultantMarkedAdsView(TemplateView):
+    template_name = "consultant/conts_marked_ad.html"
