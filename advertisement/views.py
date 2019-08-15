@@ -8,6 +8,8 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 from . models import Advertisement
 from customer.models import CustomerProfile
+from django.shortcuts import redirect
+from django.urls import reverse
 from . forms import (
     RentApartment,
     SellBuyApartment,
@@ -95,6 +97,11 @@ class ContactUsView(TemplateView):
 
 class MyPageView(TemplateView):
     template_name = 'advertisement/mypage.html'
+
+    def get(self, request):
+        if request.session.get('phone'):
+             return redirect(reverse('advertisement:my_ads'))
+        return super(MyTemplateView, self).get(request)
 
 
 class RulePageView(TemplateView):
@@ -742,7 +749,7 @@ class MyAdView(TemplateView):
         context = super().get_context_data(**kwargs)
         if self.request.session.get('phone'):
             context['posts'] = Advertisement.objects.filter(
-                phone_number=self.request.session.get('phone')
+            phone_number=self.request.session.get('phone')
             )
         return context
 
