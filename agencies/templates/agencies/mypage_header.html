@@ -1,6 +1,6 @@
 {% extends 'base_generic.html' %}
 
-<a class="navbar-brand" style="color:black;" href="{% url 'consultant:my_ads' %}" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'">آگهی های من </a>
+<a class="navbar-brand" style="color:black;" href="{% url 'agencies:my_ads' %}" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'">آگهی های من </a>
 {% block content %}
 <div class="jumbotron" style="background-color:white;">
   <!-- <p class="lead">اگر پیشنهاد یا انتقادی دارید یا می‌خواهید ما را از وجود مشکلی در سیستم آگاه کنید، با دیوار صحبت کنید. برای اینکار می‌توانید از صفحه‌ی پشتیبانی و قوانین دیوار استفاده کنید.
@@ -8,9 +8,9 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header" style="margin:auto; color:black;">
-        <a class="navbar-brand" id="myad" style="color:black;" href="{% url 'consultant:my_ads' %}">آگهی های من </a>
-        <a class="navbar-brand" style=" color:black;" href="{% url 'consultant:marked_ads' %}">آگهی های نشان شده </a>
-        <a class="navbar-brand" style="color:black;" href="{% url 'consultant:simillar_ads' %}">آگهی های مشابه</a>
+        <a class="navbar-brand" id="myad" style="color:black;" href="{% url 'agencies:my_ads' %}">آگهی های من </a>
+        <a class="navbar-brand" style=" color:black;" href="{% url 'agencies:marked_ads' %}">آگهی های نشان شده </a>
+        <a class="navbar-brand" style="color:black;" href="{% url 'agencies:simillar_ads' %}">آگهی های مشابه</a>
       </div>
     </div>
   </nav>

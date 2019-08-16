@@ -13,6 +13,7 @@ urlpatterns = [
     path('sms/', include('sms.urls', namespace='sms')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('consultant/', include('consultant.urls', namespace='consultant', )),
+    path('agencies/', include('agencies.urls', namespace='agencies', )),
     path('customer/', include('customer.urls', namespace='customer', )),
     ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

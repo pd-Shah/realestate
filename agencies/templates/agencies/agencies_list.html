@@ -1,0 +1,71 @@
+{% extends 'base_generic.html' %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'agencies/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/vendors/linericon/style.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/css/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/vendors/owl-carousel/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/vendors/fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/vendors/owl-carousel/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/css/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/vendors/nice-select/css/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'agencies/css/header.css' %}">
+{% endblock %}
+
+{% block login %}
+<li>
+  <div class="margin-left">
+    {% if user.is_authenticated %}
+    <a href="{% url 'agencies:my_ads'%}" class="btn login-btn">روفایل</a>
+    <a href="{% url 'logout'%}?next={{request.path}}" class="btn login-btn">خروج</a>
+    {% else %}
+    <a href="{% url 'agencies:login'%}?next={{request.path}}" class="btn login-btn">ورود</a>
+    <a href="{% url 'agencies:signup'%}?next={{request.path}}" class="btn login-btn">ثبت نام</a>
+    {% endif %}
+  </div>
+</li>
+{% endblock %}
+
+{% block login-sm %}
+<li>
+  <div class="margin-left">
+    {% if user.is_authenticated %}
+    <a href="{% url 'agencies:my_ads'%}" class="btn login-btn">روفایل</a>
+    <a href="{% url 'logout'%}?next={{request.path}}" class="btn login-btn">خروج</a>
+    {% else %}
+    <a href="{% url 'agencies:login'%}?next={{request.path}}" class="btn login-btn">ورود</a>
+    <a href="{% url 'agencies:signup'%}?next={{request.path}}" class="btn login-btn">ثبت نام</a>
+    {% endif %}
+  </div>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <!-- Team Member 1 -->
+    {% for object in object_list %}
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="{{ MEDIA_URL }}{{ object.image }}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">
+            <a href="{% url 'agencies:agencies_detail' object.id %}">
+              {{ object.user.first_name }}
+            </a>
+          </h5>
+          <div class="card-text text-black-50"> {{ object.skill }}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- /.row -->
+
+</div>
+{% endblock %}

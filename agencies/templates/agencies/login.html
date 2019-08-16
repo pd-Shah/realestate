@@ -11,7 +11,7 @@
       {% csrf_token %}
       {{ form|crispy }}
       <button type="submit" class="btn btn-success btn-block">ورود</button>
-      <input type="hidden" name="next" value="{% url 'consultant:my_ads' %}">
+      <input type="hidden" name="next" value="{% url 'agencies:my_ads' %}">
     </form>
   </div>
 </div>
