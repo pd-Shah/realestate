@@ -77,7 +77,7 @@ class Agencies(models.Model):
         )
     skill = models.CharField(
         max_length=100,
-        verbose_name = "تخصص",
+        verbose_name = "حوزه فعالیت",
         blank=True,
         null=True,
     )
@@ -101,11 +101,6 @@ class Agencies(models.Model):
         verbose_name="محبوبیت",
         default=u"5",
         )
-    commission_rate = models.IntegerField(
-                blank=True,
-                null=True,
-                verbose_name="نرخ کمیسیون",
-    )
     created = models.DateTimeField(
         auto_now_add=True,
         verbose_name="تاریخ ساخت اکانت",
@@ -120,7 +115,23 @@ class Agencies(models.Model):
         blank=True,
         null=True,
         unique=True,
-        verbose_name="شماره تلفن",
+        verbose_name="شماره موبایل",
+    )
+    code_number = models.CharField(
+        max_length=100,
+        verbose_name = "شناسه صنفی ",
+        blank=True,
+        null=True,
+    )
+    web_site = models.URLField(
+        verbose_name="وب سایت",
+        blank=True,
+        null=True,
+    )
+    instagram = models.URLField(
+        verbose_name="ادرس اینستاگرام",
+        blank=True,
+        null=True,
     )
     about_me = models.CharField(
         max_length=100,
@@ -138,7 +149,13 @@ class Agencies(models.Model):
                         upload_to=get_image_path,
                         blank=True,
                         null=True,
-                        verbose_name="تصویر",
+                        verbose_name="تصویر آژانس",
+                    )
+    image_owner = models.ImageField(
+                        upload_to=get_image_path,
+                        blank=True,
+                        null=True,
+                        verbose_name="تصویر مدیران و همکاران",
                     )
 
     def __str__(self):
@@ -146,7 +163,7 @@ class Agencies(models.Model):
 
 
 @receiver(post_save, sender=User)
-def update_user_profile(sender, instance, created, **kwargs):
+def update_agencies_profile(sender, instance, created, **kwargs):
     if created:
         Agencies.objects.create(user=instance)
     instance.agencies.save()

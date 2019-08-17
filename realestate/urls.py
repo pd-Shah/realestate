@@ -15,6 +15,7 @@ urlpatterns = [
     path('consultant/', include('consultant.urls', namespace='consultant', )),
     path('agencies/', include('agencies.urls', namespace='agencies', )),
     path('customer/', include('customer.urls', namespace='customer', )),
+    path('supporter/', include('supporter.urls', namespace='supporter', )),
     ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
