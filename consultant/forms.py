@@ -5,6 +5,8 @@ from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from .models import (
     URBANAREANUMBER,
     CITY,
+    USAGE,
+    DEGREE,
 )
 
 
@@ -59,8 +61,52 @@ class SingUpForm(UserCreationForm):
     )
     phone_number = forms.CharField(
         max_length=17,
-        label="شماره تلفن",
+        label="شماره همراه",
         )
+    age = forms.IntegerField(
+        label="سن",
+    )
+    usage = forms.ChoiceField(
+        choices=USAGE,
+        label="مورد استفاده",
+        )
+    job_experience = forms.IntegerField(
+        label="سابقه کار",
+    )
+    degree = forms.ChoiceField(
+        choices=DEGREE,
+        label="مدرک تحصیلی")
+    agency_name = forms.CharField(
+        max_length=200,
+        label="نام آژانس",
+    )
+    agency_number = forms.IntegerField(
+        label="شماره ثابت آزانس",
+    )
+    english = forms.BooleanField(
+        label="اشنا به زبان انگلیسی",
+        default=False,
+    )
+    kordi = forms.BooleanField(
+        label="اشنا به زبان کردی",
+        default=False,
+    )
+    arabi = forms.BooleanField(
+        label="اشنا به زبان عربی",
+        default=False,
+    )
+    russion = forms.BooleanField(
+        label="اشنا به زبان روسی",
+        default=False,
+    )
+    french = forms.BooleanField(
+        label="اشنا به زبان فرانسه",
+        default=False,
+    )
+    germany = forms.BooleanField(
+        label="اشنا به زبان المانی",
+        default=False,
+    )
     skill = forms.CharField(
         max_length=100,
         label="تخصص",)

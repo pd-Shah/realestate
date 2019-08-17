@@ -49,6 +49,18 @@ def signup(request):
             user.consultant.skill = form.cleaned_data.get("skill")
             user.consultant.about_me = form.cleaned_data.get("about_me")
             user.consultant.long_description = form.cleaned_data.get("long_description")
+            user.consultant.age = form.cleaned_data.get("age")
+            user.consultant.usage = form.cleaned_data.get("long_description")
+            user.consultant.job_experience = form.cleaned_data.get("usage")
+            user.consultant.degree = form.cleaned_data.get("degree")
+            user.consultant.agency_name = form.cleaned_data.get("agency_name")
+            user.consultant.agency_number = form.cleaned_data.get("agency_number")
+            user.consultant.english = form.cleaned_data.get("english")
+            user.consultant.kordi = form.cleaned_data.get("kordi")
+            user.consultant.arabi = form.cleaned_data.get("arabi")
+            user.consultant.russion = form.cleaned_data.get("russion")
+            user.consultant.french = form.cleaned_data.get("french")
+            user.consultant.germany = form.cleaned_data.get("germany")
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
@@ -90,7 +102,7 @@ class ConsultantSimillarAdsView(TemplateView):
                 title__in=[query.title for query in queries]
                 )
         return context
-        
+
 
 class ConsultantMarkedAdsView(TemplateView):
     template_name = "consultant/conts_marked_ad.html"

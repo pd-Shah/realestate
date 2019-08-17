@@ -58,6 +58,20 @@ POPULARITY = [
     (u"5", u"5"),
 ]
 
+USAGE = [
+    (u"1", u"متقاضی ملک یا مالکم"),
+    (u"2", u"مشاور املاکم"),
+    (u"3", u"در حوزه مشاغل ساختمانی تخصص دارم"),
+]
+
+DEGREE = [
+    (u"1", u"زیر دیپلم"),
+    (u"2", u"دیپلم"),
+    (u"3", u"لیسانس"),
+    (u"4", u"کارشناسی ارشد"),
+    (u"5", u"دکترا"),
+]
+
 phone_regex = RegexValidator(
     regex=r'^\+?1?\d{9,15}$',
     message="Phone number must be entered in the format: '09226255415'. Up to 15 digits allowed."
@@ -75,6 +89,29 @@ class Consultant(models.Model):
         default=False,
         verbose_name='کاربر ویژه',
         )
+    age = models.IntegerField(
+        verbose_name="سن",
+        blank=True,
+        null=True,
+        )
+    usage = models.CharField(
+        choices=USAGE,
+        max_length=1,
+        verbose_name="مورد استفاده",
+        default=u"1",
+    )
+    job_experience = models.CharField(
+        max_length=500,
+        verbose_name="سابقه کار",
+        blank=True,
+        null=True,
+    )
+    degree = models.CharField(
+        max_length=1,
+        choices=DEGREE,
+        verbose_name="مدرک تحصیلی",
+        default=u"1",
+    )
     skill = models.CharField(
         max_length=100,
         verbose_name = "تخصص",
@@ -101,11 +138,6 @@ class Consultant(models.Model):
         verbose_name="محبوبیت",
         default=u"5",
         )
-    commission_rate = models.IntegerField(
-                blank=True,
-                null=True,
-                verbose_name="نرخ کمیسیون",
-    )
     created = models.DateTimeField(
         auto_now_add=True,
         verbose_name="تاریخ ساخت اکانت",
@@ -120,7 +152,19 @@ class Consultant(models.Model):
         blank=True,
         null=True,
         unique=True,
-        verbose_name="شماره تلفن",
+        verbose_name="شماره موبایل",
+    )
+    agency_name = models.CharField(
+        verbose_name="نام آژانس",
+        max_length=200,
+        )
+    agency_number = models.CharField(
+        validators=[phone_regex],
+        max_length=17,
+        blank=True,
+        null=True,
+        unique=True,
+        verbose_name="شماره ثابت آزانس",
     )
     about_me = models.CharField(
         max_length=100,
@@ -134,6 +178,30 @@ class Consultant(models.Model):
         null=True,
         verbose_name="معرفی جامع",
     )
+    english = models.BooleanField(
+        default=False,
+        verbose_name="اشنا به زبان انگلیسی",
+        )
+    kordi = models.BooleanField(
+        default=False,
+        verbose_name="اشنا به زبان کردی",
+        )
+    arabi = models.BooleanField(
+        default=False,
+        verbose_name="اشنا به زبان عربی",
+        )
+    russion = models.BooleanField(
+        default=False,
+        verbose_name="اشنا به زبان روسی",
+        )
+    french = models.BooleanField(
+        default=False,
+        verbose_name="اشنا به زبان فراسنه",
+        )
+    germany = models.BooleanField(
+        default=False,
+        verbose_name="اشنا به زبان المانی",
+        )
     image = models.ImageField(
                         upload_to=get_image_path,
                         blank=True,
