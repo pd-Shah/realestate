@@ -3,6 +3,26 @@
 {% block head %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'advertisement/css/map.css' %}">
+<link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet' />
+{% endblock %}
+
+{% block class_page %}
+  <div class="col-lg-2 col-md-2 col-sm-12 hidden-sm">
+{% endblock %}
+
+{% block map_custom_menu %}
+<div class="col-md-8 col-lg-8 col-sm-12 map-top  fixed-box">
+  <div class="filter-box">
+    <div class="form-row">
+      <div class="col-md-4 col-sm-12">
+        <i class="fas fa-search search-icon"></i>
+        <input type="search" class="form-control search-box" id="validationTooltip01"
+          placeholder="جستجو در همه آگهی‌ها">
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <div id="dl-menu" class="dl-menuwrapper">
+          <button class="dl-trigger">همه آگهی‌ها</button>
+          <ul class="dl-menu">
 {% endblock %}
 
 {% block map %}
@@ -10,7 +30,7 @@
 {% endblock %}
 
 {% block advertisement_map %}
-<div class="col-md-2 col-sm-12 space-top">
+<div class="col-lg-2 col-md-4 col-sm-12 space-top">
   <div class="result-box">
     {% for item in object_list %}
     <div class="card-box">

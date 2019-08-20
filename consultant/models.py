@@ -157,6 +157,8 @@ class Consultant(models.Model):
     agency_name = models.CharField(
         verbose_name="نام آژانس",
         max_length=200,
+        blank=True,
+        null=True,
         )
     agency_number = models.CharField(
         validators=[phone_regex],

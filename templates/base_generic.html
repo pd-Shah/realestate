@@ -6,8 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!-- Bootstrap CSS -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'advertisement/css/bootstrap.min.css' %}">
@@ -20,11 +19,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
-  <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet' />
   <title>ماملک</title>
   {% block head %}
   {% endblock %}
-
   <!--BEGIN RAYCHAT CODE-->
   <script type="text/javascript">
     ! function() {
@@ -47,85 +44,87 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light header">
-      <a href="{% url 'advertisement:advertisement_list' %}" class="logo"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
-
-
+      <a href="{% url 'advertisement:advertisement_list' %}" class="logo-button"><img src="{% static 'advertisement/images/logo.png' %}" alt="profile" class="logo"></a>
       <button class="navbar-toggler open-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">☰</button>
       <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'advertisement:advertisement_list_map' %}" tabindex="-1" aria-disabled="true">صفحه اصلی</a>
+          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./home.html">صفحه من <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'advertisement:my_page' %}">صفحه من <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'supporter:register_supporter' %}">سرمایه گذار</a>
+            <a class="nav-link" href="{% url 'supporter:register_supporter' %}">سرمایه گذاران</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'consultant:consultant_list' %}" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:blog_list_view'%}" tabindex="-1" aria-disabled="true">اخبار</a>
+            <a class="nav-link" href="{% url 'agencies:agencies_list' %}" tabindex="-1" aria-disabled="true">آژانس هاي املاك</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:tutorial' %}" tabindex="-1" aria-disabled="true">آموزش</a>
+            <a class="nav-link" href="{% url 'advertisement:rule_page' %}" tabindex="-1" aria-disabled="true">اخبار و قوانین</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:rule_page'%}" tabindex="-1" aria-disabled="true">قوانین سایت</a>
+            <a class="nav-link" href="{% url 'advertisement:tutorial' %}" tabindex="-1" aria-disabled="true">آموزش</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:contact_us'%}" tabindex="-1" aria-disabled="true">تماس با ما</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:about_us'%}" tabindex="-1" aria-disabled="true">درباره ما</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:advertisement_list_map' %}" tabindex="-1" aria-disabled="true">نقشه</a>
-          </li>
           <li>
             <div class="margin-left">
-              <a href="{% url 'advertisement:select_ad' %}" class="btn login-btn">ثبت آگهی رایگان</a>
+              <a href="{% url 'advertisement:select_ad' %}" class="btn orange-btn">ثبت آگهی رایگان</a>
             </div>
           </li>
           {% block login %}
           {% endblock %}
+          <!-- <li>
+            <div class="margin-left">
+              <a href="./login.html" class="btn login-btn">ورود</a>
+            </div>
+          </li> -->
         </ul>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'advertisement:my_page' %}">صفحه من <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'advertisement:advertisement_list' %}" tabindex="-1" aria-disabled="true">صفحه اصلی</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'advertisement:my_page' %}">صفحه من <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'supporter:register_supporter' %}">سرمایه گذار</a>
+            <a class="nav-link" href="{% url 'supporter:register_supporter' %}">سرمایه گذاران</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'consultant:consultant_list' %}" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:blog_list_view' %}" tabindex="-2" aria-disabled="true">اخبار</a>
+            <a class="nav-link" href="{% url 'agencies:agencies_list' %}" tabindex="-1" aria-disabled="true">آژانس هاي املاك</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:tutorial' %}" tabindex="-3" aria-disabled="true">آموزش</a>
+            <a class="nav-link" href="{% url 'advertisement:rule_page' %}" tabindex="-1" aria-disabled="true">اخبار و قوانین</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:rule_page' %}" tabindex="-4" aria-disabled="true">قوانین سایت</a>
+            <a class="nav-link" href="{% url 'advertisement:tutorial' %}" tabindex="-1" aria-disabled="true">آموزش</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:contact_us'%}" tabindex="-1" aria-disabled="true">تماس با ما</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:about_us'%}" tabindex="-1" aria-disabled="true">درباره ما</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'advertisement:advertisement_list_map' %}" tabindex="-1" aria-disabled="true">نقشه</a>
-          </li>
           <li>
             <div class="margin-left">
-              <a href="{% url 'advertisement:select_ad' %}" class="btn login-btn">ثبت آگهی رایگان</a>
+              <a href="{% url 'advertisement:select_ad' %}" class="btn orange-btn">ثبت آگهی رایگان</a>
             </div>
           </li>
           {% block login-sm %}
           {% endblock %}
+          <!-- <li>
+            <div class="margin-left">
+              <a href="./login.html" class="btn login-btn">ورود</a>
+            </div>
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -133,6 +132,7 @@
 
 
   <section class="body">
+    <a id="button"></a>
     <div class="container">
       {% block content %}
       {% endblock %}
@@ -141,13 +141,43 @@
   <footer class="footer-box">
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
   </script>
-  <script src="{% static 'advertisement/js/bootstrap.min.js' %}">
-  </script>
+  <script src="{% static 'advertisement/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'advertisement/js/script.js' %}"></script>
+  <script src="{% static 'advertisement/js/modernizr.custom.js' %}"></script>
+  <script src="{% static 'advertisement/js/jquery.dlmenu.js' %}"></script>
+  <script>
+    $(function() {
+      $('#dl-menu').dlmenu();
+    });
+  </script>
+  <script>
+    $("#star").click(function() {
+      var username = $(this).attr("value")
+
+      if ($(this).hasClass('far fa-star')){
+                  $("#star").removeClass('far fa-star').addClass('fas fa-star');
+                  // $(this).addClass('fas fa-star').removeClass('far fa-star');
+              }
+
+              else if ($(this).hasClass('fas fa-star')){
+                  $('#star').removeClass('fas fa-star').addClass('far fa-star');
+                  // $(this).addClass('far fa-star').removeClass('fas fa-star');
+              }
+
+      $.ajax({
+          type: 'GET',
+          url: '/customer/fav/',
+          data: { "get_param": 'value' },
+          success: function (data) {
+              alert("done")
+          }
+      });
+
+    });
+  </script>
   {% block bottom %}
   {% endblock %}
 </body>

@@ -85,27 +85,21 @@ class SingUpForm(UserCreationForm):
     )
     english = forms.BooleanField(
         label="اشنا به زبان انگلیسی",
-        default=False,
     )
     kordi = forms.BooleanField(
         label="اشنا به زبان کردی",
-        default=False,
     )
     arabi = forms.BooleanField(
         label="اشنا به زبان عربی",
-        default=False,
     )
     russion = forms.BooleanField(
         label="اشنا به زبان روسی",
-        default=False,
     )
     french = forms.BooleanField(
         label="اشنا به زبان فرانسه",
-        default=False,
     )
     germany = forms.BooleanField(
         label="اشنا به زبان المانی",
-        default=False,
     )
     skill = forms.CharField(
         max_length=100,
