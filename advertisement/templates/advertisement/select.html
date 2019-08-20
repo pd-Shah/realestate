@@ -10,12 +10,17 @@
     <a class="dropdown-item" href="#">تهران</a>
   </div>
 </div>
-<p class="title-category">همه آگهی‌ها</p>
+
+<p class="title-category">
+  <a href="{% url 'advertisement:advertisement_list' %}" style="color:black;">
+    همه آگهی ها
+  </a>
+</p>
 <div class="accordion" id="accordionExample">
   <div class="card card-slide">
     <div class="card-header card-header-slide" id="headingOne">
       <h2 class="mb-0">
-        <button class="btn btn-link sidebar-btn collapsed full-width" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
           رهن و اجاره
         </button>
       </h2>
@@ -23,16 +28,21 @@
     <div id="collapseOne" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body card-body-slide">
         <ul class="category-list">
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_apartment' %}">آپارتمان</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_edari' %}">اداری</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_colangi' %}">کلنگی</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_suit' %}">سوییت</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_vila' %}">ویلا</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_tejari' %}">تجاری</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_zamin' %}">زمین</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_bagh' %}">باغ</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_anbar' %}">انبار</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_rent_sole' %}">سوله</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_apartment_list_view' %}">آپارتمان</a></li>
+          <li class="category-text"><a href="#">خانه ویلایی</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_edari_list_view' %}">اداری</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_tejari_list_view' %}">تجاری</a></li>
+          <li class="category-text"><a href="#">مغازه</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_suit_list_view' %}">سوییت</a></li>
+          <li class="category-text"><a href="#">پنت هاوس</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_vila_list_view' %}">>ویلا</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_anbar_list_view' %}">انبار</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_sole_list_view' %}">سوله</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_bagh_list_view' %}">باغ</a></li>
+          <li class="category-text"><a href="#">برج</a></li>
+          <li class="category-text"><a href="#">مستغلات</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_zamin_list_view' %}">زمین</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:rent_colangi_list_view' %}">کلنگی</a></li>
         </ul>
       </div>
     </div>
@@ -41,82 +51,28 @@
     <div class="card-header card-header-slide" id="headingTwo">
       <h2 class="mb-0">
         <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          فروش </button>
+          فروش
+        </button>
       </h2>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body card-body-slide">
         <ul class="category-list">
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_apartment' %}">آپارتمان</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_edari' %}">اداری</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_colangi' %}">کلنگی</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_suit' %}">سوییت</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_vila' %}">ویلا</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_tejari' %}">تجاری</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_zamin' %}">زمین</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_bagh' %}">باغ</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_anabr' %}">انبار</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_sell_sole' %}">سوله</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="card card-slide">
-    <div class="card-header card-header-slide" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          خرید </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body card-body-slide">
-        <ul class="category-list">
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_apartment' %}">آپارتمان</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_edari' %}">اداری</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_colangi' %}">کلنگی</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_suit' %}">سوییت</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_vila' %}">ویلا</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_tejari' %}">تجاری</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_zamin' %}">زمین</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_bagh' %}">باغ</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_anbar' %}">انبار</a></li>
-          <li class="category-text"><a href="{% url 'advertisement:new_buy_sole' %}">سوله</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="card card-slide">
-    <div class="card-header card-header-slide" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          آژانس املاک
-        </button>
-      </h2>
-    </div>
-    <div id="collapseFive" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body card-body-slide">
-        <ul class="category-list">
-          <li class="category-text"><a href="#">۱</a></li>
-          <li class="category-text"><a href="#">۲</a></li>
-          <li class="category-text"><a href="#">۳</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="card card-slide">
-    <div class="card-header card-header-slide" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-          مشاورین املاک
-        </button>
-      </h2>
-    </div>
-    <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body card-body-slide">
-        <ul class="category-list">
-          <li class="category-text"><a href="#">۱</a></li>
-          <li class="category-text"><a href="#">۲</a></li>
-          <li class="category-text"><a href="#">۳</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_apartment_list_view' %}">آپارتمان</a></li>
+          <li class="category-text"><a href="#">خانه ویلایی</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_edari_list_view' %}">اداری</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_tejari_list_view' %}">تجاری</a></li>
+          <li class="category-text"><a href="#">مغازه</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_suit_list_view' %}">سوییت</a></li>
+          <li class="category-text"><a href="#">پنت هاوس</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_vila_list_view' %}">ویلا</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_anbar_list_view' %}">انبار</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_sole_list_view' %}">سوله</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_bagh_list_view' %}">باغ</a></li>
+          <li class="category-text"><a href="#">برج</a></li>
+          <li class="category-text"><a href="#">مستغلات</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_zamin_list_view' %}">زمین</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:sell_colangi_list_view' %}">کلنگی</a></li>
         </ul>
       </div>
     </div>
@@ -125,19 +81,209 @@
     <div class="card-header card-header-slide" id="headingFive">
       <h2 class="mb-0">
         <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          امور حقوقی و ملکی
+          درخواست
+        </button>
       </h2>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
       <div class="card-body card-body-slide">
         <ul class="category-list">
-          <li class="category-text"><a href="#">1</a></li>
-          <li class="category-text"><a href="#">2</a></li>
-          <li class="category-text"><a href="#">3</a></li>
-          <li class="category-text"><a href="#">4</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_apartment_list_view' %}">آپارتمان</a></li>
+          <li class="category-text"><a href="#">خانه ویلایی</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_edari_list_view' %}">اداری</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_tejari_list_view' %}">تجاری</a></li>
+          <li class="category-text"><a href="#">مغازه</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_suit_list_view' %}">سوییت</a></li>
+          <li class="category-text"><a href="#">پنت هاوس</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_vila_list_view' %}">ویلا</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_anbar_list_view' %}">انبار</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_sole_list_view' %}">سوله</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_bagh_list_view' %}">باغ</a></li>
+          <li class="category-text"><a href="#">برج</a></li>
+          <li class="category-text"><a href="#">مستغلات</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_zamin_list_view' %}">زمین</a></li>
+          <li class="category-text"><a href="{% url 'advertisement:buy_colangi_list_view' %}">کلنگی</a></li>
         </ul>
       </div>
     </div>
   </div>
+  <div class="card card-slide">
+    <div class="card-header card-header-slide" id="headingSeven">
+      <h2 class="mb-0">
+        <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          ارایه خدمات
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+      <div class="card-body card-body-slide">
+        <ul class="category-list">
+          <li class="category-text"><a href="#">پیمانکاران</a></li>
+          <li class="category-text"><a href="#">رایانه و موبایل</a></li>
+          <li class="category-text"><a href="#">حمل و نقل و باربری</a></li>
+          <li class="category-text"><a href="#">پرستاری ٬ نکهداری و آشپزی</a></li>
+          <li class="category-text"><a href="#">ساخت و ساز و مرمت</a></li>
+          <li class="category-text"><a href="#">ابزار و مصالح ساختمانی</a></li>
+          <li class="category-text"><a href="#">دکوراسیون داخلی و خارجی</a></li>
+          <li class="category-text"><a href="#">دوربین / امنیت / بیمه</a></li>
+          <li class="category-text"><a href="#">تعمیرات و تاسیسات</a></li>
+          <li class="category-text"><a href="#">آرایشگر و زیبایی</a></li>
+          <li class="category-text"><a href="#">نظافت / باغبانی / سمپاشی / نگهبانی</a></li>
+          <li class="category-text"><a href="#">مواد غذایی / رستوران</a></li>
+          <li class="category-text"><a href="#"> آموزشی / ورزشی / سرگرمی</a></li>
+          <li class="category-text"><a href="#">مراسم پذیرایی</a>
+          <li class="category-text"><a href="#">زیبایی و اریشی</a>
+          <li class="category-text"><a href="#">سرگرمی ورزشی</a>
+          <li class="category-text"><a href="#"> سایر</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-header card-header-slide" id="headingSeven">
+      <h2 class="mb-0">
+        <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          درخواست خدمات
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+      <div class="card-body card-body-slide">
+        <ul class="category-list">
+          <li class="category-text"><a href="#">مراسم پذیرایی</a></li>
+          <li class="category-text"><a href="#">زیبایی و اریشی</a></li>
+          <li class="category-text"><a href="#">سرگرمی ورزشی</a></li>
+          <li class="category-text"><a href="#">پیمانکاران</a></li>
+          <li class="category-text"><a href="#">رایانه و موبایل</a></li>
+          <li class="category-text"><a href="#">حمل و نقل و باربری</a></li>
+          <li class="category-text"><a href="#">پرستاری ٬ نکهداری و آشپزی</a></li>
+          <li class="category-text"><a href="#">ساخت و ساز و مرمت</a></li>
+          <li class="category-text"><a href="#">ابزار و مصالح ساختمانی</a></li>
+          <li class="category-text"><a href="#">دکوراسیون داخلی و خارجی</a></li>
+          <li class="category-text"><a href="#">دوربین / امنیت / بیمه</a></li>
+          <li class="category-text"><a href="#">تعمیرات و تاسیسات</a></li>
+          <li class="category-text"><a href="#">آرایشگر و زیبایی</a></li>
+          <li class="category-text"><a href="#">نظافت / باغبانی / سمپاشی / نگهبانی</a></li>
+          <li class="category-text"><a href="#">مواد غذایی / رستوران</a></li>
+          <li class="category-text"><a href="#"> آموزشی / ورزشی / سرگرمی</a></li>
+          <li class="category-text"><a href="#">مراسم پذیرایی</a>
+          <li class="category-text"><a href="#">زیبایی و اریشی</a>
+          <li class="category-text"><a href="#">سرگرمی ورزشی</a>
+          <li class="category-text"><a href="#"> سایر</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive" onclick='window.location.href="{% url 'agencies:agencies_list' %}"' >
+            آژانس های املاک
+          </button>
+        </h2>
+      </div>
+      <!-- <div id="collapsefive" class="collapse" aria-labelledby="headingThree"
+        data-parent="#accordionExample">
+        <div class="card-body card-body-slide">
+          <ul class="category-list">
+            <li class="category-text"><a href="#">۱</a></li>
+            <li class="category-text"><a href="#">۲</a></li>
+            <li class="category-text"><a href="#">۳</a></li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" onclick='window.location.href="{% url 'consultant:consultant_list' %}"'>
+            مشاورین املاک
+          </button>
+        </h2>
+      </div>
+      <!-- <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body card-body-slide">
+          <ul class="category-list">
+            <li class="category-text"><a href="#">۱</a></li>
+            <li class="category-text"><a href="#">۲</a></li>
+            <li class="category-text"><a href="#">۳</a></li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            خدمات بیمه
+          </button>
+        </h2>
+      </div>
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            مشارکت
+          </button>
+        </h2>
+      </div>
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            معاوضه
+          </button>
+        </h2>
+      </div>
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            پیش فروش
+          </button>
+        </h2>
+      </div>
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            اجاره روزانه
+          </button>
+        </h2>
+      </div>
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            هم خانه
+          </button>
+        </h2>
+      </div>
+    </div>
+    <div class="card card-slide">
+      <div class="card-header card-header-slide" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+            امور حقوقی و ملکی
+          </button>
+        </h2>
+      </div>
+      <div id="collapseSeven" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body card-body-slide">
+          <ul class="category-list">
+            <li class="category-text"><a href="#">اداری</a></li>
+            <li class="category-text"><a href="#">وکالت</a></li>
+            <li class="category-text"><a href="#">شهرداری</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 {% endblock %}
