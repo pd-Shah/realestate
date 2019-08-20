@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'sms.apps.SmsConfig',
     'blog.apps.BlogConfig',
     'customer.apps.CustomerConfig',
+    'supporter.apps.SupporterConfig',
     'django.contrib.sites',
     'crispy_forms',
 ]

@@ -58,10 +58,10 @@
             <a class="nav-link" href="./home.html">صفحه من <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">سرمایه گذار</a>
+            <a class="nav-link" href="{% url 'supporter:register_supporter' %}">سرمایه گذار</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
+            <a class="nav-link" href="{% url 'consultant:consultant_list' %}" tabindex="-1" aria-disabled="true">مشاورین املاک</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'blog:blog_list_view'%}" tabindex="-1" aria-disabled="true">اخبار</a>
@@ -96,7 +96,7 @@
             <a class="nav-link active" href="{% url 'advertisement:my_page' %}">صفحه من <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">سرمایه گذار</a>
+            <a class="nav-link" href="{% url 'supporter:register_supporter' %}">سرمایه گذار</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'consultant:consultant_list' %}" tabindex="-1" aria-disabled="true">مشاورین املاک</a>

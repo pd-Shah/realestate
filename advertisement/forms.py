@@ -71,6 +71,9 @@ class RentApartment(ModelForm):
             "rent",
             "telephone_lines",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -141,6 +144,9 @@ class SellBuyApartment(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -205,6 +211,9 @@ class RentEdari(ModelForm):
             "rent",
             "telephone_lines",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -268,6 +277,9 @@ class SellBuyEdari(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -335,6 +347,9 @@ class RentColangi(ModelForm):
             "rent",
             "telephone_lines",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -402,6 +417,9 @@ class SellBuyColangi(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -474,6 +492,9 @@ class RentSuit(ModelForm):
             "rent",
             "telephone_lines",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -547,6 +568,9 @@ class SellBuySuit(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -619,6 +643,9 @@ class RentVila(ModelForm):
             "deposit",
             "rent",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -692,6 +719,9 @@ class SellBuyVila(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -767,6 +797,9 @@ class RentTejari(ModelForm):
             "rent",
             "telephone_lines",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -843,6 +876,9 @@ class SellBuyTejari(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -894,6 +930,9 @@ class RentZamin(ModelForm):
             "deposit",
             "rent",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -947,6 +986,9 @@ class SellBuyZamin(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -1003,6 +1045,9 @@ class RentBagh(ModelForm):
             "deposit",
             "rent",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -1060,6 +1105,9 @@ class SellBuyBagh(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -1105,6 +1153,9 @@ class RentAnbar(ModelForm):
             "deposit",
             "rent",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -1150,6 +1201,9 @@ class SellBuyAnbar(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -1192,6 +1246,9 @@ class RentSole(ModelForm):
             "deposit",
             "rent",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }
 
 
@@ -1234,4 +1291,7 @@ class SellBuySole(ModelForm):
             "price",
             "price_square",
             "description",
+            "image1",
+            "image2",
+            "image3",
         }

@@ -10,9 +10,9 @@
         <div class="card-body-image">
           {% if request.session.phone %}
           {% if ad in customer.favorites.all %}
-            <i class="fas fa-star" value="{{ ad.id }}"></i>
+            <i class="fas fa-star"  value="{{ ad.id }}"></i>
           {% else %}
-            <i class="far fa-star" value="{{ ad.id }}"></i>
+            <i class="far fa-star" id="star" value="{{ ad.id }}"></i>
           {% endif %}
           {% endif %}
           <h5 class="card-title-image">
@@ -65,8 +65,19 @@
 {% block bottom %}
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script>
-  $(".far.fa-star").click(function() {
+  $("#star").click(function() {
     var username = $(this).attr("value")
+
+    if ($(this).hasClass('far fa-star')){
+                $("#star").removeClass('far fa-star').addClass('fas fa-star');
+                // $(this).addClass('fas fa-star').removeClass('far fa-star');
+            }
+
+            else if ($(this).hasClass('fas fa-star')){
+                $('#star').removeClass('fas fa-star').addClass('far fa-star');
+                // $(this).addClass('far fa-star').removeClass('fas fa-star');
+            }
+
     $.ajax({
         type: 'GET',
         url: '/customer/fav/',
