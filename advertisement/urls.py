@@ -123,7 +123,7 @@ urlpatterns = [
         name='select_ad'
     ),
     path(
-        'new-buy-apartment/',
+        'select/new-buy-apartment/',
         NewBuyApartment.as_view(),
         name='new_buy_apartment',
     ),
