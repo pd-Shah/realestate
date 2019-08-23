@@ -50,19 +50,21 @@
   <div class="row">
     <!-- Team Member 1 -->
     {% for object in object_list %}
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-0 shadow">
-        <img src="{{ MEDIA_URL }}{{ object.image }}" class="card-img-top" alt="...">
-        <div class="card-body text-center">
-          <h5 class="card-title mb-0">
-            <a href="{% url 'agencies:agencies_detail' object.id %}">
-              {{ object.user.first_name }}
-            </a>
-          </h5>
-          <div class="card-text text-black-50"> {{ object.skill }}</div>
+      {% if object.instagram %}
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="{{ MEDIA_URL }}{{ object.image }}" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">
+                <a href="{% url 'agencies:agencies_detail' object.id %}">
+                  {{ object.user.first_name }}
+                </a>
+              </h5>
+              <div class="card-text text-black-50"> {{ object.skill }}</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      {% endif %}
     {% endfor %}
   </div>
   <!-- /.row -->
