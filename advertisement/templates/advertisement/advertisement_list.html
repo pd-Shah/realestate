@@ -2,6 +2,8 @@
 
 {% block advertisement %}
 {% load static %}
+{% load extra_tags %}
+{% load humanize %}
 <div class="content-box">
   {% for ad in object_list %}
   <div class="col-lg-4 col-md-6 col-sm-12">
@@ -30,10 +32,10 @@
       </div>
       <a href="#" class="full-width btn-price btn-box">
         {% if ad.price %}
-        تومان:{{ ad.price }}
+        {{ ad.price|intcomma|persianize_digits  }}
         {% elif ad.rent %}
-        اجاره:{{ ad.rent }}
-        رهن:{{ ad.deposit }}
+        اجاره:{{ ad.rent|intcomma|persianize_digits  }}
+        رهن:{{ ad.deposit|intcomma|persianize_digits }}
         {% else %}
         توافقی
         {% endif %}
