@@ -1,6 +1,8 @@
 {% extends 'base_generic.html' %}
 {% block content %}
 {% load static %}
+{% load extra_tags %}
+{% load humanize %}
 <div class="card-group">
   <div class="card bg">
     <div class="card-body text-center">
@@ -21,12 +23,11 @@
         <div class="row">
           <div class="col-md-6">
             <h4>
-              {% if object.rent %}
-              اجاره: {{ object.deposit }}
-              رهن:‌ {{ object.rent }}
-              {% elif object.price %}
-              قیمت کل: {{ object.price }}
-              قیمت هر مترمربع: {{ object.price_square}}
+              {% if ad.price %}
+              {{ ad.price|intcomma|persianize_digits  }}
+              {% elif ad.rent %}
+              اجاره:{{ ad.rent|intcomma|persianize_digits  }}
+              رهن:{{ ad.deposit|intcomma|persianize_digits }}
               {% else %}
               توافقی
               {% endif %}

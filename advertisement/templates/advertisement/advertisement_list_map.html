@@ -2,6 +2,8 @@
 
 {% block head %}
 {% load static %}
+{% load extra_tags %}
+{% load humanize %}
 <link rel="stylesheet" href="{% static 'advertisement/css/map.css' %}">
 <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet' />
 {% endblock %}
@@ -42,10 +44,11 @@
         <img src="{{ MEDIA_URL }}{{ ad.image1 }}"  class="card-img" alt="...">
       </div>
       <a href="#" class="btn full-width btn-price btn-box">
-        {% if add.price %}
-        {{ ad.price }}
+        {% if ad.price %}
+        {{ ad.price|intcomma|persianize_digits  }}
         {% elif ad.rent %}
-        {{ ad.rent }}, {{ ad.deposit }}
+        اجاره:{{ ad.rent|intcomma|persianize_digits  }}
+        رهن:{{ ad.deposit|intcomma|persianize_digits }}
         {% else %}
         توافقی
         {% endif %}
