@@ -84,7 +84,7 @@ def get_image_path(instance, filename):
 
 
 class Consultant(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,null=True)
     special = models.BooleanField(
         default=False,
         verbose_name='کاربر ویژه',
@@ -96,9 +96,8 @@ class Consultant(models.Model):
         )
     usage = models.CharField(
         choices=USAGE,
-        max_length=1,
+        max_length=200,
         verbose_name="مورد استفاده",
-        default=u"1",
     )
     job_experience = models.CharField(
         max_length=500,
@@ -107,10 +106,9 @@ class Consultant(models.Model):
         null=True,
     )
     degree = models.CharField(
-        max_length=1,
+        max_length=200,
         choices=DEGREE,
         verbose_name="مدرک تحصیلی",
-        default=u"1",
     )
     skill = models.CharField(
         max_length=100,

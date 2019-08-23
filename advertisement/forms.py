@@ -1,12 +1,39 @@
 
-from django.forms import ModelForm
+from django.forms import ModelForm, ValidationError
 from crispy_forms.bootstrap import Field, InlineRadios, TabHolder, Tab, InlineCheckboxes
 from crispy_forms.layout import Submit, Layout, Div, Fieldset
 from crispy_forms.helper import FormHelper
 from .models import Advertisement
 
+class GenericImageSize():
+    def clean_image1(self):
+        image = self.cleaned_data.get('image1', False)
+        if image:
+            if image._size > 4*1024*1024:
+                raise ValidationError("Image file too large ( > 4mb )")
+            return image
+        else:
+            raise ValidationError("Couldn't read uploaded image")
 
-class RentApartment(ModelForm):
+    def clean_image2(self):
+        image = self.cleaned_data.get('image2', False)
+        if image:
+            if image._size > 4*1024*1024:
+                raise ValidationError("Image file too large ( > 4mb )")
+            return image
+        else:
+            raise ValidationError("Couldn't read uploaded image")
+
+    def clean_image3(self):
+        image = self.cleaned_data.get('image3', False)
+        if image:
+            if image._size > 4*1024*1024:
+                raise ValidationError("Image file too large ( > 4mb )")
+            return image
+        else:
+            raise ValidationError("Couldn't read uploaded image")
+
+class RentApartment(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 

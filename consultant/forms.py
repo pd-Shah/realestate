@@ -33,6 +33,12 @@ class SingUpForm(UserCreationForm):
 
         for key in self.fields:
             self.fields[key].required = True
+            self.fields['english'].required = False
+            self.fields['kordi'].required = False
+            self.fields['arabi'].required = False
+            self.fields['russion'].required = False
+            self.fields['french'].required = False
+            self.fields['germany'].required = False
 
     class Meta:
         model = User

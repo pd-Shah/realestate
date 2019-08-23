@@ -30,11 +30,9 @@ class ConsultantDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['range'] = range(int(self.object.popularity))
-        if self.request.user.is_authenticated:
-            username_id = self.request.user.id
-            context["posts"] = Advertisement.objects.filter(
-                                    owner__id=username_id,
-                                    )
+        context["posts"] = Advertisement.objects.filter(
+                                owner__id=self.kwargs['pk'],
+                                )
         return context
 
 
@@ -87,7 +85,7 @@ class ConsultantAdsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
+        if self.request.user.is_authenticated and isinstance(self.request.user, Consultant):
             username_id = self.request.user.id
             context["posts"] = Advertisement.objects.filter(
                                     owner__id=username_id,
