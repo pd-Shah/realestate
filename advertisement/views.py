@@ -37,7 +37,7 @@ from . forms import (
 class AdvertisementListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
-    paginate_by = 30
+    paginate_by = 1
 
     def get_queryset(self, ):
         object_list = Advertisement.objects.filter(
