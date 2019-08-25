@@ -1,5 +1,6 @@
 {% extends 'base_and_search.html' %}
 
+
 {% block head %}
 {% load static %}
 {% load extra_tags %}
@@ -27,15 +28,29 @@
           <ul class="dl-menu">
 {% endblock %}
 
+{% block bottom %}
+<script>
+  var infinite = new Waypoint.Infinite({
+    element: $('.infinite-container')[0],
+    onBeforePageLoad: function() {
+      $('.loading').show();
+    },
+    onAfterPageLoad: function($items) {
+      $('.loading').hide();
+    }
+  });
+</script>
+{% endblock %}
+
 {% block map %}
 <div id="map_f0zsce"></div>
 {% endblock %}
 
 {% block advertisement_map %}
 <div class="col-lg-2 col-md-4 col-sm-12 space-top">
-  <div class="result-box">
+  <div class="result-box  infinite-container">
     {% for item in object_list %}
-    <div class="card-box">
+    <div class="card-box infinite-item">
       <div class="flex-card">
         <div class="card-body-image">
           <h5 class="card-title-image">{{ item.title }}</h5>
@@ -55,22 +70,12 @@
       </a>
     </div>
     {% endfor %}
-    {% if is_paginated %}
-    <ul class="pagination">
-      {% if page_obj.has_previous %}
-      <li>
-        <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
-      </li>
-      {% endif %}
-      <li class="">
-        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
-      </li>
-      {% if page_obj.has_next %}
-      <li>
-        <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
-      </li>
-      {% endif %}
-    </ul>
+    <div class="loading" style="display: none;">
+      Loading...
+    </div>
+
+    {% if page_obj.has_next %}
+    <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
     {% endif %}
   </div>
 </div>

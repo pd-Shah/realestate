@@ -5,6 +5,7 @@ from crispy_forms.layout import Submit, Layout, Div, Fieldset
 from crispy_forms.helper import FormHelper
 from .models import Advertisement
 
+
 class GenericImageSize():
     def clean_image1(self):
         image = self.cleaned_data.get('image1', False)
@@ -32,6 +33,7 @@ class GenericImageSize():
             return image
         else:
             raise ValidationError("Couldn't read uploaded image")
+
 
 class RentApartment(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
@@ -173,7 +175,7 @@ class RentApartment(ModelForm, GenericImageSize):
         }
 
 
-class SellBuyApartment(ModelForm):
+class SellBuyApartment(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -311,7 +313,7 @@ class SellBuyApartment(ModelForm):
         }
 
 
-class RentEdari(ModelForm):
+class RentEdari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -445,7 +447,7 @@ class RentEdari(ModelForm):
         }
 
 
-class SellBuyEdari(ModelForm):
+class SellBuyEdari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -570,7 +572,7 @@ class SellBuyEdari(ModelForm):
         }
 
 
-class RentColangi(ModelForm):
+class RentColangi(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -708,7 +710,7 @@ class RentColangi(ModelForm):
         }
 
 
-class SellBuyColangi(ModelForm):
+class SellBuyColangi(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -846,7 +848,7 @@ class SellBuyColangi(ModelForm):
         }
 
 
-class RentSuit(ModelForm):
+class RentSuit(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -990,7 +992,7 @@ class RentSuit(ModelForm):
         }
 
 
-class SellBuySuit(ModelForm):
+class SellBuySuit(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -1137,7 +1139,7 @@ class SellBuySuit(ModelForm):
         }
 
 
-class RentVila(ModelForm):
+class RentVila(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -1282,7 +1284,7 @@ class RentVila(ModelForm):
         }
 
 
-class SellBuyVila(ModelForm):
+class SellBuyVila(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -1431,7 +1433,7 @@ class SellBuyVila(ModelForm):
         }
 
 
-class RentTejari(ModelForm):
+class RentTejari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -1579,7 +1581,7 @@ class RentTejari(ModelForm):
         }
 
 
-class SellBuyTejari(ModelForm):
+class SellBuyTejari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -1729,7 +1731,7 @@ class SellBuyTejari(ModelForm):
         }
 
 
-class RentZamin(ModelForm):
+class RentZamin(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -1852,7 +1854,7 @@ class RentZamin(ModelForm):
         }
 
 
-class SellBuyZamin(ModelForm):
+class SellBuyZamin(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -1978,7 +1980,7 @@ class SellBuyZamin(ModelForm):
         }
 
 
-class RentBagh(ModelForm):
+class RentBagh(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -2110,7 +2112,7 @@ class RentBagh(ModelForm):
         }
 
 
-class SellBuyBagh(ModelForm):
+class SellBuyBagh(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -2245,7 +2247,7 @@ class SellBuyBagh(ModelForm):
         }
 
 
-class RentAnbar(ModelForm):
+class RentAnbar(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -2367,7 +2369,7 @@ class RentAnbar(ModelForm):
         }
 
 
-class SellBuyAnbar(ModelForm):
+class SellBuyAnbar(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -2489,7 +2491,7 @@ class SellBuyAnbar(ModelForm):
         }
 
 
-class RentSole(ModelForm):
+class RentSole(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -2608,7 +2610,7 @@ class RentSole(ModelForm):
         }
 
 
-class SellBuySole(ModelForm):
+class SellBuySole(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
