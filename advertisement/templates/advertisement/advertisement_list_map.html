@@ -6,7 +6,7 @@
 {% load extra_tags %}
 {% load humanize %}
 <link rel="stylesheet" href="{% static 'advertisement/css/map.css' %}">
-<link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet' />
+<link rel="stylesheet" href="{% static 'advertisement/css/cedarmaps.css' %}">
 {% endblock %}
 
 {% block class_page %}
@@ -70,13 +70,13 @@
       </a>
     </div>
     {% endfor %}
-    <div class="loading" style="display: none;">
-      Loading...
-    </div>
-
-    {% if page_obj.has_next %}
-    <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
-    {% endif %}
   </div>
+  <div class="loading" style="display: none;">
+    بارگزاری
+  </div>
+
+  {% if page_obj.has_next %}
+  <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">بارگزاری</a>
+  {% endif %}
 </div>
 {% endblock %}
