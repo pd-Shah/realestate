@@ -1,10 +1,26 @@
 {% extends 'base_and_search.html' %}
 
+{% block bottom %}
+<script>
+  var infinite = new Waypoint.Infinite({
+    element: $('.infinite-container')[0],
+    onBeforePageLoad: function() {
+      $('.loading').show();
+    },
+    onAfterPageLoad: function($items) {
+      $('.loading').hide();
+    }
+  });
+</script>
+{% endblock %}
+
 {% block advertisement %}
 {% load static %}
-<div class="content-box">
+{% load extra_tags %}
+{% load humanize %}
+<div class="content-box infinite-container">
   {% for ad in object_list %}
-  <div class="col-lg-4 col-md-6 col-sm-12">
+  <div class="col-lg-4 col-md-6 col-sm-12 infinite-item">
     <div class="card-box">
       <div class="flex-card">
         <div class="card-body-image">
@@ -30,34 +46,25 @@
       </div>
       <a href="#" class="full-width btn-price btn-box">
         {% if ad.price %}
-        تومان:{{ ad.price }}
+        {{ ad.price|intcomma|persianize_digits  }}
         {% elif ad.rent %}
-        اجاره:{{ ad.rent }}
-        رهن:{{ ad.deposit }}
+        اجاره:{{ ad.rent|intcomma|persianize_digits  }}
+        رهن:{{ ad.deposit|intcomma|persianize_digits }}
         {% else %}
         توافقی
         {% endif %}
       </a>
     </div>
   </div>
-  {% endfor %}
 </div>
-{% if is_paginated %}
-<ul class="pagination">
-  {% if page_obj.has_previous %}
-  <li>
-    <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
-  </li>
-  {% endif %}
-  <li class="">
-    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
-  </li>
-  {% if page_obj.has_next %}
-  <li>
-    <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
-  </li>
-  {% endif %}
-</ul>
+{% endfor %}
+</div>
+<div class="loading" style="display: none;">
+  ...
+</div>
+
+{% if page_obj.has_next %}
+<a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">...</a>
 {% endif %}
 
 {% endblock%}

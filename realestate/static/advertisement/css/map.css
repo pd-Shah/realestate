@@ -1,19 +1,34 @@
+.dropdown-scroll {
+  height: 750px;
+  overflow: auto;
+}
+
+.category-text-menu {
+  padding: 0 2px;
+}
+
+.menu-title {
+  background-color: #f36938;
+  margin: 0;
+  padding: 2px;
+}
+
 #map_f0zsce {
   position: relative;
   width: 100%;
-  height: 545px;
+  height: 738px;
   max-width: 100%;
-  margin-top: 115px;
+  margin-top: 70px;
   z-index: 6;
 }
 
 .map {
   background-image: url(../images/world.jpg);
-  
+
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
-  
+
 }
 
 
@@ -46,37 +61,13 @@
   float: left;
 }
 
-.input-group-text {
-  background: transparent;
-  border: 0;
-  padding: 0 0 0 5px;
-}
-
-.input-group-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 10px;
-}
-
 .card-box {
   display: flex;
   flex-direction: column;
   border: 1px solid #c1c1c1;
-  margin: 10px;
+  margin: 5px 0
 }
 
-@media (max-width: 900px) {
-  .card-box {
-    /* width: 46.5%; */
-  }
-  .category-box {
-	  top: 245px !important;
-  }
-  .result-box {
-	  margin-top: 115px;
-  }
-}
 
 .flex-card {
   height: 160px;
@@ -94,13 +85,23 @@
 
 .card-img {
   width: 45%;
-  object-fit: cover;
+  /* object-fit: cover; */
+  object-fit: scale-down;
 }
 
 .card-body-image {
   padding: 9px;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
+.card-text-image {
+  text-align: right;
+  margin: 0;
+  font-size: 14px;
 }
 
 .category-box {
@@ -109,11 +110,12 @@
   position: fixed;
   width: 15%;
   overflow: auto;
-  height: 700px;
-  top: 132px;
-  right: 20px;
+  height: 710px;
+  top: 110px;
+  right: 15px;
   bottom: 30px;
   padding: 5px;
+  overflow: auto;
 }
 
 .city-select {
@@ -132,6 +134,7 @@
 
 .card-header-slide .btn-link {
   color: #000;
+  font-size: 14px;
 }
 
 .card-body-slide {
@@ -141,32 +144,24 @@
 .title-category {
   background-color: #968d8d;
   padding: 10px 20px;
-  margin: 0;
+  margin: 8px 2px;
 }
 
 .filter-box {
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 12px 20px 0;
   margin: 12px;
   position: fixed;
   left: 0;
-  top: 78px;
+  top: 75px;
   z-index: 7;
-  width: 80.5%;
-}
-
-.result-box {
-  position: fixed;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 100%;
-  left: 0px;
-  width: 18%;
+  width: 64.7%;
 }
 
 .search-box {
   position: relative;
   padding-right: 35px;
+  font-size: 12px;
 }
 
 .margin-left {
@@ -192,7 +187,8 @@
 
 .category-text {
   border-bottom: 1px solid #f0f0f0;
-  padding: 15px 2px;
+  padding: 7px 0px;
+  font-size: 14px;
 }
 
 .category-text:hover {
@@ -212,9 +208,12 @@
   text-decoration: none;
 }
 
-.card-text-image {
-  height: 100px;
+.btn-box {
+  text-align: right;
+  border-radius: 0;
+  padding: 4px 10px 0;
 }
+
 
 .sidebar-btn:hover {
   text-decoration: none;
@@ -231,27 +230,45 @@
 }
 
 .space-top {
-  margin: 106px 0;
+  padding: 0 0 0 10px;
+  margin-top: -15px;
 }
 
-@media (max-width: 768px) {
-	  .hidden-sm {
-	    display: none;
-	  }
-      .result-box {
-  	  margin-top: 15px;
-      }
+.fixed-box {
+  position: fixed;
+  left: 0;
+}
+
+.result-box {
+  height: 820px;
+  overflow: auto;
+  padding: 0 0 0 5px;
+}
+
+@media (max-width: 765px) {
+  .space-top {
+    padding-top: 220px !important;
+    margin: 0;
   }
+
+  .result-box {
+    height: 527px;
+    margin-top: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .category-box {
+    top: 245px;
+  }
+
+}
 
 @media (max-width: 900px) {
   .card-box {
-    width: 94%;
+    width: 100%;
   }
 
-  .space-top {
-    padding-top: 0;
-    margin: 0;
-  }
 
   .filter-box {
     padding: 13px;
@@ -261,9 +278,19 @@
     margin: 0;
   }
 
-  /* .hidden-sm {
-    display: none;
-  } */
+  .dropdown-scroll {
+    top: 170px !important;
+    height: 650px;
+  }
+
+  .fixed-box {
+    position: relative;
+  }
+
+  .result-box {
+    margin-top: 115px;
+    padding: 0 0 0 10px;
+  }
 
   .content-box {
     padding-top: 220px;
@@ -284,9 +311,46 @@
   .map-top {
     padding: 20px 0;
   }
+}
 
-  .result-box{
-    position: relative;
-    width: 100%;
+@media (max-width: 768px) {
+
+  .result-box {
+    height: 742px;
+    margin-top: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .menu-drawer li ul.toggled {
+    overflow-y: auto;
+    max-height: 500px !important;
+  }
+
+  .category-box {
+    height: 515px;
+    top: 209px;
+  }
+
+  .space-top {
+    padding: 84px 0 0 10px;
+    margin: 0;
+  }
+
+  #map_f0zsce {
+    margin-top: 0;
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 1026px) {
+  .result-box {
+    padding: 0 0 0 10px;
+  }
+}
+
+@media (max-width: 990px) {
+  .hidden-sm {
+    display: none;
   }
 }

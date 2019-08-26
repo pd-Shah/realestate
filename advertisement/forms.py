@@ -1,14 +1,111 @@
 
-from django.forms import ModelForm
+from django.forms import ModelForm, ValidationError
+from crispy_forms.bootstrap import Field, InlineRadios, TabHolder, Tab, InlineCheckboxes
+from crispy_forms.layout import Submit, Layout, Div, Fieldset
+from crispy_forms.helper import FormHelper
 from .models import Advertisement
 
 
-class RentApartment(ModelForm):
+class GenericImageSize():
+    def clean_image1(self):
+        image = self.cleaned_data.get('image1', False)
+        if image:
+            if image._size > 4*1024*1024:
+                raise ValidationError("Image file too large ( > 4mb )")
+            return image
+        else:
+            raise ValidationError("Couldn't read uploaded image")
+
+    def clean_image2(self):
+        image = self.cleaned_data.get('image2', False)
+        if image:
+            if image._size > 4*1024*1024:
+                raise ValidationError("Image file too large ( > 4mb )")
+            return image
+        else:
+            raise ValidationError("Couldn't read uploaded image")
+
+    def clean_image3(self):
+        image = self.cleaned_data.get('image3', False)
+        if image:
+            if image._size > 4*1024*1024:
+                raise ValidationError("Image file too large ( > 4mb )")
+            return image
+        else:
+            raise ValidationError("Couldn't read uploaded image")
+
+
+class RentApartment(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -19,7 +116,8 @@ class RentApartment(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address", "description",
+            "address",
+            "description",
             "year_of_construction",
             "room_number",
             "house_square",
@@ -77,12 +175,77 @@ class RentApartment(ModelForm):
         }
 
 
-class SellBuyApartment(ModelForm):
+class SellBuyApartment(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -150,12 +313,79 @@ class SellBuyApartment(ModelForm):
         }
 
 
-class RentEdari(ModelForm):
+class RentEdari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -217,12 +447,71 @@ class RentEdari(ModelForm):
         }
 
 
-class SellBuyEdari(ModelForm):
+class SellBuyEdari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "video_door_phone",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -283,12 +572,80 @@ class SellBuyEdari(ModelForm):
         }
 
 
-class RentColangi(ModelForm):
+class RentColangi(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "yard",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -353,12 +710,80 @@ class RentColangi(ModelForm):
         }
 
 
-class SellBuyColangi(ModelForm):
+class SellBuyColangi(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "yard",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -423,17 +848,86 @@ class SellBuyColangi(ModelForm):
         }
 
 
-class RentSuit(ModelForm):
+class RentSuit(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
 
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "yard",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
+
     class Meta:
         model = Advertisement
         fields = (
             "landlord_name",
+            "description",
             "title",
             "phone_number",
             "quarter",
@@ -498,16 +992,87 @@ class RentSuit(ModelForm):
         }
 
 
-class SellBuySuit(ModelForm):
+class SellBuySuit(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
 
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "yard",
+                "bill_status",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
+
     class Meta:
         model = Advertisement
         fields = (
+            "description",
             "landlord_name",
             "title",
             "phone_number",
@@ -574,12 +1139,82 @@ class SellBuySuit(ModelForm):
         }
 
 
-class RentVila(ModelForm):
+class RentVila(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "yard",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "caretaker_house",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -649,16 +1284,89 @@ class RentVila(ModelForm):
         }
 
 
-class SellBuyVila(ModelForm):
+class SellBuyVila(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
 
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "yard",
+                "bill_status",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "caretaker_house",
+
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
+
     class Meta:
         model = Advertisement
         fields = (
+            "description",
             "landlord_name",
             "title",
             "phone_number",
@@ -725,12 +1433,82 @@ class SellBuyVila(ModelForm):
         }
 
 
-class RentTejari(ModelForm):
+class RentTejari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -803,12 +1581,83 @@ class RentTejari(ModelForm):
         }
 
 
-class SellBuyTejari(ModelForm):
+class SellBuyTejari(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "bill_status",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                ),
+           Fieldset('تجهیزات گرمایشی/سرمایشی',
+                     "water_cooler",
+                     "air_conditioners",
+                     "chiller",
+                     "duct_split",
+                     "package",
+                     "radiant",
+                     "heater",
+                     "floor_heating",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -882,12 +1731,81 @@ class SellBuyTejari(ModelForm):
         }
 
 
-class RentZamin(ModelForm):
+class RentZamin(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "water_quota",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -936,12 +1854,83 @@ class RentZamin(ModelForm):
         }
 
 
-class SellBuyZamin(ModelForm):
+class SellBuyZamin(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "bill_status",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "density",
+                "water_quota",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -962,7 +1951,6 @@ class SellBuyZamin(ModelForm):
             "length",
             "density",
             "water_quota",
-            "swimming_pool",
             "video_door_phone",
             "janitor",
             "water",
@@ -992,12 +1980,86 @@ class SellBuyZamin(ModelForm):
         }
 
 
-class RentBagh(ModelForm):
+class RentBagh(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "bill_status",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "eslahi",
+                "water_quota",
+                "fance",
+                "agricultural_Type",
+                "tree_ages",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -1008,7 +2070,6 @@ class RentBagh(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address", "description",
             "eslahi",
             "fance",
             "urban_area_number",
@@ -1051,12 +2112,88 @@ class RentBagh(ModelForm):
         }
 
 
-class SellBuyBagh(ModelForm):
+class SellBuyBagh(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "bill_status",
+                "eslahi",
+                "fance",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "density",
+                "water_quota",
+                "agricultural_Type",
+                "tree_ages",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -1067,7 +2204,6 @@ class SellBuyBagh(ModelForm):
             "quarter",
             "street",
             "plak",
-            "address", "description",
             "eslahi",
             "fance",
             "urban_area_number",
@@ -1111,12 +2247,86 @@ class SellBuyBagh(ModelForm):
         }
 
 
-class RentAnbar(ModelForm):
+class RentAnbar(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "bill_status",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "eslahi",
+                "water_quota",
+                "fance",
+                "agricultural_Type",
+                "tree_ages",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -1159,12 +2369,86 @@ class RentAnbar(ModelForm):
         }
 
 
-class SellBuyAnbar(ModelForm):
+class SellBuyAnbar(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "bill_status",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "eslahi",
+                "water_quota",
+                "fance",
+                "agricultural_Type",
+                "tree_ages",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -1207,12 +2491,86 @@ class SellBuyAnbar(ModelForm):
         }
 
 
-class RentSole(ModelForm):
+class RentSole(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "deposit",
+                "rent",
+                "bill_status",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "eslahi",
+                "water_quota",
+                "fance",
+                "agricultural_Type",
+                "tree_ages",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement
@@ -1252,12 +2610,86 @@ class RentSole(ModelForm):
         }
 
 
-class SellBuySole(ModelForm):
+class SellBuySole(ModelForm, GenericImageSize):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.required:
             self.fields[field].required = True
+
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+           Fieldset('اطلاعات مالک',
+                    'landlord_name', 'phone_number',
+                ),
+           Fieldset(
+               'اطلاعات ملک',
+               'title',
+                "price",
+                "price_square",
+                "bill_status",
+                "description",
+                "year_of_construction",
+                "room_number",
+                "house_square",
+                "telephone_lines",
+                "floor_number",
+                "exposure_direction",
+                "toilet_type",
+                "building_view",
+                "cabinet_type",
+                "building_status",
+                "flooring_type",
+                "floors",
+                "blocks_per_floor",
+                "category",
+                "yard",
+                "length",
+                "eslahi",
+                "water_quota",
+                "fance",
+                "agricultural_Type",
+                "tree_ages",
+               ),
+
+           Fieldset('اطلاعات ادرس',
+                "quarter",
+                "street",
+                "plak",
+                "address",
+                "urban_area_number",
+                "city",
+                ),
+           Fieldset('تجهیزات و امکانات ملک',
+                 "parking",
+                 "elevator",
+                 "depot",
+                 "sauna",
+                 "jacuzzi",
+                 "swimming_pool",
+                 "balcony",
+                 "kitchen",
+                 "lobby",
+                 "video_door_phone",
+                 "remote",
+                 "table_gas",
+                "janitor",
+                "water",
+                "electricity",
+                "gas",
+                "water_well",
+                "car_door",
+                "asphalt",
+                "caretaker_house",
+                ),
+           Fieldset('تصاویر',
+                    "image1",
+                    "image2",
+                    "image3",
+                ),
+        )
+        self.helper.layout.append(Submit('save', 'ثبت اگهی', css_class="btn btn-success btn-block"))
 
     class Meta:
         model = Advertisement

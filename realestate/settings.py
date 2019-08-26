@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'supporter.apps.SupporterConfig',
     'django.contrib.sites',
     'crispy_forms',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

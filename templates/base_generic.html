@@ -73,12 +73,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:contact_us'%}" tabindex="-1" aria-disabled="true">تماس با ما</a>
           </li>
+          {% block login %}
           <li>
             <div class="margin-left">
               <a href="{% url 'advertisement:select_ad' %}" class="btn orange-btn">ثبت آگهی رایگان</a>
             </div>
           </li>
-          {% block login %}
           {% endblock %}
           <!-- <li>
             <div class="margin-left">
@@ -113,12 +113,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'advertisement:contact_us'%}" tabindex="-1" aria-disabled="true">تماس با ما</a>
           </li>
+          {% block login-sm %}
           <li>
             <div class="margin-left">
               <a href="{% url 'advertisement:select_ad' %}" class="btn orange-btn">ثبت آگهی رایگان</a>
             </div>
           </li>
-          {% block login-sm %}
           {% endblock %}
           <!-- <li>
             <div class="margin-left">
@@ -140,14 +140,14 @@
   </section>
   <footer class="footer-box">
   </footer>
-
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
+  <script src="{% static 'advertisement/js/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'advertisement/js/popper.min.js' %}"></script>
   <script src="{% static 'advertisement/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'advertisement/js/script.js' %}"></script>
   <script src="{% static 'advertisement/js/modernizr.custom.js' %}"></script>
   <script src="{% static 'advertisement/js/jquery.dlmenu.js' %}"></script>
+  <script src="{% static 'advertisement/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'advertisement/js/infinite.min.js' %}"></script>
   <script>
     $(function() {
       $('#dl-menu').dlmenu();

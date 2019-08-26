@@ -70,7 +70,7 @@ def get_image_path(instance, filename):
 
 
 class Agencies(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,null=True)
     special = models.BooleanField(
         default=False,
         verbose_name='کاربر ویژه',
