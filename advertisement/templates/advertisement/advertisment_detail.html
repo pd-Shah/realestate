@@ -1,94 +1,296 @@
 {% extends 'base_generic.html' %}
 {% block content %}
 {% load static %}
-<div class="card-group">
-  <div class="card bg">
-    <div class="card-body text-center">
-      <div class="container">
-        <h1>{{ object.title }}</h1><br>
-      </div>
-      <div class="container">
+<!-- <div class="jumbotron"> -->
+
+  <div class="container well">
+    <!-- first row  -->
+    <div class="row">
+      <!-- right col -->
+      <div class="col-md-6" dir="rtl">
+        <!-- title ad -->
         <div class="row">
-          <div class="col-md-6">
-            <button type="button" class="btn login-btn">دریافت اطلاعات تماس</button>
+          <div class="col-md-4">
+            <h3>
+              عنوان آگهی
+            </h3>
           </div>
-          <div class="col-md-6">
-            <button type="button" class="btn login-btn">نشان کردن</button>
-          </div>
-        </div><br>
-      </div>
-      <div class="container">
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+        </div><hr>
+
+        <!-- Att 1 -->
+
         <div class="row">
-          <div class="col-md-6">
-            <h4>
-              {% if object.rent %}
-              اجاره: {{ object.deposit }}
-              رهن:‌ {{ object.rent }}
-              {% elif object.price %}
-              قیمت کل: {{ object.price }}
-              قیمت هر مترمربع: {{ object.price_square}}
-              {% else %}
-              توافقی
-              {% endif %}
-            </h4>
+          <div class="col-md-4">
+            <h6>
+              متراژ
+            </h6>
           </div>
-          <div class="col-md-6">
-            <h4>{{ object.get_city_display }}</h4><br>
+          <div class="col-md-4">
+            <h6>
+              دویست هزار متر
+            </h6>
           </div>
+          <div class="col-md-4"></div>
         </div>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col">
-          <p> {{ object.description }} </p>
+
+        <!-- space between infor -->
+        <div class="row">
+          <div class="col-md-4">
+            <h3>
+
+            </h3>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+        </div>
+
+        <!-- ATT 2 -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <h6>
+              طبقه
+            </h6>
+          </div>
+          <div class="col-md-4">
+            <h6>
+              سی ام
+            </h6>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <!-- space between infor -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <h3>
+
+            </h3>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+        </div>
+        <!-- att  3-->
+        <div class="row">
+          <div class="col-md-4">
+            <h6>
+              رهن
+            </h6>
+          </div>
+          <div class="col-md-4">
+            <h6>
+              دویست میلیون تومان
+            </h6>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <!-- space between infor -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <h3>
+
+            </h3>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+        </div>
+        <!-- Att 4 -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <h6>
+              طبقه
+            </h6>
+          </div>
+          <div class="col-md-4">
+            <h6>
+              سی ام
+            </h6>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <!-- space between infor -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <h3>
+
+            </h3>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h3>
+
+            </h3>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
         </div>
       </div>
+
+
+
+      <!-- left col -->
+      <div class="col-md-6" style="margin-bottom: 25px;">
+        <img src="{% static 'advertisement/images/sara.jpeg' %}" alt="img">
+      </div>
+
     </div>
-  </div>
-  <div class="card bg">
-    <div class="card-body text-center">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            {% if object.image1 %}
-              <img src="{{ MEDIA_URL }}{{ object.image1 }}"  class="d-block w-100" alt="...">
-            {% else %}
-              <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
-            {% endif %}
+    <!-- right bottom section -->
+    <div class="row" >
+      <!-- right col -->
+      <div class="col-md-6" dir="rtl">
+        <!-- title ad -->
+        <div class="row">
+          <div class="col-md-4">
+            <h3>
+              توضیحات                </h3>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
           </div>
-          <div class="carousel-item">
-            {% if object.image2 %}
-              <img src="{{ MEDIA_URL }}{{ object.image2 }}" class="d-block w-100" alt="...">
-            {% else %}
-              <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
-            {% endif %}
+          <hr>
+
+          <!-- Att 1 -->
+
+          <div class="row">
+            <div class="col-md-4">
+              <h6>
+                متراژ
+              </h6>
+            </div>
+            <div class="col-md-4">
+              <h6>
+                دویست هزار متر
+              </h6>
+            </div>
+            <div class="col-md-4"></div>
           </div>
-          <div class="carousel-item">
-            {% if object.image3 %}
-              <img src="{{ MEDIA_URL }}{{ object.image3 }}" class="d-block w-100" alt="...">
-            {% else %}
-              <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
-            {% endif %}
+
+          <!-- space between infor -->
+          <div class="row">
+            <div class="col-md-4">
+              <h3>
+
+              </h3>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+          </div>
+
+          <!-- ATT 2 -->
+
+          <div class="row">
+            <div class="col-md-4">
+              <h6>
+                طبقه
+              </h6>
+            </div>
+            <div class="col-md-4">
+              <h6>
+                سی ام
+              </h6>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <!-- space between infor -->
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>
+
+              </h3>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+          </div>
+          <!-- att  3-->
+          <div class="row">
+            <div class="col-md-4">
+              <h6>
+                رهن
+              </h6>
+            </div>
+            <div class="col-md-4">
+              <h6>
+                دویست میلیون تومان
+              </h6>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <!-- space between infor -->
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>
+
+              </h3>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+          </div>
+          <!-- Att 4 -->
+
+          <div class="row">
+            <div class="col-md-4">
+              <h6>
+                طبقه
+              </h6>
+            </div>
+            <div class="col-md-4">
+              <h6>
+                سی ام
+              </h6>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <!-- space between infor -->
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>
+
+              </h3>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        <div class="col-md-6" style="margin:auto;" dir="rtl">
+          <div id="map-canvas" style=" margin:auto; height: 350px; width: 350px; border: 3px solid black;"></div>
+          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" type="text/javascript"></script>
+          <script type="text/javascript">
+
+            if (document.getElementById('map-canvas')) {
+
+              // Coordinates to center the map
+              var myLatlng = new google.maps.LatLng(52.525595, 13.393085);
+
+              // Other options for the map, pretty much selfexplanatory
+              var mapOptions = {
+                zoom: 14,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              };
+
+              // Attach a map to the DOM Element, with the defined settings
+              var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+            }
+          </script>
+        </script>
+
       </div>
+
     </div>
-    <!-- <div class="contaienr map-top">
-      <div id="map_f0zsce"></div>
-    </div> -->
+
   </div>
+
 </div>
 {% endblock %}
