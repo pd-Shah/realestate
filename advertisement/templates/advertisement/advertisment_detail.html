@@ -1,9 +1,6 @@
 {% extends 'base_generic.html' %}
 {% block content %}
 {% load static %}
-<<<<<<< HEAD
-<!-- <div class="jumbotron"> -->
-
   <div class="container well">
     <!-- first row  -->
     <div class="row">
@@ -27,23 +24,6 @@
             <h6>
               متراژ
             </h6>
-=======
-{% load extra_tags %}
-{% load humanize %}
-<div class="card-group">
-  <div class="card bg">
-    <div class="card-body text-center">
-      <div class="container">
-        <h1>{{ object.title }}</h1><br>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <button type="button" class="btn orange-btn">دریافت اطلاعات تماس</button>
-          </div>
-          <div class="col-md-6">
-            <button type="button" class="btn orange-btn">نشان کردن</button>
->>>>>>> 6411799a6252dee92920a77c942e2a39270fdfa1
           </div>
           <div class="col-md-4">
             <h6>
@@ -55,27 +35,10 @@
 
         <!-- space between infor -->
         <div class="row">
-<<<<<<< HEAD
           <div class="col-md-4">
             <h3>
 
             </h3>
-=======
-          <div class="col-md-6">
-            <h4>
-              {% if object.price %}
-              {{ object.price|intcomma|persianize_digits  }}
-              {% elif object.rent %}
-              اجاره:{{ object.rent|intcomma|persianize_digits  }}
-              رهن:{{ object.deposit|intcomma|persianize_digits }}
-              {% else %}
-              توافقی
-              {% endif %}
-            </h4>
-          </div>
-          <div class="col-md-6">
-            <h4>{{ object.get_city_display }}</h4><br>
->>>>>>> 6411799a6252dee92920a77c942e2a39270fdfa1
           </div>
           <div class="col-md-4"></div>
           <div class="col-md-4"></div>
@@ -327,5 +290,4 @@
 
   </div>
 
-</div>
 {% endblock %}
