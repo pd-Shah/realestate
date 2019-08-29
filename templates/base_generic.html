@@ -133,10 +133,12 @@
 
   <section class="body">
     <a id="button"></a>
+    {% block content_modal %}
     <div class="container">
       {% block content %}
       {% endblock %}
     </div>
+    {% endblock %}
   </section>
   <footer class="footer-box">
   </footer>
