@@ -64,6 +64,7 @@ def signup(request):
             user.consultant.russion = form.cleaned_data.get("russion")
             user.consultant.french = form.cleaned_data.get("french")
             user.consultant.germany = form.cleaned_data.get("germany")
+            user.consultant.consultant = True
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
@@ -85,7 +86,7 @@ class ConsultantAdsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated and isinstance(self.request.user, Consultant):
+        if self.request.user.is_authenticated and self.request.user.consultant.consultant :
             username_id = self.request.user.id
             context["posts"] = Advertisement.objects.filter(
                                     owner__id=username_id,
@@ -98,7 +99,7 @@ class ConsultantSimillarAdsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
+        if self.request.user.is_authenticated and self.request.user.consultant.consultant :
             username_id = self.request.user.id
             queries = Advertisement.objects.filter(owner__id=username_id, )
             context["posts"] = Advertisement.objects.filter(

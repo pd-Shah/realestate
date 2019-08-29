@@ -3,7 +3,7 @@
 {% block login %}
 <li>
   <div class="margin-left">
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.agencies.agencies %}
     <a href="{% url 'agencies:my_ads'%}" class="btn orange-btn">پروفایل</a>
     <!-- <a href="{% url 'logout'%}?next={{request.path}}" class="btn orange-btn">خروج</a> -->
     {% else %}
@@ -16,7 +16,7 @@
 {% block login-sm %}
 <li>
   <div class="margin-left">
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.agencies.agencies %}
     <a href="{% url 'agencies:my_ads'%}" class="btn orange-btn">پروفایل</a>
     <a href="{% url 'logout'%}?next={{request.path}}" class="btn orange-btn">خروج</a>
     {% else %}

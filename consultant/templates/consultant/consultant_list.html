@@ -3,7 +3,7 @@
 {% block login %}
 <li>
   <div class="margin-left">
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.consultant.consultant %}
     <a href="{% url 'consultant:my_ads'%}" class="btn orange-btn">پروفایل</a>
     <a href="{% url 'logout'%}?next={{request.path}}" class="btn orange-btn">خروج</a>
     {% else %}
@@ -16,9 +16,9 @@
 {% block login-sm %}
 <li>
   <div class="margin-left">
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.consultant.consultant %}
     <a href="{% url 'consultant:my_ads'%}" class="btn orange-btn">پروفایل</a>
-    <!-- <a href="{% url 'logout'%}?next={{request.path}}" class="btn orange-btn">خروج</a> -->
+    <a href="{% url 'logout'%}?next={{request.path}}" class="btn orange-btn">خروج</a>
     {% else %}
     <a href="{% url 'consultant:login_or_signup'%}" class="btn orange-btn">ورود</a>
     {% endif %}

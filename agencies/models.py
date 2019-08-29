@@ -157,6 +157,10 @@ class Agencies(models.Model):
                         null=True,
                         verbose_name="تصویر مدیران و همکاران",
                     )
+    agencies = models.BooleanField(
+        default=False,
+    )
+
 
     def __str__(self):
         return self.user.username
