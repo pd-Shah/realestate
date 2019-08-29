@@ -108,11 +108,11 @@
   width: 0;
   padding: 0;
   position: fixed;
-z-index: 999 !important;
+  z-index: 999 !important;
   border: 1px solid rgba(34, 36, 38, .15);
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, .15);
   top: 70px;
-  left: -1px;
+  left: -2px;
   background-color: #fff;
   overflow-x: hidden;
   transition: 0.5s;
@@ -120,9 +120,7 @@ z-index: 999 !important;
 }
 
 .sidepanel.in {
-
   overflow: hidden;
-
 }
 
 .sidepanel a {

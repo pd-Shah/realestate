@@ -108,12 +108,12 @@ section:after {
   position: fixed;
   width: 15%;
   overflow: auto;
-  height: 710px;
+  height: auto;
   top: 110px;
   right: 20px;
   bottom: 30px;
   padding: 5px;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .category-list {
@@ -304,7 +304,7 @@ section:after {
   }
 
   .category-box {
-    height: 515px;
+    height: 215px;
     top: 200px;
   }
 

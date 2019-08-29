@@ -16,6 +16,32 @@ body {
   text-align: right;
 }
 
+.dropdown-menu.show{
+  max-height: 400px;
+  overflow-y: auto;
+
+}
+
+.dropdown-item {
+  font-size: 12px;
+}
+
+.dropdown-item.disabled,
+.dropdown-item:disabled {
+  opacity: .6;
+}
+
+.dropdown-scroll {
+  height: 750px;
+  overflow: auto;
+}
+
+
+.accordion{
+  overflow: auto;
+  height: auto;
+}
+
 a:hover {
   text-decoration: none;
   color: #f36938;
