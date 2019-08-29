@@ -90,6 +90,11 @@ class AboutUsView(TemplateView):
 class SelectAddView(TemplateView):
     template_name = 'advertisement/select.html'
 
+    def get(self, request):
+        if not self.request.session.get('phone') and not self.request.user.is_authenticated:
+             return redirect(reverse('sms:loging_sms'))
+        return super(SelectAddView, self).get(request)
+
 
 class ContactUsView(TemplateView):
     template_name = 'advertisement/contact_us.html'
