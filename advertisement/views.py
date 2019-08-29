@@ -61,9 +61,10 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Advertisement.objects.filter(
+            published=True).filter(
             Q(title__icontains=query) |
             Q(city__icontains=query)
-        )
+        ).order_by('-created')
         return object_list
 
 
