@@ -109,3 +109,7 @@ class ConsultantSimillarAdsView(TemplateView):
 
 class ConsultantMarkedAdsView(TemplateView):
     template_name = "consultant/conts_marked_ad.html"
+
+
+class LogingSingup(TemplateView):
+    template_name = "consultant/login_or_signup.html"

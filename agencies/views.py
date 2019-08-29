@@ -101,3 +101,7 @@ class AgenciesSimillarAdsView(TemplateView):
 
 class AgenciesMarkedAdsView(TemplateView):
     template_name = "agencies/marked_ad.html"
+
+
+class LogingSingup(TemplateView):
+    template_name = "agencies/login_or_signup.html"

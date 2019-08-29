@@ -1,30 +1,13 @@
 {% extends 'base_generic.html' %}
 
-{% block head %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'consultant/css/bootstrap.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/vendors/linericon/style.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/css/themify-icons.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/vendors/owl-carousel/owl.theme.default.min.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/vendors/fontawesome/css/all.min.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/vendors/owl-carousel/owl.carousel.min.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/css/magnific-popup.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/vendors/nice-select/css/nice-select.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/css/style.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/css/home.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/css/main.css' %}">
-<link rel="stylesheet" href="{% static 'consultant/css/header.css' %}">
-{% endblock %}
-
 {% block login %}
 <li>
   <div class="margin-left">
     {% if user.is_authenticated %}
-    <a href="{% url 'consultant:my_ads'%}" class="btn login-btn">روفایل</a>
-    <a href="{% url 'logout'%}?next={{request.path}}" class="btn login-btn">خروج</a>
+    <a href="{% url 'consultant:my_ads'%}" class="btn orange-btn">پروفایل</a>
+    <!-- <a href="{% url 'logout'%}?next={{request.path}}" class="btn orange-btn">خروج</a> -->
     {% else %}
-    <a href="{% url 'consultant:login'%}?next={{request.path}}" class="btn login-btn">ورود</a>
-    <a href="{% url 'consultant:signup'%}?next={{request.path}}" class="btn login-btn">ثبت نام</a>
+    <a href="{% url 'consultant:login_or_signup'%}" class="btn orange-btn">ورود</a>
     {% endif %}
   </div>
 </li>
@@ -34,11 +17,10 @@
 <li>
   <div class="margin-left">
     {% if user.is_authenticated %}
-    <a href="{% url 'consultant:my_ads'%}" class="btn login-btn">روفایل</a>
-    <a href="{% url 'logout'%}?next={{request.path}}" class="btn login-btn">خروج</a>
+    <a href="{% url 'consultant:my_ads'%}" class="btn orange-btn">پروفایل</a>
+    <!-- <a href="{% url 'logout'%}?next={{request.path}}" class="btn orange-btn">خروج</a> -->
     {% else %}
-    <a href="{% url 'consultant:login'%}?next={{request.path}}" class="btn login-btn">ورود</a>
-    <a href="{% url 'consultant:signup'%}?next={{request.path}}" class="btn login-btn">ثبت نام</a>
+    <a href="{% url 'consultant:login_or_signup'%}" class="btn orange-btn">ورود</a>
     {% endif %}
   </div>
 </li>
