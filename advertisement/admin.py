@@ -1,7 +1,14 @@
 from django.contrib import admin
 from django.utils.html import mark_safe
 from . import models
+from django.contrib.auth.models import User
+from agencies.models import Agencies
+from consultant.models import Consultant
 
+
+for user in User.objects.all():
+    Agencies.objects.get_or_create(user=user)
+    Consultant.objects.get_or_create(user=user)
 
 @admin.register(models.ConfigAdvertisement)
 class AdvertismentConfigAdmin(admin.ModelAdmin):
