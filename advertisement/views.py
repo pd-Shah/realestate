@@ -31,6 +31,14 @@ from . forms import (
     SellBuyAnbar,
     RentSole,
     SellBuySole,
+    RentHomeVila,
+    SellBuyHomeVila,
+    RentTower,
+    SellBuyTower,
+    RentStore,
+    SellBuyStore,
+    RentPenthouse,
+    SellBuyPenthouse,
 )
 
 
@@ -741,6 +749,258 @@ class RentSoleListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'29')
+    paginate_by = 1
+
+
+class NewBuyHomeVila(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyHomeVila
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'30'
+        form.save()
+        return super().form_valid(form)
+
+
+class BuyHomeVilaListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'30')
+    paginate_by = 1
+
+
+class NewSellHomeVila(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyHomeVila
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'31'
+        form.save()
+        return super().form_valid(form)
+
+
+class SellHomeVilaListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'31')
+    paginate_by = 1
+
+
+class NewRentHomeVila(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = RentHomeVila
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'32'
+        form.save()
+        return super().form_valid(form)
+
+
+class RentHomeVilaListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'32')
+    paginate_by = 1
+
+
+class NewBuyPenthouse(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyPenthouse
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'33'
+        form.save()
+        return super().form_valid(form)
+
+
+class BuyPenthouseListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'33')
+    paginate_by = 1
+
+
+class NewSellPenthouse(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyPenthouse
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'34'
+        form.save()
+        return super().form_valid(form)
+
+
+class SellPenthouseListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'34')
+    paginate_by = 1
+
+
+class NewRentPenthouse(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = RentPenthouse
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'35'
+        form.save()
+        return super().form_valid(form)
+
+
+class RentPenthouseListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'35')
+    paginate_by = 1
+
+
+class NewBuyStore(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyStore
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'36'
+        form.save()
+        return super().form_valid(form)
+
+
+class BuyStoreListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'36')
+    paginate_by = 1
+
+
+class NewSellStore(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyStore
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'37'
+        form.save()
+        return super().form_valid(form)
+
+
+class SellStoreListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'37')
+    paginate_by = 1
+
+
+class NewRentStore(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = RentStore
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'38'
+        form.save()
+        return super().form_valid(form)
+
+
+class RentStoreListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'38')
+    paginate_by = 1
+
+
+class NewBuyTower(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyTower
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'39'
+        form.save()
+        return super().form_valid(form)
+
+
+class BuyTowerListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'39')
+    paginate_by = 1
+
+
+class NewSellTower(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = SellBuyTower
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'40'
+        form.save()
+        return super().form_valid(form)
+
+
+class SellTowerListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'40')
+    paginate_by = 1
+
+
+class NewRentTower(FormView):
+    template_name = 'advertisement/new_ad.html'
+    form_class = RentTower
+    success_url = reverse_lazy('advertisement:advertisement_list')
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.owner = self.request.user
+            form.instance.published = True
+        form.instance.category = u'41'
+        form.save()
+        return super().form_valid(form)
+
+
+class RentTowerListView(ListView):
+    model = Advertisement
+    template_name = 'advertisement/advertisement_list.html'
+    queryset = Advertisement.objects.filter(category=u'41')
     paginate_by = 1
 
 

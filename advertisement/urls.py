@@ -35,6 +35,18 @@ from .views import (
     NewBuySole,
     NewSellSole,
     NewRentSole,
+    NewBuyHomeVila,
+    NewSellHomeVila,
+    NewRentHomeVila,
+    NewBuyPenthouse,
+    NewSellPenthouse,
+    NewRentPenthouse,
+    NewBuyStore,
+    NewSellStore,
+    NewRentStore,
+    NewBuyTower,
+    NewSellTower,
+    NewRentTower,
     ContactUsView,
     MyPageView,
     BuyApartmentListView,
@@ -67,6 +79,18 @@ from .views import (
     BuySoleListView,
     RentSoleListView,
     SellSoleListView,
+    BuyHomeVilaListView,
+    RentHomeVilaListView,
+    SellHomeVilaListView,
+    BuyPenthouseListView,
+    RentPenthouseListView,
+    SellPenthouseListView,
+    BuyStoreListView,
+    RentStoreListView,
+    SellStoreListView,
+    BuyTowerListView,
+    RentTowerListView,
+    SellTowerListView,
     SearchResultsView,
     RulePageView,
     TutorialTemplateView,
@@ -273,154 +297,214 @@ urlpatterns = [
         name='new_rent_sole',
     ),
     path(
-        'buy-apartment/',
+        'select/buy-apartment/',
         BuyApartmentListView.as_view(),
         name='buy_apartment_list_view'
     ),
     path(
-        'sell-apartment/',
+        'select/sell-apartment/',
         SellApartmentListView.as_view(),
         name='sell_apartment_list_view'
     ),
     path(
-        'rent-apartment/',
+        'select/rent-apartment/',
         RentApartmentListView.as_view(),
         name='rent_apartment_list_view'
     ),
     path(
-        'buy-edari/',
+        'select/buy-edari/',
         BuyEdariListView.as_view(),
         name='buy_edari_list_view'
     ),
     path(
-        'sell-edari/',
+        'select/sell-edari/',
         SellEdariListView.as_view(),
         name='sell_edari_list_view'
     ),
     path(
-        'rent-edari/',
+        'select/rent-edari/',
         RentEdariListView.as_view(),
         name='rent_edari_list_view'
     ),
     path(
-        'buy-colangi/',
+        'select/buy-colangi/',
         BuyColangiListView.as_view(),
         name='buy_colangi_list_view'
     ),
     path(
-        'sell-colangi/',
+        'select/sell-colangi/',
         SellColangiListView.as_view(),
         name='sell_colangi_list_view'
     ),
     path(
-        'rent-colangi/',
+        'select/rent-colangi/',
         RentColangiListView.as_view(),
         name='rent_colangi_list_view'
     ),
     path(
-        'buy-suit/',
+        'select/buy-suit/',
         BuySuitListView.as_view(),
         name='buy_suit_list_view'
     ),
     path(
-        'sell-suit/',
+        'select/sell-suit/',
         SellSuitListView.as_view(),
         name='sell_suit_list_view'
     ),
     path(
-        'rent-suit/',
+        'select/rent-suit/',
         RentSuitListView.as_view(),
         name='rent_suit_list_view'
     ),
     path(
-        'buy-vila/',
+        'select/buy-vila/',
         BuyVilaListView.as_view(),
         name='buy_vila_list_view'
     ),
     path(
-        'sell-vila/',
+        'select/sell-vila/',
         SellVilaListView.as_view(),
         name='sell_vila_list_view'
     ),
     path(
-        'rent-vila/',
+        'select/rent-vila/',
         RentVilaListView.as_view(),
         name='rent_vila_list_view'
     ),
     path(
-        'buy-tejari/',
+        'select/buy-tejari/',
         BuyTejariListView.as_view(),
         name='buy_tejari_list_view'
     ),
     path(
-        'sell-tejari/',
+        'select/sell-tejari/',
         SellTejariListView.as_view(),
         name='sell_tejari_list_view'
     ),
     path(
-        'rent-tejari/',
+        'select/rent-tejari/',
         RentTejariListView.as_view(),
         name='rent_tejari_list_view'
     ),
     path(
-        'buy-zamin/',
+        'select/buy-zamin/',
         BuyZaminListView.as_view(),
         name='buy_zamin_list_view'
     ),
     path(
-        'sell-zamin/',
+        'select/sell-zamin/',
         SellZaminListView.as_view(),
         name='sell_zamin_list_view'
     ),
     path(
-        'rent-zamin/',
+        'select/rent-zamin/',
         RentZaminListView.as_view(),
         name='rent_zamin_list_view'
     ),
     path(
-        'buy-bagh/',
+        'select/buy-bagh/',
         BuyBaghListView.as_view(),
         name='buy_bagh_list_view'
     ),
     path(
-        'sell-bagh/',
+        'select/sell-bagh/',
         SellBaghListView.as_view(),
         name='sell_bagh_list_view'
     ),
     path(
-        'rent-bagh/',
+        'select/rent-bagh/',
         RentBaghListView.as_view(),
         name='rent_bagh_list_view'
     ),
     path(
-        'buy-anbar/',
+        'select/buy-anbar/',
         BuyAnbarListView.as_view(),
         name='buy_anbar_list_view'
     ),
     path(
-        'sell-anbar/',
+        'select/sell-anbar/',
         SellAnbarListView.as_view(),
         name='sell_anbar_list_view'
     ),
     path(
-        'rent-anabr/',
+        'select/rent-anabr/',
         RentAnbarListView.as_view(),
         name='rent_anbar_list_view'
     ),
     path(
-        'buy-sole/',
+        'select/buy-sole/',
         BuySoleListView.as_view(),
         name='buy_sole_list_view'
     ),
     path(
-        'sell-sole/',
+        'select/sell-sole/',
         SellSoleListView.as_view(),
         name='sell_sole_list_view'
     ),
     path(
-        'rent-sole/',
+        'select/rent-sole/',
         RentSoleListView.as_view(),
         name='rent_sole_list_view'
+    ),
+    path(
+        'select/buy-homevila/',
+        BuyHomeVilaListView.as_view(),
+        name='buy_homevila_list_view'
+    ),
+    path(
+        'select/sell-homevila/',
+        SellHomeVilaListView.as_view(),
+        name='sell_homevila_list_view'
+    ),
+    path(
+        'select/rent-homevila/',
+        RentHomeVilaListView.as_view(),
+        name='rent_homevila_list_view'
+    ),
+    path(
+        'select/buy-penthouse/',
+        BuyPenthouseListView.as_view(),
+        name='buy_penthouse_list_view'
+    ),
+    path(
+        'select/sell-penthouse/',
+        SellPenthouseListView.as_view(),
+        name='sell_penthouse_list_view'
+    ),
+    path(
+        'select/rent-penthouse/',
+        RentPenthouseListView.as_view(),
+        name='rent_penthouse_list_view'
+    ),
+    path(
+        'select/buy-store/',
+        BuyStoreListView.as_view(),
+        name='buy_store_list_view'
+    ),
+    path(
+        'select/sell-store/',
+        SellStoreListView.as_view(),
+        name='sell_store_list_view'
+    ),
+    path(
+        'select/rent-store/',
+        RentStoreListView.as_view(),
+        name='rent_store_list_view'
+    ),
+    path(
+        'select/buy-tower/',
+        BuyTowerListView.as_view(),
+        name='buy_tower_list_view'
+    ),
+    path(
+        'select/sell-tower/',
+        SellTowerListView.as_view(),
+        name='sell_tower_list_view'
+    ),
+    path(
+        'select/rent-tower/',
+        RentTowerListView.as_view(),
+        name='rent_tower_list_view'
     ),
     path(
         'tutorial/',
