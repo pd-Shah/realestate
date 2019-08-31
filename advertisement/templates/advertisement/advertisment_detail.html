@@ -23,22 +23,24 @@
         <div class="col-md-4"></div>
       </div>
       <hr>
+      <br><br>
 
       <!-- Att 1 -->
 
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             صاحب خانه
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             {{ object.landlord_name }}
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
+      <br>
 
       <!-- space between infor -->
       <div class="row">
@@ -50,44 +52,49 @@
         <div class="col-md-4"></div>
         <div class="col-md-4"></div>
       </div>
+      <br>
 
       <!-- ATT 2 -->
 
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             شهر
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             {{ object.get_city_display }}
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
+      <br>
       <!-- space between infor -->
 
       <div class="row">
         <div class="col-md-4">
-          <h3>
+          <h5>
             توضیحات
-          </h3>
+          </h5>
         </div>
         <div class="col-md-4">
-          {{ object.description }}
+          <h5>
+            {{ object.description }}
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
+      <br>
       <!-- att  3-->
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             قیمت
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             {% if object.price %}
             {{ object.price|intcomma|persianize_digits  }}
             {% elif object.rent %}
@@ -96,10 +103,11 @@
             {% else %}
             توافقی
             {% endif %}
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
+      <br>
       <!-- space between infor -->
 
       <div class="row">
@@ -111,21 +119,23 @@
         <div class="col-md-4"></div>
         <div class="col-md-4"></div>
       </div>
+      <br>
       <!-- Att 4 -->
 
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             تلفن
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             {{ object.phone_number|persianize_phone }}
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
+      <br>
       <!-- space between infor -->
 
       <div class="row">
@@ -169,14 +179,14 @@
 
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             متراژ
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             دویست هزار متر
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
@@ -196,14 +206,14 @@
 
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             طبقه
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             سی ام
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
@@ -221,14 +231,14 @@
       <!-- att  3-->
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             رهن
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             دویست میلیون تومان
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
@@ -247,14 +257,14 @@
 
       <div class="row">
         <div class="col-md-4">
-          <h4>
+          <h5>
             طبقه
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4">
-          <h4>
+          <h5>
             سی ام
-          </h4>
+          </h5>
         </div>
         <div class="col-md-4"></div>
       </div>
@@ -271,6 +281,9 @@
       </div>
     </div>
     <div class="col-md-6" style="margin:auto;" dir="rtl">
+      <br>
+      <br>
+      <br>
       <div id="map-canvas" style=" margin:auto; height: 350px; width: 350px; border: 3px solid black;"></div>
       <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" type="text/javascript"></script>
       <script type="text/javascript">

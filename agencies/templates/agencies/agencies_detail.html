@@ -31,7 +31,7 @@
 					<div class="row">
 						<div class="col-lg-7 mb-4 mb-lg-0">
 							<p>
-							{{ object.long_description }}
+								{{ object.long_description }}
 							</p>
 						</div>
 						<div class="col-lg-5">
@@ -48,7 +48,7 @@
 									<li><span> تخصص </span> {{ object.skill }}</li>
 									<li><span>امتیاز</span>
 										{% for i in range %}
-											<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
 										{% endfor %}
 									</li>
 									<!-- <li><span>Client</span>: colorlib</li> -->
@@ -58,39 +58,37 @@
 					</div>
 
 					<div class="content-box">
+						{% for ad in posts %}
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							{% for ad in posts %}
-						  <div class="col-lg-4 col-md-6 col-sm-12">
-						    <div class="card-box">
-						      <div class="flex-card">
-						        <div class="card-body-image">
-						          <h5 class="card-title-image">
-						            <a href="{{ ad.get_absolute_url }}">
-						              {{ ad.get_category_display }}
-						            </a>
-						          </h5>
-						          <p class="card-text-image">{{ ad.title }}</p>
-						        </div>
-						        {% if ad.image1 %}
-						          <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
-						        {% else %}
-						          <img src="{% static 'agencies/images/image_default.gif' %}" class="card-img" alt="...">
-						        {% endif %}
-						      </div>
-						      <a href="#" class="btn full-width btn-price btn-box">
-										{% if ad.price %}
-						        {{ ad.price|intcomma|persianize_digits  }}
-						        {% elif ad.rent %}
-						        اجاره:{{ ad.rent|intcomma|persianize_digits  }}
-						        رهن:{{ ad.deposit|intcomma|persianize_digits }}
-						        {% else %}
-						        توافقی
-						        {% endif %}
-						      </a>
-						    </div>
-						  </div>
-						  {% endfor %}
+							<div class="card-box">
+								<div class="flex-card">
+									<div class="card-body-image">
+										<h5 class="card-title-image">
+											<a href="{{ ad.get_absolute_url }}">
+												{{ ad.get_category_display }}
+											</a>
+										</h5>
+										<p class="card-text-image">{{ ad.title }}</p>
+									</div>
+									{% if ad.image1 %}
+									<img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
+									{% else %}
+									<img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
+									{% endif %}
+								</div>
+								<a href="#" class="full-width btn-price btn-box">
+									{% if ad.price %}
+									{{ ad.price|intcomma|persianize_digits  }}
+									{% elif ad.rent %}
+									اجاره:{{ ad.rent|intcomma|persianize_digits  }}
+									رهن:{{ ad.deposit|intcomma|persianize_digits }}
+									{% else %}
+									توافقی
+									{% endif %}
+								</a>
+							</div>
 						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>

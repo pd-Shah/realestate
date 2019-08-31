@@ -74,12 +74,12 @@
 							<p class="card-text-image">{{ ad.title }}</p>
 						</div>
 						{% if ad.image1 %}
-							<img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
+						<img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
 						{% else %}
-							<img src="{% static 'consultant/images/image_default.gif' %}" class="card-img" alt="...">
+						<img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
 						{% endif %}
 					</div>
-					<a href="#" class="btn full-width btn-price btn-box">
+					<a href="#" class="full-width btn-price btn-box">
 						{% if ad.price %}
 						{{ ad.price|intcomma|persianize_digits  }}
 						{% elif ad.rent %}
@@ -91,7 +91,7 @@
 					</a>
 				</div>
 			</div>
-			{% endfor %}
+		{% endfor %}
 		</div>
 </section>
 {% endblock %}
