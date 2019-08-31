@@ -297,6 +297,66 @@ urlpatterns = [
         name='new_rent_sole',
     ),
     path(
+        'select/new-buy-homevila/',
+        NewBuyHomeVila.as_view(),
+        name='new_buy_homevila',
+    ),
+    path(
+        'select/new-sell-homevila/',
+        NewSellHomeVila.as_view(),
+        name='new_sell_homevila',
+    ),
+    path(
+        'select/new-rent-homevila/',
+        NewRentHomeVila.as_view(),
+        name='new_rent_homevila',
+    ),
+    path(
+        'select/new-buy-penthouse/',
+        NewBuyPenthouse.as_view(),
+        name='new_buy_penthouse',
+    ),
+    path(
+        'select/new-sell-penthouse/',
+        NewSellPenthouse.as_view(),
+        name='new_sell_penthouse',
+    ),
+    path(
+        'select/new-rent-penthouse/',
+        NewRentPenthouse.as_view(),
+        name='new_rent_penthouse',
+    ),
+    path(
+        'select/new-buy-store/',
+        NewBuyStore.as_view(),
+        name='new_buy_store',
+    ),
+    path(
+        'select/new-sell-store/',
+        NewSellStore.as_view(),
+        name='new_sell_store',
+    ),
+    path(
+        'select/new-rent-store/',
+        NewRentStore.as_view(),
+        name='new_rent_store',
+    ),
+    path(
+        'select/new-buy-tower/',
+        NewBuyTower.as_view(),
+        name='new_buy_tower',
+    ),
+    path(
+        'select/new-sell-tower/',
+        NewSellTower.as_view(),
+        name='new_sell_tower',
+    ),
+    path(
+        'select/new-rent-tower/',
+        NewRentTower.as_view(),
+        name='new_rent_tower',
+    ),
+    path(
         'select/buy-apartment/',
         BuyApartmentListView.as_view(),
         name='buy_apartment_list_view'
