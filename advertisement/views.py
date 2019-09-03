@@ -10,6 +10,7 @@ from . models import Advertisement
 from customer.models import CustomerProfile
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.http import QueryDict
 from . forms import (
     RentApartment,
     SellBuyApartment,
@@ -45,11 +46,23 @@ from . forms import (
 class AdvertisementListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
-    paginate_by = 1
+    paginate_by = 9
 
-    def get_queryset(self, ):
+    def get_queryset(self,):
+        category = None
+        area = None
+        category = self.request.GET.getlist('category')
+        area = self.request.GET.getlist('area')
         object_list = Advertisement.objects.filter(
             published=True).order_by('-created')
+        if category:
+            object_list = object_list.filter(
+                category=category[0]
+                ).order_by('-created')
+        if area:
+            object_list = object_list.filter(
+                urban_area_number=area[0]
+            ).order_by('-created')
         return object_list
 
     def get_context_data(self, **kwargs):
@@ -64,15 +77,28 @@ class AdvertisementListView(ListView):
 class SearchResultsView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
-    paginate_by = 1
+    paginate_by = 9
 
     def get_queryset(self):
         query = self.request.GET.get('q')
+        urlhistory = self.request.GET.get('urlhistory')
+        urlhistory = QueryDict(urlhistory).dict()
+        category = urlhistory.get('category', None)
+        area = urlhistory.get('area', None)
+        object_list = None
         object_list = Advertisement.objects.filter(
             published=True).filter(
             Q(title__icontains=query) |
             Q(city__icontains=query)
-        ).order_by('-created')
+        )
+        if category:
+            object_list = object_list.filter(
+                category=category[0]
+                ).order_by('-created')
+        if area:
+            object_list = object_list.filter(
+                urban_area_number=area[0]
+            ).order_by('-created')
         return object_list
 
 
@@ -84,7 +110,7 @@ class AdvertisementDetailView(DetailView):
 class AdvertisementListViewMap(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list_map.html'
-    paginate_by = 1
+    paginate_by = 9
 
     def get_queryset(self, ):
         object_list = Advertisement.objects.filter(
@@ -140,7 +166,7 @@ class BuyApartmentListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'0')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellApartment(FormView):
@@ -161,7 +187,7 @@ class SellApartmentListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'1')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentApartment(FormView):
@@ -182,7 +208,7 @@ class RentApartmentListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'2')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyEdari(FormView):
@@ -203,7 +229,7 @@ class BuyEdariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'3')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellEdari(FormView):
@@ -224,7 +250,7 @@ class SellEdariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'4')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentEdari(FormView):
@@ -245,7 +271,7 @@ class RentEdariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'5')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyColangi(FormView):
@@ -266,7 +292,7 @@ class BuyColangiListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'6')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellColangi(FormView):
@@ -287,7 +313,7 @@ class SellColangiListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'7')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentColangi(FormView):
@@ -308,7 +334,7 @@ class RentColangiListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'8')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuySuit(FormView):
@@ -329,7 +355,7 @@ class BuySuitListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'9')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellSuit(FormView):
@@ -350,7 +376,7 @@ class SellSuitListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'10')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentSuit(FormView):
@@ -371,7 +397,7 @@ class RentSuitListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'11')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyVila(FormView):
@@ -392,7 +418,7 @@ class BuyVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'12')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellVila(FormView):
@@ -413,7 +439,7 @@ class SellVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'13')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentVila(FormView):
@@ -434,7 +460,7 @@ class RentVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'14')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyTejari(FormView):
@@ -455,7 +481,7 @@ class BuyTejariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'15')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellTejari(FormView):
@@ -476,7 +502,7 @@ class SellTejariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'16')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentTejari(FormView):
@@ -497,7 +523,7 @@ class RentTejariListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'17')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyZamin(FormView):
@@ -518,7 +544,7 @@ class BuyZaminListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'18')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellZamin(FormView):
@@ -539,7 +565,7 @@ class SellZaminListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'19')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentZamin(FormView):
@@ -560,7 +586,7 @@ class RentZaminListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'20')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyBagh(FormView):
@@ -581,7 +607,7 @@ class BuyBaghListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'21')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellBagh(FormView):
@@ -602,7 +628,7 @@ class SellBaghListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'22')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentBagh(FormView):
@@ -623,7 +649,7 @@ class RentBaghListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'23')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyAnbar(FormView):
@@ -644,7 +670,7 @@ class BuyAnbarListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'24')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellAnbar(FormView):
@@ -665,7 +691,7 @@ class SellAnbarListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'25')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentAnbar(FormView):
@@ -686,7 +712,7 @@ class RentAnbarListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'26')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuySole(FormView):
@@ -707,7 +733,7 @@ class BuySoleListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'27')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellSole(FormView):
@@ -728,7 +754,7 @@ class SellSoleListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'28')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentSole(FormView):
@@ -749,7 +775,7 @@ class RentSoleListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'29')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyHomeVila(FormView):
@@ -770,7 +796,7 @@ class BuyHomeVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'30')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellHomeVila(FormView):
@@ -791,7 +817,7 @@ class SellHomeVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'31')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentHomeVila(FormView):
@@ -812,7 +838,7 @@ class RentHomeVilaListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'32')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyPenthouse(FormView):
@@ -833,7 +859,7 @@ class BuyPenthouseListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'33')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellPenthouse(FormView):
@@ -854,7 +880,7 @@ class SellPenthouseListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'34')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentPenthouse(FormView):
@@ -875,7 +901,7 @@ class RentPenthouseListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'35')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyStore(FormView):
@@ -896,7 +922,7 @@ class BuyStoreListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'36')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellStore(FormView):
@@ -917,7 +943,7 @@ class SellStoreListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'37')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentStore(FormView):
@@ -938,7 +964,7 @@ class RentStoreListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'38')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewBuyTower(FormView):
@@ -959,7 +985,7 @@ class BuyTowerListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'39')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewSellTower(FormView):
@@ -980,7 +1006,7 @@ class SellTowerListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'40')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class NewRentTower(FormView):
@@ -1001,7 +1027,7 @@ class RentTowerListView(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list.html'
     queryset = Advertisement.objects.filter(category=u'41')
-    paginate_by = 1
+    paginate_by = 9
 
 
 class TutorialTemplateView(TemplateView):
@@ -1027,7 +1053,7 @@ class MarkedAdView(TemplateView):
 class SimilarAdView(ListView):
     model = Advertisement
     template_name = 'advertisement/simillar_ad.html'
-    paginate_by = 1
+    paginate_by = 9
 
     def get_queryset(self):
         phone = self.request.session.get('phone')

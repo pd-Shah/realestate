@@ -212,7 +212,8 @@
           <div class="card card-slide">
             <div class="card-header card-header-slide" id="headingThree">
               <h2 class="mb-0">
-                <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive" onclick='window.location.href="{% url 'agencies:agencies_list' %}"' >
+                <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive" onclick='window.location.href="{% url ' agencies:agencies_list'
+                  %}"'>
                   آژانس های املاک
                 </button>
               </h2>
@@ -231,7 +232,8 @@
           <div class="card card-slide">
             <div class="card-header card-header-slide" id="headingThree">
               <h2 class="mb-0">
-                <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" onclick='window.location.href="{% url 'consultant:consultant_list' %}"'>
+                <button class="btn btn-link sidebar-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" onclick='window.location.href="{% url ' consultant:consultant_list'
+                  %}"'>
                   مشاورین املاک
                 </button>
               </h2>
@@ -331,6 +333,7 @@
         <div class="form-row">
           <div class="col-md-4 col-sm-12">
             <i class="fas fa-search search-icon"></i>
+            <input type="hidden" name="urlhistory" value='{{request.GET.urlencode}}' >
             <input name="q" type="text" type="search" class="form-control search-box" id="validationTooltip01" placeholder="جستجو در همه اگهی ها">
           </div>
           <div class="col-md-3 col-sm-12">
@@ -351,61 +354,61 @@
                     رهن و اجاره
                   </a>
                   <ul class="dl-submenu">
-                    <li><a href="{% url 'advertisement:rent_apartment_list_view' %}"> آپارتمان</a></li>
-                    <li><a href="#">خانه ویلایی</a></li>
-                    <li><a href="{% url 'advertisement:rent_edari_list_view' %}">اداری</a></li>
-                    <li><a href="{% url 'advertisement:rent_tejari_list_view' %}">تجاری</a></li>
-                    <li><a href="#">مغازه</a></li>
-                    <li><a href="{% url 'advertisement:rent_suit_list_view' %}">سوییت</a></li>
-                    <li><a href="#">پنت هاوس</a></li>
-                    <li><a href="{% url 'advertisement:rent_vila_list_view' %}">ویلا</a></li>
-                    <li><a href="{% url 'advertisement:rent_anbar_list_view' %}">انبار</a></li>
-                    <li><a href="{% url 'advertisement:rent_sole_list_view' %}">سوله</a></li>
-                    <li><a href="{% url 'advertisement:rent_bagh_list_view' %}">باغ</a></li>
-                    <li><a href="#">برج</a></li>
-                    <li><a href="#">مستغلات</a></li>
-                    <li><a href="{% url 'advertisement:rent_zamin_list_view' %}">زمین</a></li>
-                    <li><a href="{% url 'advertisement:rent_colangi_list_view' %}">کلنگی</a></li>
+                    <li><a href="?category=2"> آپارتمان</a></li>
+                    <li><a href="?category=32">خانه ویلایی</a></li>
+                    <li><a href="?category=5">اداری</a></li>
+                    <li><a href="?category=17">تجاری</a></li>
+                    <li><a href="?category=38">مغازه</a></li>
+                    <li><a href="?category=11">سوییت</a></li>
+                    <li><a href="?category=35">پنت هاوس</a></li>
+                    <li><a href="?category=14">ویلا</a></li>
+                    <li><a href="?category=26">انبار</a></li>
+                    <li><a href="?category=29">سوله</a></li>
+                    <li><a href="?category=23">باغ</a></li>
+                    <li><a href="?category=41">برج</a></li>
+                    <li><a href="?category=44">مستغلات</a></li>
+                    <li><a href="?category=20">زمین</a></li>
+                    <li><a href="?category=8">کلنگی</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">فروش</a>
                   <ul class="dl-submenu">
-                    <li><a href="{% url 'advertisement:sell_apartment_list_view' %}"> آپارتمان</a></li>
-                    <li><a href="#">خانه ویلایی</a></li>
-                    <li><a href="{% url 'advertisement:sell_edari_list_view' %}">اداری</a></li>
-                    <li><a href="{% url 'advertisement:sell_tejari_list_view' %}">تجاری</a></li>
-                    <li><a href="#">مغازه</a></li>
-                    <li><a href="{% url 'advertisement:sell_suit_list_view' %}"">سوییت</a></li>
-                    <li><a href="#">پنت هاوس</a></li>
-                    <li><a href="{% url 'advertisement:sell_vila_list_view' %}">ویلا</a></li>
-                    <li><a href="{% url 'advertisement:sell_anbar_list_view' %}">انبار</a></li>
-                    <li><a href="{% url 'advertisement:sell_sole_list_view' %}">سوله</a></li>
-                    <li><a href="{% url 'advertisement:sell_bagh_list_view' %}">باغ</a></li>
-                    <li><a href="#">برج</a></li>
-                    <li><a href="#">مستغلات</a></li>
-                    <li><a href="{% url 'advertisement:sell_zamin_list_view' %}"">زمین</a></li>
-                    <li><a href="{% url 'advertisement:sell_colangi_list_view' %}">کلنگی</a></li>
+                    <li><a href="?category=1"> آپارتمان</a></li>
+                    <li><a href="?category=31">خانه ویلایی</a></li>
+                    <li><a href="?category=4">اداری</a></li>
+                    <li><a href="?category=16">تجاری</a></li>
+                    <li><a href="?category=37">مغازه</a></li>
+                    <li><a href="?category=10">سوییت</a></li>
+                    <li><a href="?category=34">پنت هاوس</a></li>
+                    <li><a href="?category=13">ویلا</a></li>
+                    <li><a href="?category=25">انبار</a></li>
+                    <li><a href="?category=28">سوله</a></li>
+                    <li><a href="?category=22">باغ</a></li>
+                    <li><a href="?category=40">برج</a></li>
+                    <li><a href="?category=43">مستغلات</a></li>
+                    <li><a href="?category=19">زمین</a></li>
+                    <li><a href="?category=7">کلنگی</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">درخواست</a>
                   <ul class="dl-submenu">
-                    <li><a href="{% url 'advertisement:buy_apartment_list_view' %}"> آپارتمان</a></li>
-                    <li><a href="#">خانه ویلایی</a></li>
-                    <li><a href="{% url 'advertisement:buy_edari_list_view' %}">اداری</a></li>
-                    <li><a href="{% url 'advertisement:buy_tejari_list_view' %}">تجاری</a></li>
-                    <li><a href="#">مغازه</a></li>
-                    <li><a href="{% url 'advertisement:buy_suit_list_view' %}">سوییت</a></li>
-                    <li><a href="#">پنت هاوس</a></li>
-                    <li><a href="{% url 'advertisement:buy_vila_list_view' %}">ویلا</a></li>
-                    <li><a href="{% url 'advertisement:buy_anbar_list_view' %}">انبار</a></li>
-                    <li><a href="{% url 'advertisement:buy_sole_list_view' %}">سوله</a></li>
-                    <li><a href="{% url 'advertisement:buy_bagh_list_view' %}">باغ</a></li>
-                    <li><a href="#">برج</a></li>
-                    <li><a href="#">مستغلات</a></li>
-                    <li><a href="{% url 'advertisement:buy_zamin_list_view' %}">زمین</a></li>
-                    <li><a href="{% url 'advertisement:buy_colangi_list_view' %}">کلنگی</a></li>
+                    <li><a href="?category=0"> آپارتمان</a></li>
+                    <li><a href="?category=30">خانه ویلایی</a></li>
+                    <li><a href="?category=3">اداری</a></li>
+                    <li><a href="?category=15}">تجاری</a></li>
+                    <li><a href="?category=36">مغازه</a></li>
+                    <li><a href="?category=9">سوییت</a></li>
+                    <li><a href="?category=33">پنت هاوس</a></li>
+                    <li><a href="?category=12">ویلا</a></li>
+                    <li><a href="?category=24">انبار</a></li>
+                    <li><a href="?category=27">سوله</a></li>
+                    <li><a href="?category=21">باغ</a></li>
+                    <li><a href="?category=39">برج</a></li>
+                    <li><a href="?category=42">مستغلات</a></li>
+                    <li><a href="?category=18">زمین</a></li>
+                    <li><a href="?category=6">کلنگی</a></li>
                   </ul>
                 </li>
                 <li>
@@ -502,9 +505,28 @@
               </button>
               <span class="sr-only">همه محله ها</span>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">1</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
+                <a class="dropdown-item" href="?area=1">1</a>
+                <a class="dropdown-item" href="?area=2">2</a>
+                <a class="dropdown-item" href="?area=3">3</a>
+                <a class="dropdown-item" href="?area=4">4</a>
+                <a class="dropdown-item" href="?area=5">5</a>
+                <a class="dropdown-item" href="?area=6">6</a>
+                <a class="dropdown-item" href="?area=7">7</a>
+                <a class="dropdown-item" href="?area=8">8</a>
+                <a class="dropdown-item" href="?area=9">9</a>
+                <a class="dropdown-item" href="?area=10">10</a>
+                <a class="dropdown-item" href="?area=11">11</a>
+                <a class="dropdown-item" href="?area=12">12</a>
+                <a class="dropdown-item" href="?area=13">13</a>
+                <a class="dropdown-item" href="?area=14">14</a>
+                <a class="dropdown-item" href="?area=15">15</a>
+                <a class="dropdown-item" href="?area=16">16</a>
+                <a class="dropdown-item" href="?area=17">17</a>
+                <a class="dropdown-item" href="?area=18">18</a>
+                <a class="dropdown-item" href="?area=19">19</a>
+                <a class="dropdown-item" href="?area=20">20</a>
+                <a class="dropdown-item" href="?area=21">21</a>
+                <a class="dropdown-item" href="?area=22">22</a>
               </div>
             </div>
           </div>

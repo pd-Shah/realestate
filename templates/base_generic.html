@@ -159,27 +159,51 @@
     $("#star").click(function() {
       var username = $(this).attr("value")
 
-      if ($(this).hasClass('far fa-star')){
-                  $("#star").removeClass('far fa-star').addClass('fas fa-star');
-                  // $(this).addClass('fas fa-star').removeClass('far fa-star');
-              }
-
-              else if ($(this).hasClass('fas fa-star')){
-                  $('#star').removeClass('fas fa-star').addClass('far fa-star');
-                  // $(this).addClass('far fa-star').removeClass('fas fa-star');
-              }
+      if ($(this).hasClass('far fa-star')) {
+        $("#star").removeClass('far fa-star').addClass('fas fa-star');
+        // $(this).addClass('fas fa-star').removeClass('far fa-star');
+      } else if ($(this).hasClass('fas fa-star')) {
+        $('#star').removeClass('fas fa-star').addClass('far fa-star');
+        // $(this).addClass('far fa-star').removeClass('fas fa-star');
+      }
 
       $.ajax({
-          type: 'GET',
-          url: '/customer/fav/',
-          data: { "get_param": 'value' },
-          success: function (data) {
-              alert("done")
-          }
+        type: 'GET',
+        url: '/customer/fav/',
+        data: {
+          "get_param": 'value'
+        },
+        success: function(data) {
+          alert("done")
+        }
       });
 
     });
   </script>
+  <script>
+    var querystring = $(location).attr('search');
+    $('.dl-submenu li a').each(function() {
+      var href = $(this).attr('href');
+      if (querystring.charAt(0) == "?"){
+        querystring = querystring.substring(1);
+      }
+      href += (href.match(/\?/) ? '&' : '?') + querystring;
+      $(this).attr('href', href);
+    });
+  </script>
+
+  <script>
+    var querystring = $(location).attr('search');
+    $('.dropdown-menu a.dropdown-item').each(function() {
+      var href = $(this).attr('href');
+      if (querystring.charAt(0) == "?"){
+        querystring = querystring.substring(1);
+      }
+      href += (href.match(/\?/) ? '&' : '?') + querystring;
+      $(this).attr('href', href);
+    });
+  </script>
+
   {% block bottom %}
   {% endblock %}
 </body>
