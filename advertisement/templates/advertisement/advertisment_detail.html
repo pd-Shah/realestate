@@ -152,9 +152,10 @@
     <!-- left col -->
     <div class="col-md-6" style="margin-bottom: 50px;">
       <!-- <img src="./world.jpg" alt="img"> -->
-      <div class="container" style=" height: 500px; width: 600px;">
+      <div class="images" style="  margin:auto; margin-top: 70px; height: 350px; width: 350px; border: 3px solid black;"">
 
-        <img src="{{ MEDIA_URL }}{{ object.image1 }}" class="d-block w-100" alt="...">
+        <img src="{{ MEDIA_URL }}{{ object.image1 }}" class="d-block w-100" alt="..." style="max-width:100%;
+max-height:100%; margin-bottom:10px;">
         <button type="button" class="btn orange-btn" data-toggle="modal" data-target="#myModal">بیشتر</button>
       </div>
     </div>
@@ -318,12 +319,12 @@
                   <li class="nav-item">
                     <a class="nav-link selected " href="#">عکس ها</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#">نقشه</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link disabled" href="#">تور مجازی</a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                     <a class="nav-link disabled" href="#">جزییات ملک</a>
                   </li>
