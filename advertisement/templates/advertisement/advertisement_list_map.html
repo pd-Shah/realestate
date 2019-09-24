@@ -28,8 +28,74 @@
           <ul class="dl-menu">
 {% endblock %}
 
+
 {% block bottom %}
 <script>
+  // Markers options
+  // CEDARMAPS_ACCESS_TOKEN change it with your own token
+  var markers = [];
+
+  function contactMap() {
+    // Map options
+    var cm_options = {
+      "center": {
+        "lat": 35.7127403,
+        "lng": 51.3467856
+      },
+      "maptype": "light",
+      "scrollWheelZoom": false,
+      "zoomControl": true,
+      "zoom": 17,
+      "minZoom": 6,
+      "maxZoom": 17,
+      "legendControl": false,
+      "attributionControl": false
+    }
+    // Initialized CedarMap
+    var map = window.L.cedarmaps.map('map_f0zsce', 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=ae7d1b021ae8f6785260040172ce86005372ed2d', cm_options);
+    var markersLeaflet = [];
+    var _marker = null;
+
+    map.setView(cm_options.center, cm_options.zoom);
+    // Add Markers on Map
+    if (markers.length === 0) return;
+    markers.map(function(marker) {
+      var iconOpts = {
+        iconUrl: marker.iconOpts.iconUrl,
+        iconRetinaUrl: marker.iconOpts.iconRetinaUrl,
+        iconSize: marker.iconOpts.iconSize,
+        popupAnchor: [0, -49]
+      };
+
+      const markerIcon = {
+        icon: window.L.icon(iconOpts)
+      };
+
+      _marker = new window.L.marker(marker.center, markerIcon);
+      markersLeaflet.push(_marker);
+      if (marker.popupContent) {
+        _marker.bindPopup(marker.popupContent);
+      }
+      _marker.addTo(map);
+    });
+    // Bounding Map to Markers
+    if (markers.length > 1) {
+      var group = new window.L.featureGroup(markersLeaflet);
+      map.fitBounds(group.getBounds(), {
+        padding: [30, 30]
+      });
+    }
+  };
+
+  (function(c, e, d, a) {
+    var p = c.createElement(e);
+    p.async = 1;
+    p.src = d;
+    p.onload = a;
+    c.body.appendChild(p);
+  })(document, 'script', 'https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.js', contactMap);
+
+
   var infinite = new Waypoint.Infinite({
     element: $('.infinite-container')[0],
     onBeforePageLoad: function() {
@@ -38,6 +104,34 @@
     onAfterPageLoad: function($items) {
       $('.loading').hide();
     }
+  });
+  $(document).ready(function() {
+    $('.card').each(function() {
+
+    });
+    markers.push({
+      "popupContent": "f",
+      "center": {
+        "lat": 35.71470424443574,
+        "lng": 51.35202688921809
+      },
+      "iconOpts": {
+        "iconUrl": "https://api.cedarmaps.com/v1/markers/marker-circle-blue.png",
+        "iconRetinaUrl": "https://api.cedarmaps.com/v1/markers/marker-circle-blue@2x.png",
+        "iconSize": [82, 98]
+      }
+    }, {
+      "popupContent": "موقعیت مکانی شما",
+      "center": {
+        "lat": 35.7127403,
+        "lng": 51.3467856
+      },
+      "iconOpts": {
+        "iconUrl": "https://api.cedarmaps.com/v1/markers/marker-default.png",
+        "iconRetinaUrl": "https://api.cedarmaps.com/v1/markers/marker-default@2x.png",
+        "iconSize": [82, 98]
+      }
+    }, );
   });
 </script>
 {% endblock %}
@@ -49,16 +143,31 @@
 {% block advertisement_map %}
 <div class="col-lg-2 col-md-4 col-sm-12 space-top">
   <div class="result-box  infinite-container">
-    {% for item in object_list %}
-    <div class="card-box infinite-item">
+    {% for ad in object_list %}
+    <div class="card-box">
       <div class="flex-card">
         <div class="card-body-image">
-          <h5 class="card-title-image">{{ item.title }}</h5>
-          <p class="card-text-image">۱۰۰ متر نوساز با دو پارکینگ معاوضه</p>
+          {% if request.session.phone %}
+          {% if ad in customer.favorites.all %}
+          <i class="fas fa-star" value="{{ ad.id }}"></i>
+          {% else %}
+          <i class="far fa-star" value="{{ ad.id }}"></i>
+          {% endif %}
+          {% endif %}
+          <h5 class="card-title-image">
+            <a href="{{ ad.get_absolute_url }}">
+              {{ ad.get_category_display }}
+            </a>
+          </h5>
+          <p class="card-text-image">{{ ad.title }}</p>
         </div>
-        <img src="{{ MEDIA_URL }}{{ ad.image1 }}"  class="card-img" alt="...">
+        {% if ad.image1 %}
+        <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
+        {% else %}
+        <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
+        {% endif %}
       </div>
-      <a href="#" class="btn full-width btn-price btn-box">
+      <a href="#" class="full-width btn-price btn-box">
         {% if ad.price %}
         {{ ad.price|intcomma|persianize_digits  }}
         {% elif ad.rent %}
@@ -71,12 +180,24 @@
     </div>
     {% endfor %}
   </div>
-  <div class="loading" style="display: none;">
-    بارگزاری
-  </div>
 
-  {% if page_obj.has_next %}
-  <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">بارگزاری</a>
-  {% endif %}
+  {% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+    <li>
+      <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+    </li>
+    {% endif %}
+    <li class="">
+      <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+    </li>
+    {% if page_obj.has_next %}
+    <li>
+      <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+    </li>
+    {% endif %}
+  </ul>
+{% endif %}
+
 </div>
 {% endblock %}

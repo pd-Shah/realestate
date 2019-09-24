@@ -110,7 +110,7 @@ class AdvertisementDetailView(DetailView):
 class AdvertisementListViewMap(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list_map.html'
-    paginate_by = 9
+    paginate_by = 4
 
     def get_queryset(self, ):
         object_list = Advertisement.objects.filter(
