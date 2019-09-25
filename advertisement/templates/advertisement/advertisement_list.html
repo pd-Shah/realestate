@@ -21,30 +21,42 @@
 <div class="content-box infinite-container">
   {% for ad in object_list %}
   <div class="col-lg-4 col-md-6 col-sm-12 infinite-item">
+
     <div class="card-box">
+
       <div class="flex-card">
+
         <div class="card-body-image">
           {% if request.session.phone %}
           {% if ad in customer.favorites.all %}
+
           <i class="fas fa-star" value="{{ ad.id }}"></i>
           {% else %}
           <i class="far fa-star" value="{{ ad.id }}"></i>
           {% endif %}
           {% endif %}
+
           <h5 class="card-title-image">
             <a href="{{ ad.get_absolute_url }}">
               {{ ad.get_category_display }}
             </a>
           </h5>
-          <p class="card-text-image">{{ ad.title }}</p>
+
+          <a href="{{ ad.get_absolute_url }}" >
+
+          <p class="card-text-image">
+            {{ ad.title }}</p>
+          </a>
         </div>
         {% if ad.image1 %}
-        <img src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
+        <a   href="{{ ad.get_absolute_url }}">
+          <img style="float: left; width:150px; height:150px;" dir="ltr" src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
+        </a>
         {% else %}
         <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
         {% endif %}
       </div>
-      <a href="#" class="full-width btn-price btn-box">
+      <a href="{{ ad.get_absolute_url }}" class="full-width btn-price btn-box">
         {% if ad.price %}
         {{ ad.price|intcomma|persianize_digits  }}
         {% elif ad.rent %}
@@ -55,6 +67,7 @@
         {% endif %}
       </a>
     </div>
+
   </div>
 {% endfor %}
 </div>
