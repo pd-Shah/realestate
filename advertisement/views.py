@@ -1062,3 +1062,7 @@ class SimilarAdView(ListView):
             return Advertisement.objects.filter(
                 title__in=[query.title for query in queries]
                 )
+
+                
+class Inbuild(TemplateView):
+    template_name = 'advertisement/inbuild.html'

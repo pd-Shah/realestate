@@ -97,6 +97,7 @@ from .views import (
     MyAdView,
     MarkedAdView,
     SimilarAdView,
+    Inbuild,
 )
 
 app_name = 'advertisement'
@@ -585,5 +586,10 @@ urlpatterns = [
         'similar-ads/',
         SimilarAdView.as_view(),
         name='similar_ads'
+    ),
+    path(
+        'inbuild/',
+        Inbuild.as_view(),
+        name='inbuild'
     ),
 ]
