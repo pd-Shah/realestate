@@ -642,6 +642,14 @@ class Advertisement(models.Model, ):
         default=False,
         verbose_name="خانه سرایدار",
         )
+    latitude = models.FloatField(
+        verbose_name='طول جغرافیایی',
+        default=35.7127403,
+        )
+    longitude = models.FloatField(
+        verbose_name='عرض جغرافیایی',
+        default=51.3467856,
+        )
     image1 = models.ImageField(
                         upload_to=get_image_path,
                         blank=True,

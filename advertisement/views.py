@@ -110,7 +110,7 @@ class AdvertisementDetailView(DetailView):
 class AdvertisementListViewMap(ListView):
     model = Advertisement
     template_name = 'advertisement/advertisement_list_map.html'
-    paginate_by = 4
+    paginate_by = 5
 
     def get_queryset(self, ):
         object_list = Advertisement.objects.filter(
@@ -1063,6 +1063,6 @@ class SimilarAdView(ListView):
                 title__in=[query.title for query in queries]
                 )
 
-                
+
 class Inbuild(TemplateView):
     template_name = 'advertisement/inbuild.html'
