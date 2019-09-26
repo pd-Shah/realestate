@@ -99,7 +99,7 @@
 
     $('.card-box').each(function(index, value) {
       markers.push({
-        "popupContent": "مکان جغرافیایی",
+        "popupContent": $(this).attr('title'),
         "center": {
           "lat": $(this).attr('lat'),
           "lng": $(this).attr('long'),
@@ -124,7 +124,7 @@
 <div class="col-lg-2 col-md-4 col-sm-12 space-top">
   <div class="result-box  infinite-container">
     {% for ad in object_list %}
-    <div class="card-box" lat={{ad.latitude}} long={{ad.longitude}}>
+    <div class="card-box" lat={{ad.latitude}} long={{ad.longitude}} title={{ad.title}}>
       <div class="flex-card">
         <div class="card-body-image">
           {% if request.session.phone %}
