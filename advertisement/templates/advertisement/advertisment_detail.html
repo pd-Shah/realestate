@@ -3,11 +3,13 @@
 {% block head %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'advertisement/css/modal.css' %}">
+<link rel="stylesheet" href="{% static 'advertisement/css/map.css' %}">
+<link rel="stylesheet" href="{% static 'advertisement/css/cedarmaps.css' %}">
 {% endblock %}
 {% block content_modal %}
 {% load extra_tags %}
 {% load humanize %}
-<div class="container well">
+<div class="container well" id=1000 long={{object.longitude}} lat={{object.latitude}} >
   <!-- first row  -->
   <div class="row">
     <!-- right col -->
@@ -154,7 +156,7 @@
       <!-- <img src="./world.jpg" alt="img"> -->
       <div class="images" style="  margin:auto; margin-top: 70px; height: 350px; width: 350px; border: 3px solid black;"">
 
-        <img src="{{ MEDIA_URL }}{{ object.image1 }}" class="d-block w-100" alt="..." style="max-width:100%;
+        <img src=" {{ MEDIA_URL }}{{ object.image1 }}" class="d-block w-100" alt="..." style="max-width:100%;
 max-height:100%; margin-bottom:10px;">
         <button type="button" class="btn orange-btn" data-toggle="modal" data-target="#myModal">بیشتر</button>
       </div>
@@ -285,25 +287,7 @@ max-height:100%; margin-bottom:10px;">
       <br>
       <br>
       <br>
-      <div id="map-canvas" style=" margin:auto; height: 350px; width: 350px; border: 3px solid black;"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" type="text/javascript"></script>
-      <script type="text/javascript">
-        if (document.getElementById('map-canvas')) {
-
-          // Coordinates to center the map
-          var myLatlng = new google.maps.LatLng(52.525595, 13.393085);
-
-          // Other options for the map, pretty much selfexplanatory
-          var mapOptions = {
-            zoom: 14,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-
-          // Attach a map to the DOM Element, with the defined settings
-          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        }
-      </script>
+      <div id="map_8gjm24" style=" margin:auto; height: 350px; width: 350px; border: 3px solid black;"></div>
     </div>
     <!-- Modal -->
     <div class="container">
@@ -414,4 +398,30 @@ max-height:100%; margin-bottom:10px;">
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block bottom %}
+<script type="text/javascript">
+
+    $(document).ready(function() {
+    });
+  function nearby() {
+    // Initialized CedarMap
+    L.cedarmaps.accessToken = "ae7d1b021ae8f6785260040172ce86005372ed2d";
+    // Nearby options
+    var nb = window.L.cedarmaps.nearby('map_8gjm24', [$('#1000').attr('lat'), $('#1000').attr('long')], {
+      centerMarkerIcon: window.L.icon({"slug":"@default","iconUrl":"https://api.cedarmaps.com/v1/markers/marker-default.png","iconRetinaUrl":"https://api.cedarmaps.com/v1/markers/marker-default@2x.png","iconSize":[82,98]}),
+      categories: ["bus","park","shopping","hospital","school"],
+      searchDistance: 5,
+      defaultZoom: 15
+    });
+  };
+
+  (function(c,e,d,a){
+    var p = c.createElement(e);
+    p.async = 1; p.src = d;
+    p.onload = a;
+    c.body.appendChild(p);
+  })(document, 'script', 'https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.js', nearby);
+</script>
 {% endblock %}
