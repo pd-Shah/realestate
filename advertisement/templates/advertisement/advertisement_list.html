@@ -50,7 +50,7 @@
         </div>
         {% if ad.image1 %}
         <a   href="{{ ad.get_absolute_url }}">
-          <img style="float: left; width:150px; height:150px;" dir="ltr" src="{{ MEDIA_URL }}{{ ad.image1 }}" class="card-img" alt="...">
+          <img style="float: left; width:150px; height:150px;" dir="ltr" src="{{ MEDIA_URL }}{{ ad.image1 }}" class="fit-image" alt="...">
         </a>
         {% else %}
         <img src="{% static 'advertisement/images/image_default.gif' %}" class="card-img" alt="...">
