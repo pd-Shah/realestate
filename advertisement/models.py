@@ -339,7 +339,7 @@ class Advertisement(models.Model, ):
         null=True,
         blank=True,
         )
-    floor_number = models.PositiveSmallIntegerField(
+    floor_number = models.IntegerField(
         verbose_name='شماره طبقه',
         null=True,
         blank=True,
