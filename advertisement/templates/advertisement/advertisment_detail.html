@@ -326,28 +326,28 @@ max-height:100%; margin-bottom:10px;">
                           <li class="gallery-item">
 
                             <input checked="checked" type="radio" name="gallery-list" class="gallery-selector" value="1.jpg" id="gallery-item1" />
-                            <img src="http://lorempixel.com/400/200/sports" class="gallery-fullsize" alt="location bateau 135ch" />
+                            <img src="{{ MEDIA_URL }}{{ object.image1 }}" class="gallery-fullsize" alt="location bateau 135ch" />
                             <label for="gallery-item1" class="gallery-label">
-                              <img src="http://lorempixel.com/76/50/sports" class="gallery-preview" alt="location bateau 135ch" />
+                              <img src="{{ MEDIA_URL }}{{ object.image1 }}" class="gallery-preview" alt="location bateau 135ch" />
                             </label>
                           </li>
                           <li class="gallery-item">
 
                             <input type="radio" name="gallery-list" class="gallery-selector" value="2.jpg" id="gallery-item2" />
-                            <img src="http://lorempixel.com/400/200/sports/1" class="gallery-fullsize" alt="location bateau 135ch" />
+                            <img src="{{ MEDIA_URL }}{{ object.image2 }}" class="gallery-fullsize" alt="location bateau 135ch" />
                             <label for="gallery-item2" class="gallery-label">
-                              <img src="http://lorempixel.com/76/50/sports/1" class="gallery-preview" alt="location bateau 135ch" />
+                              <img src="{{ MEDIA_URL }}{{ object.image2 }}" class="gallery-preview" alt="location bateau 135ch" />
                             </label>
                           </li>
                           <li class="gallery-item">
 
                             <input type="radio" name="gallery-list" class="gallery-selector" value="3.jpg" id="gallery-item3" />
-                            <img src="http://lorempixel.com/400/200/sports/2" class="gallery-fullsize" alt="location bateau 135ch" />
+                            <img src="{{ MEDIA_URL }}{{ object.image3 }}" class="gallery-fullsize" alt="location bateau 135ch" />
                             <label for="gallery-item3" class="gallery-label">
-                              <img src="http://lorempixel.com/76/50/sports/2" class="gallery-preview" alt="location bateau 135ch" />
+                              <img src="{{ MEDIA_URL }}{{ object.image3 }}" class="gallery-preview" alt="location bateau 135ch" />
                             </label>
                           </li>
-                          <li class="gallery-item">
+                          <!-- <li class="gallery-item">
 
                             <input type="radio" name="gallery-list" class="gallery-selector" value="4.jpg" id="gallery-item4" />
                             <img src="http://lorempixel.com/400/200/sports/3" class="gallery-fullsize" alt="location bateau 135ch" />
@@ -370,7 +370,7 @@ max-height:100%; margin-bottom:10px;">
                             <label for="gallery-item6" class="gallery-label">
                               <img src="http://lorempixel.com/76/50/sports/5" class="gallery-preview" alt="location bateau 135ch" />
                             </label>
-                          </li>
+                          </li> -->
                         </ul>
                       </div>
                       <i class="fas fa-star" value=""></i>
