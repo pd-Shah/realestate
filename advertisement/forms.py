@@ -74,6 +74,8 @@ class RentApartment(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -156,6 +158,8 @@ class RentApartment(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -214,6 +218,8 @@ class SellBuyApartment(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -296,6 +302,8 @@ class SellBuyApartment(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
             )
         required = {
             "landlord_name",
@@ -354,6 +362,8 @@ class RentEdari(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -428,6 +438,8 @@ class RentEdari(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -489,6 +501,8 @@ class SellBuyEdari(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -553,6 +567,8 @@ class SellBuyEdari(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -614,6 +630,8 @@ class RentColangi(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -691,6 +709,8 @@ class RentColangi(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
             )
 
         required = {
@@ -752,6 +772,8 @@ class SellBuyColangi(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -829,6 +851,8 @@ class SellBuyColangi(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
             )
 
         required = {
@@ -890,6 +914,8 @@ class RentSuit(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -973,6 +999,8 @@ class RentSuit(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -1036,6 +1064,8 @@ class SellBuySuit(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -1120,6 +1150,8 @@ class SellBuySuit(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -1181,6 +1213,8 @@ class RentVila(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -1267,6 +1301,8 @@ class RentVila(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -1327,6 +1363,8 @@ class SellBuyVila(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -1416,6 +1454,8 @@ class SellBuyVila(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -1476,6 +1516,8 @@ class RentTejari(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -1562,6 +1604,8 @@ class RentTejari(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -1625,6 +1669,8 @@ class SellBuyTejari(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -1712,6 +1758,8 @@ class SellBuyTejari(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -1776,6 +1824,8 @@ class RentZamin(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -1837,6 +1887,8 @@ class RentZamin(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -1901,6 +1953,8 @@ class SellBuyZamin(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -1963,6 +2017,8 @@ class SellBuyZamin(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -2030,6 +2086,8 @@ class RentBagh(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2098,6 +2156,8 @@ class RentBagh(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
         required = {
             "landlord_name",
@@ -2164,6 +2224,8 @@ class SellBuyBagh(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2232,6 +2294,8 @@ class SellBuyBagh(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -2297,6 +2361,8 @@ class RentAnbar(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2354,6 +2420,8 @@ class RentAnbar(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -2419,6 +2487,8 @@ class SellBuyAnbar(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2476,6 +2546,8 @@ class SellBuyAnbar(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -2541,6 +2613,8 @@ class RentSole(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2595,6 +2669,8 @@ class RentSole(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -2660,6 +2736,8 @@ class SellBuySole(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2714,6 +2792,8 @@ class SellBuySole(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -2768,6 +2848,8 @@ class RentHomeVila(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2850,6 +2932,8 @@ class RentHomeVila(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -2908,6 +2992,8 @@ class SellBuyHomeVila(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -2990,6 +3076,8 @@ class SellBuyHomeVila(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
             )
         required = {
             "landlord_name",
@@ -3046,6 +3134,8 @@ class RentPenthouse(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -3128,6 +3218,8 @@ class RentPenthouse(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -3186,6 +3278,8 @@ class SellBuyPenthouse(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -3268,6 +3362,8 @@ class SellBuyPenthouse(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
             )
         required = {
             "landlord_name",
@@ -3325,6 +3421,8 @@ class RentStore(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -3407,6 +3505,8 @@ class RentStore(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -3465,6 +3565,8 @@ class SellBuyStore(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -3547,6 +3649,8 @@ class SellBuyStore(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
             )
         required = {
             "landlord_name",
@@ -3604,6 +3708,8 @@ class RentTower(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -3686,6 +3792,8 @@ class RentTower(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
         )
 
         required = {
@@ -3745,6 +3853,8 @@ class SellBuyTower(ModelForm, GenericImageSize):
                 "address",
                 "urban_area_number",
                 "city",
+                "latitude",
+                "longitude",
                 ),
            Fieldset('تجهیزات و امکانات ملک',
                  "parking",
@@ -3827,6 +3937,8 @@ class SellBuyTower(ModelForm, GenericImageSize):
             "image1",
             "image2",
             "image3",
+            "latitude",
+            "longitude",
             )
         required = {
             "landlord_name",
